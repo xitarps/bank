@@ -67,8 +67,11 @@ group :development, :test do
   # SimpleCov - test coverage - https://github.com/simplecov-ruby/simplecov
   gem "simplecov", "~> 0.22.0"
 
-   # Linter - Rubocop - https://github.com/rubocop/rubocop-rails
+   # Rubocop - Linter - https://github.com/rubocop/rubocop-rails
   gem "rubocop-rails", "~> 2.19.1"
+
+  # ShouldaMatchers - one line tests - https://github.com/thoughtbot/shoulda-matchers
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do
