@@ -72,6 +72,9 @@ group :development, :test do
 
   # ShouldaMatchers - one line tests - https://github.com/thoughtbot/shoulda-matchers
   gem 'shoulda-matchers', '~> 5.0'
+
+  # FactoryBot - models factories - https://github.com/thoughtbot/factory_bot_rails
+  gem 'factory_bot_rails', '~> 6.2'
 end
 
 group :development do
