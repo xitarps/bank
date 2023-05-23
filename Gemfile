@@ -63,6 +63,9 @@ group :development, :test do
 
   # Selenium - webdriver to RSpec - https://github.com/SeleniumHQ/selenium
   gem "selenium-webdriver"
+
+  # SimpleCov - test coverage - https://github.com/simplecov-ruby/simplecov
+  gem "simplecov", "~> 0.22.0"
 end
 
 group :development do
