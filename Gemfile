@@ -75,6 +75,9 @@ group :development, :test do
 
   # FactoryBot - models factories - https://github.com/thoughtbot/factory_bot_rails
   gem 'factory_bot_rails', '~> 6.2'
+
+  # Faker - Fake data - https://github.com/faker-ruby/faker
+  gem 'faker', '~> 3.2.0'
 end
 
 group :development do
