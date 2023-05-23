@@ -5,6 +5,8 @@
  - Rails 7
  - Postgres
  - RSpec
+ - Simplecov
+ - Rubocop
 
 # Rodando o projeto o projeto
 Clone esse repositorio
