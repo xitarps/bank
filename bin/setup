@@ -31,6 +31,9 @@ FileUtils.chdir APP_ROOT do
   puts "\n== Preparing database =="
   system! "yarn install"
 
+  puts "\n== Setting Crontab =="
+  system! "whenever --update-crontab"
+
   puts "\n== Restarting application server =="
   system! "bin/rails restart"
 end

@@ -51,6 +51,9 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Whenever is a Ruby gem that provides a clear syntax for writing and deploying cron jobs.{https://www.rubydoc.info/gems/whenever/0.9.4}
+gem 'whenever', "~> 1.0.0"
+
 # Sidekiq - queues - https://github.com/sidekiq/sidekiq
 gem "sidekiq", "~> 7.1"
 
@@ -93,6 +96,4 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
-
 
