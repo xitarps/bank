@@ -25,6 +25,10 @@ Ligue o servidor
 ```
 ./bin/dev
 ```
+Suba o Sidekiq(necessário redis 6.2 + instalado)
+```
+sidekiq -C ./config/sidekiq.yml
+```
 ### Opcional
 Caso necessite de dados iniciais:
 ```
@@ -33,6 +37,13 @@ rails db:seed
 Caso precise debugar(binding.break) ligue o servidor com:
 ```
 rails server
+```
+
+# Variáveis de ambiente
+sidekiq:
+```
+export SIDEKIQ_PASSWORD=123
+export SIDEKIQ_USER=exemplo
 ```
 
 # Padrões
