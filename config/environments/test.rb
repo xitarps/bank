@@ -59,4 +59,10 @@ Rails.application.configure do
   # config.action_view.annotate_rendered_view_with_filenames = true
   
   config.active_job.queue_adapter     = :sidekiq
+
+  # This line let us able to use ActionMailer::Base.deliveries.count
+  config.action_mailer.delivery_method = :test
+
+  # This line let us to use expect(...).to have_enqueued_job.on_queue('mailers')
+   config.active_job.queue_adapter = :test
 end
