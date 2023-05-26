@@ -45,6 +45,11 @@ sidekiq:
 export SIDEKIQ_PASSWORD=123
 export SIDEKIQ_USER=exemplo
 ```
+Mailer:
+```
+export GMAIL_USER=exemplo@gmail.com
+export GMAIL_PASSWORD=exemplo
+```
 
 # Padrões
 
