@@ -14,14 +14,14 @@ RSpec.describe 'Visitor' do
       fill_in "Email",	with: "jadson@gmail.com"
       fill_in "Password",	with: "123456"
       fill_in "Password confirmation",	with: "123456"
-      click_on 'Sign up'
+      click_on 'Registrar'
 
       visit "/users/confirmation?confirmation_token=#{User.first.confirmation_token}"
 
       visit '/users/sign_in'
 
-      fill_in "Email",	with: "jadson@gmail.com"
-      fill_in "Password",	with: "123456"
+      fill_in "email",	with: "jadson@gmail.com"
+      fill_in "password",	with: "123456"
 
       click_on 'Log in'
 
