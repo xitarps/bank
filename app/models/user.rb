@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  USERABLES = [:Root, :Admin, :Customer]
+  USERABLES = %i[Root Admin Customer]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

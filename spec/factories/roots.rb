@@ -1,4 +1,3 @@
 FactoryBot.define do
-  factory :root do
-  end
+  # TODO: factory :root do; end
 end
