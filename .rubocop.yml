@@ -324,12 +324,18 @@ Style/DataInheritance: # new in 1.49
   Enabled: true
 Style/DirEmpty: # new in 1.48
   Enabled: true
+Style/DoubleNegation:
+  Enabled: false
 Style/FileEmpty: # new in 1.48
   Enabled: true
+Style/GuardClause:
+  Enabled: false
 Style/MapToSet: # new in 1.42
   Enabled: true
 Style/MinMaxComparison: # new in 1.42
   Enabled: true
+Style/MutableConstant:
+  Enabled: false
 Style/OperatorMethodCall: # new in 1.37
   Enabled: true
 Style/RedundantConstantBase: # new in 1.40
@@ -344,6 +350,8 @@ Style/RedundantLineContinuation: # new in 1.49
   Enabled: true
 Style/RedundantStringEscape: # new in 1.37
   Enabled: true
+Style/SymbolArray:
+  Enabled: false
 Rails/ActionOrder: # new in 2.17
   Enabled: true
 Rails/IgnoredColumnsAssignment: # new in 2.17

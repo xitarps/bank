@@ -65,4 +65,8 @@ Rails.application.configure do
 
   # This line let us to use expect(...).to have_enqueued_job.on_queue('mailers')
    config.active_job.queue_adapter = :test
+
+  # Mailer configs
+  host = ENV.fetch('HOST', 'localhost:3000')
+  config.action_mailer.default_url_options = { host: host }
 end

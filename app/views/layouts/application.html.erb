@@ -11,9 +11,10 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="custom-background">
     <%= render 'shared/navbar' %>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <%= render 'shared/notice_alert' %>
+    <main class="container mx-auto mt-10 px-10 flex">
       <%= yield %>
     </main>
   </body>

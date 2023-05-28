@@ -1,0 +1,8 @@
+<div id="notice_alert" class='mx-auto' >
+  <% if notice %>
+    <%= render  "shared/toast", title:'Info', message: notice, primary: 'blue', complement: 'white', hover: 'black' %>
+  <% end %>
+  <% if alert %>
+    <%= render  "shared/toast", title:'Error', message: alert, primary: 'red', complement: 'white', hover: 'black' %>
+  <% end %>
+</div>
