@@ -18,12 +18,25 @@ class AdministratorsController < ApplicationController
     end
   end
 
-  def show
-    
-    @administrator = Administrator.find(params[:id])
+  def show;end
   
+  def edit;end
+
+  def update
+        
+    return redirect_to administrators_path(@administrator) if @administrator.update(administrator_params)
+        
+    
+        render :edit
+    
   end
 
+  def destroy
+          
+    @administrator.destroy
+
+    redirect_to administrators_path
+  end
 
 
 
