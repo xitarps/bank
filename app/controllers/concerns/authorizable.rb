@@ -20,8 +20,8 @@ module Authorizable
     {
       'Root' =>{
         'administrators' =>{
-          'index' => true
-          'new' => true
+          'index' => true,
+          'new' => true,
           'create'=> true
         }
       }
