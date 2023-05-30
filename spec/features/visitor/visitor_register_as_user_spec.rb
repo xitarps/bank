@@ -15,6 +15,7 @@ RSpec.describe 'Visitor' do
       fill_in 'Senha',	with: '123456'
       fill_in 'Password confirmation',	with: '123456'
       click_on 'Registrar'
+      sleep 2
 
       visit "/users/confirmation?confirmation_token=#{User.first.confirmation_token}"
 
