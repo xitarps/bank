@@ -17,5 +17,14 @@ module Authorizable
     #     }
     #   }
     # }
+    {
+      'Root' =>{
+        'administrators' =>{
+          'index' => true
+          'new' => true
+          'create'=> true
+        }
+      }
+    }
   end
 end
