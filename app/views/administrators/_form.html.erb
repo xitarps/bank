@@ -1,0 +1,26 @@
+<%= form_with(model: @administrator, url: administrators_path) do |form| %>
+  <% if @administrator.errors.any? %>
+        <div id="error_explanation">
+        <h2><%= pluralize(@administrator.errors.count, "erro") %> ocorreram durante o cadastro:</h2>
+
+        <ul>
+            <% @administrator.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+        </div>
+  <% end %>
+
+  <%= form.fields_for :administrator do |administrator_form| %>
+        <div class="field">
+        <%= administrator_form.label :name %>
+        <%= administrator_form.text_field :name %>
+        </div>
+
+   
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit "Cadastrar" %>
+  </div>
+<% end %>
