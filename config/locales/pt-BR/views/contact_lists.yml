@@ -1,0 +1,7 @@
+pt-BR:
+  contact_lists:
+    show:
+      are_you_sure: Confirmar ação?
+      destroy: Apagar
+    destroy:
+      removed: Removido com sucesso
