@@ -15,16 +15,16 @@
 
     <div>
         <button class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"> 
-        <%= tax_form.submit 'Submit' %>
+            <%= tax_form.submit 'Submit' %>
         </button>
         <% if action_name == "new" %>
-        <button class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"> 
-        <%= link_to 'Back', taxes_path %>
-        </button>
+            <button class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"> 
+                <%= link_to 'Back', taxes_path %>
+            </button>
         <% else %>
-        <button class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"> 
-        <%= link_to 'Back', tax_path(tax) %>
-        </button>
+            <button class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"> 
+                <%= link_to 'Back', tax_path(tax) %>
+            </button>
         <%end%>
     </div>
 <%end%>
