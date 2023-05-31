@@ -17,5 +17,26 @@ module Authorizable
     #     }
     #   }
     # }
+    { 'Root' => {
+        'taxes' => {
+          'index' => true,
+          'create' => true,
+          'new' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
+        }},
+        'Administrator' => {
+          'taxes' => {
+            'index' => true,
+            'create' => true,
+            'new' => true,
+            'edit' => true,
+            'show' => true,
+            'update' => true,
+            'destroy' => true
+          }}
+      }
   end
 end
