@@ -33,15 +33,15 @@ module Authorizable
         }
         },
         'Administrator' => {
-        'taxes' => {
-          'index' => true,
-          'create' => true,
-          'new' => true,
-          'edit' => true,
-          'show' => true,
-          'update' => true,
-          'destroy' => true
-          }
+          'taxes' => {
+            'index' => true,
+            'create' => true,
+            'new' => true,
+            'edit' => true,
+            'show' => true,
+            'update' => true,
+            'destroy' => true
+            }
           },
       'Customer' => {
         'contact_lists' => {
