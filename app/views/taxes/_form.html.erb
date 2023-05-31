@@ -1,31 +1,29 @@
 <div>
-<%= form_with model: @tax, data: {tubo: false} do |tax_form| %>
-    <div>
-        <%= tax_form.label :name, 'Name' %>
-    </div>
-    <div>
-        <%= tax_form.text_field :name %>
-    </div>
-
-    <div>
-        <%= tax_form.label :value, 'Value' %>
-    <div>
-        <%= tax_form.text_field :value %>
-    </div>
-
-    <div>
-        <button class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"> 
-            <%= tax_form.submit 'Submit' %>
-        </button>
-        <% if action_name == "new" %>
+    <%= form_with model: @tax, data: {tubo: false} do |tax_form| %>
+        <div>
+            <%= tax_form.label :name, 'Name' %>
+        </div>
+        <div>
+            <%= tax_form.text_field :name %>
+        </div>
+        <div>
+            <%= tax_form.label :value, 'Value' %>
+        <div>
+            <%= tax_form.text_field :value %>
+        </div>
+        <div>
             <button class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"> 
-                <%= link_to 'Back', taxes_path %>
+                <%= tax_form.submit 'Submit' %>
             </button>
-        <% else %>
-            <button class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"> 
-                <%= link_to 'Back', tax_path(tax) %>
-            </button>
-        <%end%>
-    </div>
-<%end%>
+            <% if action_name == "new" %>
+                <button class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"> 
+                    <%= link_to 'Back', taxes_path %>
+                </button>
+            <% else %>
+                <button class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"> 
+                    <%= link_to 'Back', tax_path(tax) %>
+                </button>
+            <%end%>
+        </div>
+    <%end%>
 </div>
