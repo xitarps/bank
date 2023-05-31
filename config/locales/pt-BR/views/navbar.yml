@@ -3,3 +3,4 @@ pt-BR:
     navbar:
       login: Login
       logout: Logout
+      contact_list: Lista de contatos

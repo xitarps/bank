@@ -93,3 +93,19 @@ Também se atentar de ter chromium-chromedriver:
 ```
 sudo apt-get install chromium-chromedriver
 ```
+
+# Diagramas
+
+[Diagrama entidade relacionamento](https://drive.google.com/file/d/1mBrZUS-Fpxfe53FY9hK_IWCqvCYY_ixU/view)
+
+- Diagrama Entidade-Relacionamento desenvolvido em equipe, especificando os relacionamentos que nossa aplicação RaroBank vai possuir. Identificamos todas as entidades relevantes no domínio e seus atributos, estabelecemos, por meio de discussões, as relações indicando a cardinalidade e, por fim, evitamos redundâncias e inconsistências nos dados.
+
+![Diagrama ER](./Doc/ArgonautasDER.drawio(1).png)
+
+
+
+[Diagrama lógico relacional](https://drive.google.com/file/d/1AiG_Sd3lFNVN6bXxYXYUzs1Umd5aWIOt/view?usp=sharing)
+
+- Diagrama Lógico-Relacional: Após o desenvolvimento do diagrama entidade-relacionamento, utilizamos as tabelas para representar as entidades no banco, as colunas para representar os campos e atributos na tabela, os relacionamentos são as conexões entre as tabelas e, por fim, as chaves primárias como identificadores únicos e as chaves estrangeiras para referenciar as chaves primárias em outras tabelas. Seguindo esses princípios, nosso objetivo é representar a clareza nas estruturas de banco de dados, facilitando a compreensão dos relacionamentos entre tabelas e auxiliando no planejamento e desenvolvimento do nosso banco de dados.
+
+![Diagrama LR](./Doc/Argonautas.drawio(1).png)

@@ -6,5 +6,6 @@ RSpec.describe Customer, type: :model do
     it { should validate_presence_of(:last_name) }
     it { should validate_presence_of(:cpf) }
     it { should have_one(:user).class_name('User') }
+    it { should have_one(:contact_list).class_name('ContactList') }
   end
 end

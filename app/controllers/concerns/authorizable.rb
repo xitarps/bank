@@ -38,5 +38,19 @@ module Authorizable
             'destroy' => true
           }}
       }
+    {
+      'Root' => {
+        'contact_lists' => {
+          'show' => true,
+          'destroy' => true
+        }
+      },
+      'Customer' => {
+        'contact_lists' => {
+          'show' => true,
+          'destroy' => true
+        }
+      }
+    }
   end
 end
