@@ -17,7 +17,8 @@ module Authorizable
     #     }
     #   }
     # }
-    { 'Root' => {
+    {
+      'Root' => {
         'taxes' => {
           'index' => true,
           'create' => true,
@@ -32,23 +33,23 @@ module Authorizable
           'destroy' => true
         }
       },
-        'Administrator' => {
-          'taxes' => {
-            'index' => true,
-            'create' => true,
-            'new' => true,
-            'edit' => true,
-            'show' => true,
-            'update' => true,
-            'destroy' => true
-          }
-        },
-        'Customer' => {
-          'contact_lists' => {
-            'show' => true,
-            'destroy' => true
-          }
+      'Administrator' => {
+        'taxes' => {
+          'index' => true,
+          'create' => true,
+          'new' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
+        }
+      },
+      'Customer' => {
+        'contact_lists' => {
+          'show' => true,
+          'destroy' => true
         }
       }
+    }
   end
 end
