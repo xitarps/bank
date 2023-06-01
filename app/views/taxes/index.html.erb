@@ -1,0 +1,18 @@
+<div class="container mx-auto algin=center">
+  <div>All Taxes:
+  <span class="float-right bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+  <%= link_to "New Tax", new_tax_path %></span>
+  <div>
+    <% @taxes.each do |tax| %>
+      <div>
+        <span><%= tax.id %></span>
+        <span><%= tax.name %></span>
+        <span><%= tax.value %></span>
+        <p> 
+        <span class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+        <%= link_to 'Show', tax_path(tax) %> </span>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>

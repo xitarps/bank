@@ -4,6 +4,7 @@ pt-BR:
   destroy: 'Apagar'
   show: 'Detalhes de '
   search: 'Busca'
+  back: 'Voltar'
   activerecord:
     successful:
       messages:

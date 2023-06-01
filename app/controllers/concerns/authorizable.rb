@@ -18,11 +18,45 @@ module Authorizable
     #   }
     # }
     {
-      'Root' =>{
+      'Root' => {
+        'taxes' => {
+          'index' => true,
+          'create' => true,
+          'new' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
+        },
+        'contact_lists' => {
+          'show' => true,
+          'destroy' => true
+        },
         'administrators' =>{
           'index' => true,
           'new' => true,
-          'create'=> true
+          'create'=> true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
+        }
+      },
+      'Administrator' => {
+        'taxes' => {
+          'index' => true,
+          'create' => true,
+          'new' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
+        }
+      },
+      'Customer' => {
+        'contact_lists' => {
+          'show' => true,
+          'destroy' => true
         }
       }
     }

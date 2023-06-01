@@ -1,0 +1,6 @@
+pt-BR:
+  taxes:
+    show:
+      tax_name: Nome
+      tax_value: Valor
+      tax_id: Taxa n° 

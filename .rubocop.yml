@@ -314,6 +314,10 @@ Lint/UselessRescue: # new in 1.43
   Enabled: true
 Metrics/CollectionLiteralLength: # new in 1.47
   Enabled: true
+Metrics/MethodLength:
+  Enabled: true
+  Exclude:
+    - 'app/controllers/concerns/authorizable.rb'
 Style/ArrayIntersect: # new in 1.40
   Enabled: true
 Style/ComparableClamp: # new in 1.44

@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Visitor' do
+  before(:each) { User.destroy_all }
+  before(:each) { Customer.destroy_all }
+  before(:each) { Root.destroy_all }
   context 'Visit home' do
     it 'View nav bar' do
       visit '/'

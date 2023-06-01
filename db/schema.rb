@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2023_05_30_001054) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +19,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_001054) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+=======
+ActiveRecord::Schema[7.0].define(version: 2023_05_30_100047) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "contact_lists", force: :cascade do |t|
+    t.bigint "customer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_contact_lists_on_customer_id"
+  end
+
+  create_table "customer_contact_lists", force: :cascade do |t|
+    t.bigint "contact_list_id", null: false
+    t.bigint "customer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_list_id"], name: "index_customer_contact_lists_on_contact_list_id"
+    t.index ["customer_id"], name: "index_customer_contact_lists_on_customer_id"
+>>>>>>> main
   end
 
   create_table "customers", force: :cascade do |t|
@@ -33,6 +54,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_001054) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
+=======
+  create_table "taxes", force: :cascade do |t|
+    t.string "name", null: false
+    t.decimal "value", precision: 5, scale: 2, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+>>>>>>> main
   create_table "users", force: :cascade do |t|
     t.string "userable_type", null: false
     t.bigint "userable_id", null: false
@@ -53,4 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_001054) do
     t.index ["userable_type", "userable_id"], name: "index_users_on_userable"
   end
 
+  add_foreign_key "contact_lists", "customers"
+  add_foreign_key "customer_contact_lists", "contact_lists"
+  add_foreign_key "customer_contact_lists", "customers"
 end
