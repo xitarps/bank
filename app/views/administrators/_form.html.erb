@@ -1,0 +1,14 @@
+<%=form_with model: administrator, data: {turbo: false} do |form|%>
+    <p>
+        <%=form.label :name, 'name'%>
+        <%=form.text_field :name%>
+    </p>
+
+  
+    
+    <p>
+        <%=form.submit%>
+        
+    </p>
+
+<%end%>

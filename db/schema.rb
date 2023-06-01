@@ -14,6 +14,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_100047) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "administrators", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "contact_lists", force: :cascade do |t|
     t.bigint "customer_id", null: false
     t.datetime "created_at", null: false

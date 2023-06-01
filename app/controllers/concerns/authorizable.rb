@@ -31,6 +31,15 @@ module Authorizable
         'contact_lists' => {
           'show' => true,
           'destroy' => true
+        },
+        'administrators' => {
+          'index' => true,
+          'new' => true,
+          'create' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
         }
       },
       'Administrator' => {
