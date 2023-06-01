@@ -5,12 +5,12 @@ class TaxesController < ApplicationController
     def index
         @taxes = Tax.all
     end
-        
+
     def create
-        @tax = Tax.new(tax_params) 
-        
+        @tax = Tax.new(tax_params)
+
         return redirect_to taxes_path if @tax.save
-    
+
         render :index
     end
 
@@ -29,7 +29,7 @@ class TaxesController < ApplicationController
     end
 
     def destroy
-        @tax.destroy 
+        @tax.destroy
 
         redirect_to tax_path
     end
@@ -44,4 +44,3 @@ class TaxesController < ApplicationController
         @tax = Tax.find(params[:id])
     end
 end
-  
