@@ -1,7 +1,8 @@
 class AdministratorsController < ApplicationController
+  before_action :authenticate_and_authorize!
   before_action :fetch_administrator, only:[:show, :edit, :update, :destroy]
+  
   def index
-    
     @administrators = Administrator.all  
   end
 

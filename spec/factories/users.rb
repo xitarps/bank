@@ -12,4 +12,8 @@ FactoryBot.define do
   trait :root do
     userable { FactoryBot.build(:root) }
   end
+
+  trait :administrator do
+    userable { FactoryBot.build(:administrator) }
+  end
 end
