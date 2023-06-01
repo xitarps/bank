@@ -8,4 +8,8 @@ FactoryBot.define do
   trait :confirmed do
     confirmed_at { DateTime.current }
   end
+
+  trait :root do
+    userable { FactoryBot.build(:root) }
+  end
 end
