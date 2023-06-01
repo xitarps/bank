@@ -1,14 +1,18 @@
 class AdministratorsController < ApplicationController
   before_action :authenticate_and_authorize!
-  before_action :fetch_administrator, only:[:show, :edit, :update, :destroy]
-  
+  before_action :fetch_administrator, only: [:show, :edit, :update, :destroy]
+
   def index
-    @administrators = Administrator.all  
+    @administrators = Administrator.all
   end
+
+  def show; end
 
   def new
     @administrator = Administrator.new
-  end 
+  end
+
+  def edit; end
 
   def create
     @administrator = Administrator.new(administrator_params)
@@ -19,27 +23,17 @@ class AdministratorsController < ApplicationController
     end
   end
 
-  def show;end
-  
-  def edit;end
-
   def update
-        
     return redirect_to administrators_path(@administrator) if @administrator.update(administrator_params)
-        
-    
-        render :edit
-    
+
+    render :edit
   end
 
   def destroy
-          
     @administrator.destroy
 
     redirect_to administrators_path
   end
-
-
 
   private
 
@@ -50,5 +44,4 @@ class AdministratorsController < ApplicationController
   def fetch_administrator
     @administrator = Administrator.find(params[:id])
   end
-
 end

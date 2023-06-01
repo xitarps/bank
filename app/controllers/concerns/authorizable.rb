@@ -32,10 +32,10 @@ module Authorizable
           'show' => true,
           'destroy' => true
         },
-        'administrators' =>{
+        'administrators' => {
           'index' => true,
           'new' => true,
-          'create'=> true,
+          'create' => true,
           'edit' => true,
           'show' => true,
           'update' => true,

@@ -17,8 +17,7 @@ RSpec.describe 'Root' do
 
       name = Faker::Ancient.god
 
-      fill_in 'name',	    with: name
-      
+      fill_in 'name', with: name
 
       click_on 'Criar Administrator'
       expect(page).to have_content(name)
@@ -29,13 +28,11 @@ RSpec.describe 'Root' do
       FactoryBot.create(:administrator)
       visit '/administrators'
 
-      
       click_on 'Edit'
 
       name2 = Faker::Ancient.god
 
       fill_in 'name',	    with: name2
-      
 
       click_on 'Atualizar Administrator'
       expect(page).to have_content(name2)
