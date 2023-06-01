@@ -1,11 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe 'Tax' do
+RSpec.describe 'Root' do
     context 'Tax' do
+      before(:each) { User.destroy_all }
+      before(:each) { Customer.destroy_all }
+      before(:each) { Root.destroy_all }
+      after(:each) { Tax.destroy_all }
       it 'Create Tax' do
+        user = create(:user, :confirmed, :root)
+        login_as(user, scope: :user)
         visit '/'
+        
 
-        click_on 'Taxes'
+        click_on 'Taxas'
         click_on 'New Tax'
 
         name = Faker::Ancient.god
@@ -17,6 +24,9 @@ RSpec.describe 'Tax' do
         expect(page).to have_content(name)
       end
       it 'Edit Tax' do
+        user = create(:user, :confirmed, :root)
+        login_as(user, scope: :user)
+        FactoryBot.create(:tax)
         visit '/taxes'
 
         click_on 'Show'

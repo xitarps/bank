@@ -4,4 +4,12 @@ FactoryBot.define do
     password { 123_456 }
     userable { FactoryBot.build(:customer) }
   end
+
+  trait :confirmed do
+    confirmed_at { DateTime.current }
+  end
+
+  trait :root do
+    userable { FactoryBot.build(:root) }
+  end
 end

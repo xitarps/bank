@@ -1,4 +1,5 @@
 class TaxesController < ApplicationController
+    before_action :authenticate_and_authorize!
     before_action :search_tax, only: [:show, :edit, :update, :destroy]
 
     def index

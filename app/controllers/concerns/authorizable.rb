@@ -26,7 +26,12 @@ module Authorizable
           'show' => true,
           'update' => true,
           'destroy' => true
-        }},
+        },
+        'contact_lists' => {
+          'show' => true,
+          'destroy' => true
+        }
+      },
         'Administrator' => {
           'taxes' => {
             'index' => true,
@@ -36,7 +41,14 @@ module Authorizable
             'show' => true,
             'update' => true,
             'destroy' => true
-          }}
+          }
+        },
+        'Customer' => {
+          'contact_lists' => {
+            'show' => true,
+            'destroy' => true
+          }
+        }
       }
   end
 end
