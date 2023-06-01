@@ -19,7 +19,7 @@
                 <button class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"> 
                     <%= link_to 'Back', taxes_path %>
                 </button>
-            <% else %>
+            <% elsif action_name == "edit" %>
                 <button class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"> 
                     <%= link_to 'Back', tax_path(tax) %>
                 </button>
