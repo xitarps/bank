@@ -17,7 +17,7 @@ class AdministratorsController < ApplicationController
   def create
     @administrator = Administrator.new(administrator_params)
     if @administrator.save
-      redirect_to administrators_path, notice: 'Administrador criado com sucesso.'
+      redirect_to administrators_path
     else
       render :new
     end

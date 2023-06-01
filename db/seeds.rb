@@ -28,4 +28,10 @@ if customer&.contact_list&.customers&.empty?
   puts 'OK!'
 end
 
+unless Administrator.any?
+  print 'criando administrador...'
+  administrator = FactoryBot.create(:user, :confirmed, :administrator, email: 'administrator@administrator.com', password: '123456').userable
+  puts 'OK!'
+end
+
 puts '============Criação de dados finalizada============'
