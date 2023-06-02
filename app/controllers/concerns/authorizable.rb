@@ -60,7 +60,8 @@ module Authorizable
           'show' => true,
           'update' => true,
           'destroy' => true
-        },'products' => {
+        },
+        'products' => {
           'index' => true,
           'create' => true,
           'new' => true,

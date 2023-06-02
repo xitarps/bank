@@ -21,4 +21,5 @@ pt-BR:
       product_final_date: Data de fim
       product_minimum_amount: Valor mínimo
       product_tax_id: Taxa
-      
+    destroy:
+      product_destroy: Apagado com sucesso!

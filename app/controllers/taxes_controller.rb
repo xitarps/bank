@@ -17,13 +17,13 @@ class TaxesController < ApplicationController
   def create
     @tax = Tax.new(tax_params)
 
-    return redirect_to taxes_path, notice: 'criado' if @tax.save
+    return redirect_to taxes_path if @tax.save
 
     render :new
   end
 
   def update
-    return redirect_to tax_path(@tax), notice: 'teste' if @tax.update(tax_params)
+    return redirect_to tax_path(@tax) if @tax.update(tax_params)
 
     render :edit
   end

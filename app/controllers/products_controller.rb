@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
   end
-  
+
   def show; end
 
   def new
@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
 
-    redirect_to products_path, notice: 'Produto apagado!'
+    redirect_to products_path, notice: t('.product_destroy')
   end
 
   private
