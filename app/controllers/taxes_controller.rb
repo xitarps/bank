@@ -16,22 +16,25 @@ class TaxesController < ApplicationController
 
   def create
     @tax = Tax.new(tax_params)
-
-    return redirect_to taxes_path if @tax.save
-
-    render :index
+    if @tax.save
+      redirect_to taxes_path, notice: 'Nova taxa criada.'
+    else
+      render :new
+    end
   end
 
   def update
-    return redirect_to taxes_path(@tax) if @tax.update(tax_params)
-
-    render :edit
+    if @tax.update(tax_params)
+      redirect_to taxes_path, notice: 'Taxa atualizada com sucesso.'
+    else
+      render :edit
+    end
   end
 
   def destroy
     @tax.destroy
 
-    redirect_to tax_path
+    redirect_to taxes_path, notice: 'Taxa Apagada com sucesso.'
   end
 
   private
