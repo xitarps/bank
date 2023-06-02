@@ -1,0 +1,16 @@
+<div class="container mx-auto algin=center">
+  <div>All Products:
+  <span class="float-right bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+  <%= link_to "New  Product", new_product_path %></span>
+  <div>
+    <% @products.each do |p| %>
+      <div>
+        <%= p.id %>
+        <%= p.name %>
+        <p> 
+          <%= link_to 'Show', product_path(p), class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %> </span>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>

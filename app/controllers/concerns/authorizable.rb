@@ -32,6 +32,15 @@ module Authorizable
           'show' => true,
           'destroy' => true
         },
+        'products' => {
+          'index' => true,
+          'create' => true,
+          'new' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
+        },
         'administrators' => {
           'index' => true,
           'new' => true,
@@ -44,6 +53,14 @@ module Authorizable
       },
       'Administrator' => {
         'taxes' => {
+          'index' => true,
+          'create' => true,
+          'new' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
+        },'products' => {
           'index' => true,
           'create' => true,
           'new' => true,
