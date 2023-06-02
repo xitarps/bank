@@ -1,5 +1,4 @@
 class ClassroomsController < ApplicationController
- 
   before_action :fetch_classroom, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -17,7 +16,7 @@ class ClassroomsController < ApplicationController
   def create
     @classroom = Classroom.new(classroom_params)
     if @classroom.save
-      redirect_to classrooms_path, notice: 'Sala criado com sucesso.'
+      redirect_to classrooms_path, notice: I18n.t('notices.classroom_created')
     else
       render :new
     end

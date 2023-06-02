@@ -1,0 +1,15 @@
+pt-BR:
+  classrooms:
+    show:
+      name: Nome
+      course: Curso
+    form:
+      name: Nome
+      course: Curso
+    index:
+      details: Detalhes
+      edit: Editar
+      erase: Excluir
+      name: Nome
+      course: Curso
+      newclass: Nova Turma

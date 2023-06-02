@@ -2,11 +2,11 @@
   <div class="bg-white p-6 rounded shadow-md">
     <%= form_with model: @classroom, url: classrooms_path, class: "w-80" do |form| %>
       <div class="mb-4">
-        <%= form.label :name, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= form.label t('.name'), class: "block text-gray-700 text-sm font-bold mb-2" %>
         <%= form.text_field :name, class: "w-full border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
       </div>
       <div class="mb-4">
-        <%= form.label :course, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= form.label t('.course'), class: "block text-gray-700 text-sm font-bold mb-2" %>
         <%= form.text_field :course, class: "w-full border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
       </div>
       <div class="flex justify-between">
