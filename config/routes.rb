@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :administrators
+  resources :classrooms
   resources :contact_lists, only: %i[show] do
     resources :customers, only: %i[index]
     resources :customers, only: %i[destroy], controller: :contact_lists
