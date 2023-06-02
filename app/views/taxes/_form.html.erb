@@ -1,24 +1,24 @@
 <div>
     <%= form_with model: @tax, data: {turbo: false} do |t| %>
         <div>
-            <%= t.label :name, 'Name' %>
+            <%= t.label :name, t('.tax_name') %>
         </div>
         <div>
             <%= t.text_field :name %>
         </div>
         <div>
-            <%= t.label :value, 'Value' %>
+            <%= t.label :value, t('.tax_value')%>
         <div>
             <%= t.text_field :value %>
         </div>
         <div>
             <%= link_to '#', class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" do %>
-              <%= t.submit 'Submit' %>
+              <%= t.submit t('submit') %>
             <% end %>
             <% if action_name == "new" %>
-              <%= link_to 'Back', taxes_path, class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+              <%= link_to t('back'), taxes_path, class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
             <% elsif action_name == "edit" %>
-              <%= link_to 'Back', tax_path(tax), class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+              <%= link_to t('back'), tax_path(tax), class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
             <%end%>
         </div>
     <%end%>

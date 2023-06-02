@@ -3,4 +3,16 @@ pt-BR:
     show:
       tax_name: Nome
       tax_value: Valor
-      tax_id: Taxa n° 
+      tax_id: Taxa n°
+    index:
+      new_tax: Nova taxa
+      all_taxes: Todas as taxas
+      show: Mostrar
+    edit:
+      edit_tax: Editar taxa
+    new:
+      new_tax: Nova taxa
+    form:
+      tax_name: Nome
+      tax_value: Valor
+
