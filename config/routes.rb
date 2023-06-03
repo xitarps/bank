@@ -5,12 +5,14 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  resources :accounts, except: %i[new create]
   resources :administrators
+  resources :classrooms
   resources :contact_lists, only: %i[show] do
     resources :customers, only: %i[index]
     resources :customers, only: %i[destroy], controller: :contact_lists
   end
-  resources :accounts, except: %i[new create]
+  resources :products
   resources :taxes
 
   mount Sidekiq::Web => '/sidekiq'

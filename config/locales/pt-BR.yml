@@ -5,6 +5,7 @@ pt-BR:
   show: 'Detalhes de '
   search: 'Busca'
   back: 'Voltar'
+  submit: 'Enviar'
   activerecord:
     successful:
       messages:
@@ -231,3 +232,6 @@ pt-BR:
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
     pm: ''
+  notices:
+    classroom_created: 'Sala criado com sucesso.'
+    administrator_created: 'Administrador criado com sucesso.'

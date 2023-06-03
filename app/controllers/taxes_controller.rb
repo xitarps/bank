@@ -1,6 +1,6 @@
 class TaxesController < ApplicationController
   before_action :authenticate_and_authorize!
-  before_action :search_tax, only: [:show, :edit, :update, :destroy]
+  before_action :search_tax, only: %i[show edit update destroy]
 
   def index
     @taxes = Tax.all
@@ -19,11 +19,11 @@ class TaxesController < ApplicationController
 
     return redirect_to taxes_path if @tax.save
 
-    render :index
+    render :new
   end
 
   def update
-    return redirect_to taxes_path(@tax) if @tax.update(tax_params)
+    return redirect_to tax_path(@tax) if @tax.update(tax_params)
 
     render :edit
   end
@@ -31,7 +31,7 @@ class TaxesController < ApplicationController
   def destroy
     @tax.destroy
 
-    redirect_to tax_path
+    redirect_to taxes_path, notice: 'Taxa Apagada com sucesso.'
   end
 
   private

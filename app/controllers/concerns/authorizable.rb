@@ -32,6 +32,15 @@ module Authorizable
           'show' => true,
           'destroy' => true
         },
+        'products' => {
+          'index' => true,
+          'create' => true,
+          'new' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
+        },
         'administrators' => {
           'index' => true,
           'new' => true,
@@ -42,6 +51,13 @@ module Authorizable
           'destroy' => true
         },
         'accounts' => {
+          'index' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
+        },
+        'classrooms' => {
           'index' => true,
           'new' => true,
           'create' => true,
@@ -63,8 +79,24 @@ module Authorizable
         },
         'accounts' => {
           'index' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
+        },
+        'classrooms' => {
+          'index' => true,
           'new' => true,
           'create' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
+        },
+        'products' => {
+          'index' => true,
+          'create' => true,
+          'new' => true,
           'edit' => true,
           'show' => true,
           'update' => true,
@@ -77,7 +109,7 @@ module Authorizable
           'destroy' => true
         },
         'accounts' => {
-          'show' => true,
+          'show' => true
         }
       }
     }

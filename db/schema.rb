@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_01_183312) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_02_012017) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_183312) do
 
   create_table "administrators", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "classrooms", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "course", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,6 +57,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_183312) do
     t.string "cpf", limit: 11, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name", limit: 255, null: false
+    t.date "start_date", null: false
+    t.date "final_date", null: false
+    t.decimal "minimum_amount", null: false
+    t.bigint "tax_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tax_id"], name: "index_products_on_tax_id"
   end
 
   create_table "roots", force: :cascade do |t|
@@ -88,4 +106,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_183312) do
   add_foreign_key "contact_lists", "customers"
   add_foreign_key "customer_contact_lists", "contact_lists"
   add_foreign_key "customer_contact_lists", "customers"
+  add_foreign_key "products", "taxes"
 end

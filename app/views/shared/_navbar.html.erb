@@ -18,14 +18,20 @@
       <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
         <%= link_to t('.taxes'), taxes_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"%> 
       <% end %>
+      <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
+        <%= link_to t('.products'), products_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"%> 
+      <% end %>
       <% if user_signed_in? && (current_user.userable_type == 'Root') %>
          <%= link_to t('.administrators'), administrators_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"%> 
       <% end %>
-      <% if user_signed_in? && ['Customer'].include?(current_user.userable_type) %>
+      <% if user_signed_in? && ['Root', 'Customer'].include?(current_user.userable_type) %>
         <%= link_to t('.account'), account_path(current_user.userable), class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"%> 
       <% end %>
       <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
         <%= link_to t('.accounts'), accounts_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"%> 
+      <% end %>
+      <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
+        <%= link_to t('.classrooms'), classrooms_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"%> 
       <% end %>
     </div>
     <div>
@@ -33,7 +39,7 @@
         <div class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
           <% if current_user.userable_type == 'Root' %>
             Root
-          <% elsif current_user.userable_type == 'Admin' %>
+          <% elsif current_user.userable_type == 'Administrator' %>
             Admin
           <% else %>
             <%= current_user.userable.first_name %>

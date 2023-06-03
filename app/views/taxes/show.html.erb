@@ -3,11 +3,8 @@
     <div>
         <h2> <%= t('.tax_name') %>: <span><%= @tax.name %></span> </h2>
         <h2> <%= t('.tax_value')%>:<span><%= @tax.value %></span> </h2>
-        <span class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-        <%= link_to t('edit'), edit_tax_path(@tax)%> </span>
-        <span class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-        <%= link_to t('destroy'), tax_path(@tax), data: { 'turbo-method': :delete} %></span>
-        <span class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-        <%= link_to t('back'), taxes_path %></span>
+        <%= link_to t('edit'), edit_tax_path(@tax), class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+        <%= link_to t('destroy'), tax_path(@tax), class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded", data: { 'turbo-method': :delete} %>
+        <%= link_to t('back'), taxes_path, class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
     </div>
 </div>
