@@ -1,8 +1,6 @@
 FactoryBot.define do
   factory :classroom do
-    name { 'MyString' }
-    course { 'MyString' }
-    references { 'MyString' }
-    administrator { 'MyString' }
+    name { Faker::Name.first_name }
+    course { Faker::Name.first_name }
   end
 end
