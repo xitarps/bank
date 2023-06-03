@@ -1,0 +1,7 @@
+<div>
+    <span><%= account.id %></span>
+    <span><%= account.customer_id %></span>
+    <span><%= account.customer.first_name %></span>
+    <span><%= account.amount %></span>
+    <span><%= link_to (t('show')+ account.class.model_name.human), account_path(account) %></span>
+</div>
