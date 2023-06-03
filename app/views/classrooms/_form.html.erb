@@ -1,6 +1,6 @@
 <div class="flex justify-center items-center h-screen">
   <div class="bg-white p-6 rounded shadow-md">
-    <%= form_with model: @classroom, url: classrooms_path, class: "w-80" do |form| %>
+    <%= form_with model: @classroom, data: {turbo: false} do |form| %>
       <div class="mb-4">
         <%= form.label t('.name'), class: "block text-gray-700 text-sm font-bold mb-2" %>
         <%= form.text_field :name, class: "w-full border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
@@ -10,9 +10,9 @@
         <%= form.text_field :course, class: "w-full border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
       </div>
       <div class="flex justify-between">
-        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-          <%= t('submit') %>
-        </button>
+        <%= link_to '#', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" do %>
+          <%= form.submit t('submit') %>
+        <% end %>
         <%= link_to "Voltar", classrooms_path, class: "text-gray-500 hover:text-gray-700 font-bold" %>
       </div>
     <% end %>

@@ -24,6 +24,9 @@
       <% if user_signed_in? && (current_user.userable_type == 'Root') %>
          <%= link_to t('.administrators'), administrators_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"%> 
       <% end %>
+      <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
+        <%= link_to t('.classrooms'), classrooms_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"%> 
+      <% end %>
     </div>
     <div>
       <% if user_signed_in? %>

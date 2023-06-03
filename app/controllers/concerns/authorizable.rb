@@ -49,6 +49,15 @@ module Authorizable
           'show' => true,
           'update' => true,
           'destroy' => true
+        },
+        'classrooms' => {
+          'index' => true,
+          'new' => true,
+          'create' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
         }
       },
       'Administrator' => {
@@ -56,6 +65,15 @@ module Authorizable
           'index' => true,
           'create' => true,
           'new' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
+        },
+        'classrooms' => {
+          'index' => true,
+          'new' => true,
+          'create' => true,
           'edit' => true,
           'show' => true,
           'update' => true,

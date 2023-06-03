@@ -1,4 +1,5 @@
 class ClassroomsController < ApplicationController
+  before_action :authenticate_and_authorize!
   before_action :fetch_classroom, only: [:show, :edit, :update, :destroy]
 
   def index

@@ -12,7 +12,7 @@ RSpec.describe 'Classroom', type: :feature do
 
   context 'Administrator' do
     let(:user) { create(:user, :confirmed, :administrator) }
-    #let(:administrator) { create(:administrator) }
+    # let(:administrator) { create(:administrator) }
 
     before(:each) do
       login_as(user, scope: :user)
@@ -20,7 +20,7 @@ RSpec.describe 'Classroom', type: :feature do
 
     it 'Create Classroom' do
       visit '/'
-      click_on 'Classrooms'
+      click_on 'Turmas'
       click_on 'Nova Turma'
 
       name = Faker::Ancient.god
@@ -29,12 +29,28 @@ RSpec.describe 'Classroom', type: :feature do
       fill_in 'classroom_name', with: name
       fill_in 'classroom_course', with: course
 
-      click_on 'Create Classroom'
+      click_on 'Enviar'
 
       expect(page).to have_content(name)
     end
 
+    it 'Create Classroom - invalid' do
+      visit '/'
+      click_on 'Turmas'
+      click_on 'Nova Turma'
+
+      course = Faker::Educator.subject
+
+      fill_in 'classroom_name', with: ''
+      fill_in 'classroom_course', with: course
+
+      click_on 'Enviar'
+
+      expect(page).to have_content('Name não pode ficar em branco')
+    end
+
     it 'Edit Classroom' do
+      FactoryBot.create(:classroom)
       visit '/classrooms'
 
       click_on 'Editar'
@@ -45,7 +61,7 @@ RSpec.describe 'Classroom', type: :feature do
       fill_in 'classroom_name', with: name
       fill_in 'classroom_course', with: course
 
-      click_on 'Update Classroom'
+      click_on 'Enviar'
 
       expect(page).to have_content(name)
     end
@@ -61,23 +77,23 @@ RSpec.describe 'Classroom', type: :feature do
     end
 
     it 'Update Classroom - Invalid Edit' do
-      classroom = create(:classroom)
+      FactoryBot.create(:classroom)
 
       visit '/classrooms'
       click_on 'Editar'
 
       fill_in 'classroom_name', with: ''
 
-      click_on 'Update Classroom'
+      click_on 'Enviar'
 
-      expect(page).to have_content('Error: Invalid name')
+      expect(page).to have_content('Name não pode ficar em branco')
     end
 
     it 'Destroy Classroom' do
       classroom = create(:classroom)
 
       visit '/classrooms'
-      click_on 'Excluir'
+      click_on 'Apagar'
 
       expect(page).not_to have_content(classroom.name)
     end
