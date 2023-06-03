@@ -5,9 +5,10 @@ RSpec.describe 'Administrator' do
     before(:each) { User.destroy_all }
     before(:each) { Customer.destroy_all }
     before(:each) { Root.destroy_all }
+    before(:each) { Tax.destroy_all }
     after(:each) { Product.destroy_all }
     it 'Create Product' do
-      user = create(:user, :confirmed, :root)
+      user = create(:user, :confirmed, :administrator)
       login_as(user, scope: :user)
       FactoryBot.create(:tax)
       visit '/'
@@ -32,7 +33,7 @@ RSpec.describe 'Administrator' do
       FactoryBot.create(:product)
       visit '/products'
 
-      click_on 'Mostrar'
+      click_on 'Detalhes de'
       click_on 'Editar'
 
       name2 = Faker::Commerce.product_name
@@ -48,7 +49,7 @@ RSpec.describe 'Administrator' do
       FactoryBot.create(:product)
       visit '/products'
 
-      click_on 'Mostrar'
+      click_on 'Detalhes de'
       click_on 'Editar'
 
       fill_in 'Nome do produto', with: ''
@@ -63,7 +64,7 @@ RSpec.describe 'Administrator' do
       visit '/'
 
       click_on 'Produtos'
-      click_on 'Mostrar'
+      click_on 'Detalhes de'
       click_on 'Apagar'
       expect(page).to have_content('Apagado com sucesso!')
     end
