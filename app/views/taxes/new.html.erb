@@ -1,5 +1,6 @@
 <div> 
-    New Tax:
+   <%= t('.new_tax')%>:
+    <%= render 'shared/errors', object: @tax %>
     <div>
         <%= render 'form', tax: @tax %>
     </div>

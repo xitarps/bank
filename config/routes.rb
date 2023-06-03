@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :customers, only: %i[index]
     resources :customers, only: %i[destroy], controller: :contact_lists
   end
+  resources :products
   resources :taxes
 
   mount Sidekiq::Web => '/sidekiq'

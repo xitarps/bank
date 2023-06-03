@@ -1,28 +1,24 @@
 <div>
-    <%= form_with model: @tax, data: {tubo: false} do |tax_form| %>
+    <%= form_with model: @tax, data: {turbo: false} do |t| %>
         <div>
-            <%= tax_form.label :name, 'Name' %>
+            <%= t.label :name, t('.tax_name') %>
         </div>
         <div>
-            <%= tax_form.text_field :name %>
+            <%= t.text_field :name %>
         </div>
         <div>
-            <%= tax_form.label :value, 'Value' %>
+            <%= t.label :value, t('.tax_value')%>
         <div>
-            <%= tax_form.text_field :value %>
+            <%= t.text_field :value %>
         </div>
         <div>
-            <button class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"> 
-                <%= tax_form.submit 'Submit' %>
-            </button>
+            <%= link_to '#', class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" do %>
+              <%= t.submit t('submit') %>
+            <% end %>
             <% if action_name == "new" %>
-                <button class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"> 
-                    <%= link_to 'Back', taxes_path %>
-                </button>
-            <% else %>
-                <button class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"> 
-                    <%= link_to 'Back', tax_path(tax) %>
-                </button>
+              <%= link_to t('back'), taxes_path, class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+            <% elsif action_name == "edit" %>
+              <%= link_to t('back'), tax_path(tax), class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
             <%end%>
         </div>
     <%end%>
