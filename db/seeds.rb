@@ -30,7 +30,23 @@ end
 
 unless Administrator.any?
   print 'criando administrador...'
-  administrator = FactoryBot.create(:user, :confirmed, :administrator, email: 'administrator@administrator.com', password: '123456').userable
+  FactoryBot.create(:user, :confirmed, :administrator, email: 'administrator@administrator.com', password: '123456').userable
+  puts 'OK!'
+end
+
+unless Tax.any?
+  print 'criando taxas...'
+  FactoryBot.create(:tax)
+  FactoryBot.create(:tax)
+  FactoryBot.create(:tax)
+  puts 'OK!'
+end
+
+unless Product.any?
+  print 'criando produtos...'
+  FactoryBot.create(:product)
+  FactoryBot.create(:product)
+  FactoryBot.create(:product)
   puts 'OK!'
 end
 
