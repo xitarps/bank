@@ -65,6 +65,15 @@ module Authorizable
           'show' => true,
           'update' => true,
           'destroy' => true
+        },
+        'investments' => {
+          'index' => true,
+          'new' => true,
+          'create' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
         }
       },
       'Administrator' => {
@@ -109,6 +118,9 @@ module Authorizable
           'destroy' => true
         },
         'accounts' => {
+          'show' => true
+        },
+        'investments' => {
           'show' => true
         }
       }
