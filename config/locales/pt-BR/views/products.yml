@@ -1,0 +1,25 @@
+pt-BR:
+  products:
+    show:
+      product_id: Número do produto
+      product_name: Nome do produto
+      product_start_date: Data de Início
+      product_final_date: Data de fim
+      product_minimum_amount: Valor mínimo
+      product_tax_id: Taxa n°
+    index:
+      new_product: Novo produto
+      all_products: Todos os produtos
+      show: Mostrar
+    edit:
+      edit_product: Editar produto
+    new:
+      new_product: Novo Produto
+    form:
+      product_name: Nome do produto
+      product_start_date: Data de Início
+      product_final_date: Data de fim
+      product_minimum_amount: Valor mínimo
+      product_tax_id: Taxa
+    destroy:
+      product_destroy: Apagado com sucesso!

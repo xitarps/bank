@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      products: Produtos
+    attributes:
+      products: 
+        name: Nome
+        start_date: Data de Início
+        final_date: Data de Término 
+        minimum_amount: Valor Mínimo
+        tax_id: Taxa n°

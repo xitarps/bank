@@ -5,6 +5,7 @@ pt-BR:
   show: 'Detalhes de '
   search: 'Busca'
   back: 'Voltar'
+  submit: 'Enviar'
   activerecord:
     successful:
       messages:
