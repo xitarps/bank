@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  resources :accounts, except: %i[new create]
   resources :administrators
   resources :classrooms
   resources :contact_lists, only: %i[show] do

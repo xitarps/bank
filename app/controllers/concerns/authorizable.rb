@@ -50,6 +50,13 @@ module Authorizable
           'update' => true,
           'destroy' => true
         },
+        'accounts' => {
+          'index' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
+        },
         'classrooms' => {
           'index' => true,
           'new' => true,
@@ -65,6 +72,13 @@ module Authorizable
           'index' => true,
           'create' => true,
           'new' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
+        },
+        'accounts' => {
+          'index' => true,
           'edit' => true,
           'show' => true,
           'update' => true,
@@ -93,6 +107,9 @@ module Authorizable
         'contact_lists' => {
           'show' => true,
           'destroy' => true
+        },
+        'accounts' => {
+          'show' => true
         }
       }
     }

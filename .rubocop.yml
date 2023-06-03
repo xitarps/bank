@@ -129,6 +129,8 @@ Lint/SafeNavigationChain:
   Enabled: false
 Naming/BlockForwarding: # new in 1.24
   Enabled: true
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
 Security/CompoundHash: # new in 1.28
   Enabled: true
 Security/IoMethods: # new in 1.22
@@ -301,6 +303,10 @@ Metrics/CyclomaticComplexity:
   Enabled: true
 Metrics/AbcSize:
   Enabled: true
+Metrics/ModuleLength:
+  Enabled: true
+  Exclude:
+    - 'app/controllers/concerns/authorizable.rb'
 
 # new custom
 

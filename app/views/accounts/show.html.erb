@@ -1,0 +1,17 @@
+<div>
+<h2><%= 'Conta N°' %>:<%= @account.id %></h2>
+    <div>
+        <h2> <%= 'Customer id:' %>: <span><%= @account.customer_id %></span> </h2>
+        <h2> <%= 'First Name:' %>: <span><%= @account.customer.first_name %></span> </h2>
+        <h2> <%= 'Saldo:' %>:<span><%= @account.amount %></span> </h2>
+        <% if user_signed_in? && ['Customer'].include?(current_user.userable_type) %>
+          <span class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+            <%= link_to t('back'), root_path, class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+          </span>
+        <% end %>
+        <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
+          <%= link_to t('edit'), edit_account_path(@account), class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+          <%= link_to t('back'), accounts_path, class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"%> 
+        <% end %>
+    </div>
+</div>
