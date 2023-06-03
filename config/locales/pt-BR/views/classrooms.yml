@@ -13,3 +13,7 @@ pt-BR:
       name: Nome
       course: Curso
       newclass: Nova Turma
+    edit:
+      edit_classroom: Edição de Turma
+    new:
+      new_classroom: Nova Turma

@@ -46,7 +46,7 @@ RSpec.describe 'Classroom', type: :feature do
 
       click_on 'Enviar'
 
-      expect(page).to have_content('Name não pode ficar em branco')
+      expect(page).to have_content('Nome não pode ficar em branco')
     end
 
     it 'Edit Classroom' do
@@ -86,7 +86,7 @@ RSpec.describe 'Classroom', type: :feature do
 
       click_on 'Enviar'
 
-      expect(page).to have_content('Name não pode ficar em branco')
+      expect(page).to have_content('Nome não pode ficar em branco')
     end
 
     it 'Destroy Classroom' do
