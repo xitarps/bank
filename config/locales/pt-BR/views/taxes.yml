@@ -7,7 +7,6 @@ pt-BR:
     index:
       new_tax: Nova taxa
       all_taxes: Todas as taxas
-      show: Mostrar
     edit:
       edit_tax: Editar taxa
     new:
@@ -15,4 +14,6 @@ pt-BR:
     form:
       tax_name: Nome
       tax_value: Valor
+    destroy:
+      tax_destroy: Taxa apagada com sucesso.
 
