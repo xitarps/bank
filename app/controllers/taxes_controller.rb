@@ -31,7 +31,7 @@ class TaxesController < ApplicationController
   def destroy
     @tax.destroy
 
-    redirect_to taxes_path
+    redirect_to taxes_path, notice: 'Taxa Apagada com sucesso.'
   end
 
   private
