@@ -40,6 +40,15 @@ module Authorizable
           'show' => true,
           'update' => true,
           'destroy' => true
+        },
+        'accounts' => {
+          'index' => true,
+          'new' => true,
+          'create' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
         }
       },
       'Administrator' => {
@@ -51,12 +60,24 @@ module Authorizable
           'show' => true,
           'update' => true,
           'destroy' => true
+        },
+        'accounts' => {
+          'index' => true,
+          'new' => true,
+          'create' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
         }
       },
       'Customer' => {
         'contact_lists' => {
           'show' => true,
           'destroy' => true
+        },
+        'accounts' => {
+          'show' => true,
         }
       }
     }

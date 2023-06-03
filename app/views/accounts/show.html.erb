@@ -1,0 +1,10 @@
+<div>
+<h2><%= 'Conta N°' %>:<%= @account.id %></h2>
+    <div>
+        <h2> <%= 'Customer id:' %>: <span><%= @account.customer_id %></span> </h2>
+        <h2> <%= 'First Name:' %>: <span><%= @account.customer.first_name %></span> </h2>
+        <h2> <%= 'Saldo:' %>:<span><%= @account.amount %></span> </h2>
+        <span class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+        <%= link_to t('back'), root_path %></span>
+    </div>
+</div>

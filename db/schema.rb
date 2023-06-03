@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_30_100047) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_01_183312) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.decimal "amount", precision: 5, scale: 2, default: "0.0", null: false
+    t.bigint "customer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_accounts_on_customer_id"
+  end
 
   create_table "administrators", force: :cascade do |t|
     t.string "name", null: false
@@ -76,6 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_100047) do
     t.index ["userable_type", "userable_id"], name: "index_users_on_userable"
   end
 
+  add_foreign_key "accounts", "customers"
   add_foreign_key "contact_lists", "customers"
   add_foreign_key "customer_contact_lists", "contact_lists"
   add_foreign_key "customer_contact_lists", "customers"
