@@ -1,15 +1,10 @@
-<%=form_with model: administrator, data: {turbo: false} do |form|%>
-    <p>
-        <%=form.label :name, 'name'%>
-        <%=form.text_field :name%>
-    </p>
-
-  
-    
-    <p>
-        <%=form.submit class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2'%>
-         <%= link_to 'Back', administrators_path, class: 'bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-2' %>
-        
-    </p>
-
-<%end%>
+<%= form_with model: administrator, data: {turbo: false} do |form| %>
+  <p>
+    <%= form.label :name, Administrator.human_attribute_name(:name) %>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.submit t('submit'), class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2'%>
+    <%= link_to t('back'), administrators_path, class: 'bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-2' %>
+  </p>
+<% end %>

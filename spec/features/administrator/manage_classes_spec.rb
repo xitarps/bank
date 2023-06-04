@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Classroom', type: :feature do
+RSpec.describe 'Administrator', type: :feature do
   before(:each) do
     User.destroy_all
     Customer.destroy_all
@@ -10,7 +10,7 @@ RSpec.describe 'Classroom', type: :feature do
     Classroom.destroy_all
   end
 
-  context 'Administrator' do
+  context 'Manage Classroom' do
     let(:user) { create(:user, :confirmed, :administrator) }
     # let(:administrator) { create(:administrator) }
 
@@ -29,7 +29,7 @@ RSpec.describe 'Classroom', type: :feature do
       fill_in 'classroom_name', with: name
       fill_in 'classroom_course', with: course
 
-      click_on 'Enviar'
+      click_on 'Confirmar'
 
       expect(page).to have_content(name)
     end
@@ -44,7 +44,7 @@ RSpec.describe 'Classroom', type: :feature do
       fill_in 'classroom_name', with: ''
       fill_in 'classroom_course', with: course
 
-      click_on 'Enviar'
+      click_on 'Confirmar'
 
       expect(page).to have_content('Nome não pode ficar em branco')
     end
@@ -61,7 +61,7 @@ RSpec.describe 'Classroom', type: :feature do
       fill_in 'classroom_name', with: name
       fill_in 'classroom_course', with: course
 
-      click_on 'Enviar'
+      click_on 'Confirmar'
 
       expect(page).to have_content(name)
     end
@@ -84,7 +84,7 @@ RSpec.describe 'Classroom', type: :feature do
 
       fill_in 'classroom_name', with: ''
 
-      click_on 'Enviar'
+      click_on 'Confirmar'
 
       expect(page).to have_content('Nome não pode ficar em branco')
     end

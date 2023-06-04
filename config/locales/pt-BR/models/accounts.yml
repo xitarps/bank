@@ -5,3 +5,4 @@ pt-BR:
     attributes:
       account:
         amount: Saldo
+        customer_id: Cliente
