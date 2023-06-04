@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Account', type: :feature do
+RSpec.describe 'Administrator', type: :feature do
   before(:each) do
     User.destroy_all
     Customer.destroy_all
@@ -10,7 +10,7 @@ RSpec.describe 'Account', type: :feature do
     Classroom.destroy_all
   end
 
-  context 'Administrator' do
+  context 'Manage Account' do
     let!(:admin) { create(:user, :confirmed, :administrator) }
     let!(:user) { create(:user, :confirmed) }
     let!(:another_user) { create(:user, :confirmed) }
@@ -19,7 +19,7 @@ RSpec.describe 'Account', type: :feature do
       login_as(admin, scope: :user)
     end
 
-    it 'visit accounts page' do
+    it 'Visit accounts page' do
       user.userable.account.update(amount: 12.77)
       another_user.userable.account.update(amount: 9.99)
       visit '/'
@@ -29,7 +29,7 @@ RSpec.describe 'Account', type: :feature do
       expect(page).to have_content('9.99')
     end
 
-    it 'update accounts amount' do
+    it 'Update accounts amount' do
       user.userable.account.update(amount: 12.77)
       visit "/accounts/#{user.userable.account.id}"
       click_on 'Editar'
@@ -40,7 +40,7 @@ RSpec.describe 'Account', type: :feature do
       expect(page).to have_content('33.96')
     end
 
-    it 'not update accounts with blank amount' do
+    it 'Not be able to update accounts with blank amount' do
       user.userable.account.update(amount: 12.77)
       visit "/accounts/#{user.userable.account.id}"
       click_on 'Editar'

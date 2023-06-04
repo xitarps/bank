@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Classroom', type: :feature do
+RSpec.describe 'Administrator', type: :feature do
   before(:each) do
     User.destroy_all
     Customer.destroy_all
@@ -10,7 +10,7 @@ RSpec.describe 'Classroom', type: :feature do
     Classroom.destroy_all
   end
 
-  context 'Administrator' do
+  context 'Manage Classroom' do
     let(:user) { create(:user, :confirmed, :administrator) }
     # let(:administrator) { create(:administrator) }
 

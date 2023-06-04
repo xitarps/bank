@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Account', type: :feature do
+RSpec.describe 'Customer', type: :feature do
   before(:each) do
     User.destroy_all
     Customer.destroy_all
@@ -10,7 +10,7 @@ RSpec.describe 'Account', type: :feature do
     Classroom.destroy_all
   end
 
-  context 'Customer' do
+  context 'Manage Account' do
     let(:user) { create(:user, :confirmed) }
     let(:other_user) { create(:user, :confirmed) }
 
@@ -18,7 +18,7 @@ RSpec.describe 'Account', type: :feature do
       login_as(user, scope: :user)
     end
 
-    it 'visit it\'s account page' do
+    it 'Visit it\'s account page' do
       Account.first.update(amount: 12.77)
       visit '/'
       click_on 'Conta'
@@ -26,7 +26,7 @@ RSpec.describe 'Account', type: :feature do
       expect(page).to have_content('12.77')
     end
 
-    it 'not visit other\'s account page' do
+    it 'Not be able visit other\'s account page' do
       user.userable.account.update(amount: 3.14)
       other_user.userable.account.update(amount: 6.28)
 

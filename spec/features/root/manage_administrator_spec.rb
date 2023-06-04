@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Root' do
-  context 'Administrator' do
+  context 'Manage Administrator' do
     before(:each) { User.destroy_all }
     before(:each) { Customer.destroy_all }
     before(:each) { Administrator.destroy_all }

@@ -7,7 +7,7 @@ RSpec.describe 'Customer' do
   context 'Manage Contact list' do
     let(:other_user) { create(:user, email: 'other@gmail.com') }
     let(:another_user) { create(:user, email: 'another@gmail.com') }
-    it 'add customers to contact list' do
+    it 'Add customers to contact list' do
       user = create(:user, :confirmed)
       login_as(user, scope: :user)
 
@@ -21,7 +21,7 @@ RSpec.describe 'Customer' do
       expect(page).to have_content(another_user.userable.first_name.truncate(10))
     end
     # In order to run next test, change folder name to system intead of features or enable js on describe and remove 'x'
-    xit 'remove customer from contact list' do
+    xit 'Remove customer from contact list' do
       user = create(:user, :confirmed)
       login_as(user, scope: :user)
 
