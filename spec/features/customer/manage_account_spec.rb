@@ -23,7 +23,7 @@ RSpec.describe 'Customer', type: :feature do
       visit '/'
       click_on 'Conta'
 
-      expect(page).to have_content('12.77')
+      expect(page).to have_content('12,77')
     end
 
     it 'Not be able visit other\'s account page' do
@@ -32,8 +32,8 @@ RSpec.describe 'Customer', type: :feature do
 
       visit "/accounts/#{other_user.userable.account.id}"
 
-      expect(page).to have_content('3.14')
-      expect(page).not_to have_content('6.28')
+      expect(page).to have_content('3,14')
+      expect(page).not_to have_content('6,28')
     end
   end
 end

@@ -1,6 +1,6 @@
 <div class="flex justify-center items-center h-screen">
   <div class="bg-white p-6 rounded shadow-md">
-    <%= form_with model: @account, data: {turbo: false} do |form| %>
+    <%= form_with model: @account, data: { turbo: false } do |form| %>
       <div class="mb-4">
         <%= form.label :amount, Account.human_attribute_name(:amount).capitalize, class: "block text-gray-700 text-sm font-bold mb-2" %>
         <%= form.text_field :amount, class: "w-full border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
@@ -9,7 +9,7 @@
         <%= link_to '#', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" do %>
           <%= form.submit t('submit') %>
         <% end %>
-        <%= link_to "Voltar", accounts_path, class: "text-gray-500 hover:text-gray-700 font-bold" %>
+        <%= link_to t('back'), accounts_path, class: "text-gray-500 hover:text-gray-700 font-bold" %>
       </div>
     <% end %>
   </div>

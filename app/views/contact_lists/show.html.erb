@@ -5,13 +5,12 @@
         <thead
           class="border-b bg-teal-800 font-medium text-white dark:border-teal-500 dark:bg-teal-900">
           <tr>
-            <th scope="col" class=" px-6 py-4">Email</th>
-            <th scope="col" class=" px-6 py-4">Cpf</th>
-            <th scope="col" class=" px-6 py-4">Actions</th>
+            <th scope="col" class=" px-6 py-4"><%= ContactList.human_attribute_name(:email) %></th>
+            <th scope="col" class=" px-6 py-4"><%= ContactList.human_attribute_name(:cpf) %></th>
+            <th scope="col" class=" px-6 py-4"><%= t('actions') %></th>
           </tr>
         </thead>
         <tbody>
-
           <% @contact_list.customers.each do |customer| %>
             <tr class="border-b dark:border-neutral-500">
               <td class="whitespace-nowrap  px-6 py-4 font-medium"><%= customer.first_name.truncate(10) %></td>
@@ -23,7 +22,6 @@
               </td>
             </tr>
           <% end %>
-
         </tbody>
       </table>
     </div>

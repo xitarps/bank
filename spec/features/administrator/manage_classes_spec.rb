@@ -29,7 +29,7 @@ RSpec.describe 'Administrator', type: :feature do
       fill_in 'classroom_name', with: name
       fill_in 'classroom_course', with: course
 
-      click_on 'Enviar'
+      click_on 'Confirmar'
 
       expect(page).to have_content(name)
     end
@@ -44,7 +44,7 @@ RSpec.describe 'Administrator', type: :feature do
       fill_in 'classroom_name', with: ''
       fill_in 'classroom_course', with: course
 
-      click_on 'Enviar'
+      click_on 'Confirmar'
 
       expect(page).to have_content('Nome não pode ficar em branco')
     end
@@ -61,7 +61,7 @@ RSpec.describe 'Administrator', type: :feature do
       fill_in 'classroom_name', with: name
       fill_in 'classroom_course', with: course
 
-      click_on 'Enviar'
+      click_on 'Confirmar'
 
       expect(page).to have_content(name)
     end
@@ -84,7 +84,7 @@ RSpec.describe 'Administrator', type: :feature do
 
       fill_in 'classroom_name', with: ''
 
-      click_on 'Enviar'
+      click_on 'Confirmar'
 
       expect(page).to have_content('Nome não pode ficar em branco')
     end

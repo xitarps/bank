@@ -25,8 +25,8 @@ RSpec.describe 'Administrator', type: :feature do
       visit '/'
       click_on 'Contas'
 
-      expect(page).to have_content('12.77')
-      expect(page).to have_content('9.99')
+      expect(page).to have_content('12,77')
+      expect(page).to have_content('9,99')
     end
 
     it 'Update accounts amount' do
@@ -35,9 +35,9 @@ RSpec.describe 'Administrator', type: :feature do
       click_on 'Editar'
 
       fill_in 'Saldo', with: 33.96
-      click_on 'Enviar'
+      click_on 'Confirmar'
 
-      expect(page).to have_content('33.96')
+      expect(page).to have_content('33,96')
     end
 
     it 'Not be able to update accounts with blank amount' do
@@ -46,7 +46,7 @@ RSpec.describe 'Administrator', type: :feature do
       click_on 'Editar'
 
       fill_in 'Saldo', with: ''
-      click_on 'Enviar'
+      click_on 'Confirmar'
 
       expect(page).to have_content('Saldo não pode ficar em branco')
     end

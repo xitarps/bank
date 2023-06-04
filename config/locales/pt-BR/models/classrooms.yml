@@ -1,7 +1,7 @@
 pt-BR:
   activerecord:
     models:
-      Classroom: Turma
+      classroom: Turma
     attributes:
       classroom:
         name: Nome

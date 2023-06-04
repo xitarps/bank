@@ -24,7 +24,7 @@ RSpec.describe 'Administrator' do
       fill_in 'Valor mínimo',     with: Faker::Number.decimal(l_digits: 4, r_digits: 2)
       select nil,                 from: 'Taxa'
 
-      click_on 'Enviar'
+      click_on 'Confirmar'
       expect(page).to have_content(name)
     end
     it 'Edit Product' do
@@ -33,14 +33,14 @@ RSpec.describe 'Administrator' do
       FactoryBot.create(:product)
       visit '/products'
 
-      click_on 'Detalhes de'
+      click_on 'Detalhes'
       click_on 'Editar'
 
       name2 = Faker::Commerce.product_name
 
       fill_in 'Nome do produto', with: name2
 
-      click_on 'Enviar'
+      click_on 'Confirmar'
       expect(page).to have_content(name2)
     end
     it 'Edit Product invalid' do
@@ -49,13 +49,13 @@ RSpec.describe 'Administrator' do
       FactoryBot.create(:product)
       visit '/products'
 
-      click_on 'Detalhes de'
+      click_on 'Detalhes'
       click_on 'Editar'
 
       fill_in 'Nome do produto', with: ''
 
-      click_on 'Enviar'
-      expect(page).to have_content('Name não pode ficar em branco')
+      click_on 'Confirmar'
+      expect(page).to have_content('Nome não pode ficar em branco')
     end
     it 'Destroy Product' do
       user = create(:user, :confirmed, :root)
@@ -64,7 +64,7 @@ RSpec.describe 'Administrator' do
       visit '/'
 
       click_on 'Produtos'
-      click_on 'Detalhes de'
+      click_on 'Detalhes'
       click_on 'Apagar'
       expect(page).to have_content('Apagado com sucesso!')
     end
@@ -83,8 +83,8 @@ RSpec.describe 'Administrator' do
       fill_in 'Valor mínimo',     with: Faker::Number.decimal(l_digits: 4, r_digits: 2)
       select(tax.name.to_s, from: 'Taxa')
 
-      click_on 'Enviar'
-      expect(page).to have_content('Name não pode ficar em branco')
+      click_on 'Confirmar'
+      expect(page).to have_content('Nome não pode ficar em branco')
     end
   end
 end
