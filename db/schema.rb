@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_02_012017) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_04_142103) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,8 +29,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_02_012017) do
   end
 
   create_table "classrooms", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "course", null: false
+    t.string "name"
+    t.string "course"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,6 +40,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_02_012017) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_contact_lists_on_customer_id"
+  end
+
+  create_table "customer_classes", force: :cascade do |t|
+    t.bigint "customer_id", null: false
+    t.bigint "classroom_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["classroom_id"], name: "index_customer_classes_on_classroom_id"
+    t.index ["customer_id"], name: "index_customer_classes_on_customer_id"
   end
 
   create_table "customer_contact_lists", force: :cascade do |t|
@@ -104,6 +113,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_02_012017) do
 
   add_foreign_key "accounts", "customers"
   add_foreign_key "contact_lists", "customers"
+  add_foreign_key "customer_classes", "classrooms"
+  add_foreign_key "customer_classes", "customers"
   add_foreign_key "customer_contact_lists", "contact_lists"
   add_foreign_key "customer_contact_lists", "customers"
   add_foreign_key "products", "taxes"
