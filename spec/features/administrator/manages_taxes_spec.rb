@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Administrator' do
-  context 'Tax' do
+  context 'Manage Tax' do
     before(:each) { User.destroy_all }
     before(:each) { Customer.destroy_all }
     before(:each) { Root.destroy_all }
@@ -19,7 +19,7 @@ RSpec.describe 'Administrator' do
       fill_in 'Nome',	    with: name
       fill_in 'Valor',    with: Faker::Number.decimal(l_digits: 2, r_digits: 2)
 
-      click_on 'Enviar'
+      click_on 'Confirmar'
       expect(page).to have_content(name)
     end
     it 'Edit Tax' do
@@ -28,7 +28,7 @@ RSpec.describe 'Administrator' do
       FactoryBot.create(:tax)
       visit '/taxes'
 
-      click_on 'Detalhes de'
+      click_on 'Detalhes'
       click_on 'Editar'
 
       name2 = Faker::Ancient.god
@@ -36,7 +36,7 @@ RSpec.describe 'Administrator' do
       fill_in 'Nome',	    with: name2
       fill_in 'Valor',    with: Faker::Number.decimal(l_digits: 2, r_digits: 2)
 
-      click_on 'Enviar'
+      click_on 'Confirmar'
       expect(page).to have_content(name2)
     end
     it 'Destroy Tax' do
@@ -45,7 +45,7 @@ RSpec.describe 'Administrator' do
       FactoryBot.create(:tax)
       visit '/taxes'
 
-      click_on 'Detalhes de'
+      click_on 'Detalhes'
       click_on 'Apagar'
 
       expect(page).to have_content('Taxa apagada com sucesso.')
@@ -61,8 +61,8 @@ RSpec.describe 'Administrator' do
       fill_in 'Nome',	    with: ''
       fill_in 'Valor',    with: Faker::Number.decimal(l_digits: 2, r_digits: 2)
 
-      click_on 'Enviar'
-      expect(page).to have_content('Name não pode ficar em branco')
+      click_on 'Confirmar'
+      expect(page).to have_content('Nome não pode ficar em branco')
     end
     it 'Edit Tax' do
       user = create(:user, :confirmed, :root)
@@ -70,14 +70,14 @@ RSpec.describe 'Administrator' do
       FactoryBot.create(:tax)
       visit '/taxes'
 
-      click_on 'Detalhes de'
+      click_on 'Detalhes'
       click_on 'Editar'
 
       fill_in 'Nome',	    with: ''
       fill_in 'Valor',    with: Faker::Number.decimal(l_digits: 2, r_digits: 2)
 
-      click_on 'Enviar'
-      expect(page).to have_content('Name não pode ficar em branco')
+      click_on 'Confirmar'
+      expect(page).to have_content('Nome não pode ficar em branco')
     end
   end
 end

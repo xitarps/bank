@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Root' do
-  context 'Administrator' do
+  context 'Manage Administrator' do
     before(:each) { User.destroy_all }
     before(:each) { Customer.destroy_all }
     before(:each) { Administrator.destroy_all }
@@ -13,13 +13,13 @@ RSpec.describe 'Root' do
       visit '/'
 
       click_on 'Administradores'
-      click_on 'New administrator'
+      click_on 'Novo Administrador'
 
       name = Faker::Ancient.god
 
-      fill_in 'name', with: name
+      fill_in 'Nome', with: name
 
-      click_on 'Criar Administrator'
+      click_on 'Confirmar'
       expect(page).to have_content(name)
     end
 
@@ -29,12 +29,12 @@ RSpec.describe 'Root' do
       visit '/'
 
       click_on 'Administradores'
-      click_on 'New administrator'
+      click_on 'Novo Administrador'
 
-      fill_in 'name', with: ''
+      fill_in 'Nome', with: ''
 
-      click_on 'Criar Administrator'
-      expect(page).to have_content('Name não pode ficar em branco')
+      click_on 'Confirmar'
+      expect(page).to have_content('Nome não pode ficar em branco')
     end
 
     it 'Edit Administrator' do
@@ -43,13 +43,13 @@ RSpec.describe 'Root' do
       FactoryBot.create(:administrator)
       visit '/administrators'
 
-      click_on 'Edit'
+      click_on 'Editar'
 
       name2 = Faker::Ancient.god
 
-      fill_in 'name',	    with: name2
+      fill_in 'Nome', with: name2
 
-      click_on 'Atualizar Administrator'
+      click_on 'Confirmar'
       expect(page).to have_content(name2)
     end
 
@@ -63,9 +63,9 @@ RSpec.describe 'Root' do
 
       name = administrator.name
 
-      fill_in 'name', with: ''
+      fill_in 'Nome', with: ''
 
-      click_on 'Back' # Assuming there's a cancel button
+      click_on 'Voltar' # Assuming there's a cancel button
 
       expect(page).to have_content(name)
     end
@@ -78,10 +78,10 @@ RSpec.describe 'Root' do
 
       click_on 'Edit'
 
-      fill_in 'name', with: ''
+      fill_in 'Nome', with: ''
 
-      click_on 'Atualizar Administrator'
-      expect(page).to have_content('Name não pode ficar em branco')
+      click_on 'Confirmar'
+      expect(page).to have_content('Nome não pode ficar em branco')
     end
 
     it 'Destroy Administrator' do
@@ -90,7 +90,7 @@ RSpec.describe 'Root' do
       administrator = FactoryBot.create(:administrator)
       visit '/administrators'
 
-      click_on 'Erase'
+      click_on 'Apagar'
 
       expect(page).not_to have_content(administrator.name)
     end

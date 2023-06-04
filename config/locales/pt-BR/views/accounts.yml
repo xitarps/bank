@@ -1,0 +1,6 @@
+pt-BR:
+  accounts:
+    index:
+      accounts_list: Contas
+    edit:
+      edit_account: Edita Conta

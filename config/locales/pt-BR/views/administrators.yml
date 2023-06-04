@@ -2,5 +2,10 @@ pt-BR:
   administrators:
     index:
       name: Nome
-      
-      
+      new_administrator: Novo Administrador
+    edit:
+      edit_administrator: Editar Administrador
+    show:
+      administrator_details: Detalhes do Administrador
+    new:
+      new_administrator: Novo Administrador

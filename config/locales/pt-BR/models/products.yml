@@ -1,9 +1,9 @@
 pt-BR:
   activerecord:
     models:
-      products: Produtos
+      product: Produto
     attributes:
-      products: 
+      product:
         name: Nome
         start_date: Data de Início
         final_date: Data de Término 

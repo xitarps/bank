@@ -5,7 +5,7 @@ RSpec.describe 'Visitor' do
   before(:each) { Customer.destroy_all }
   before(:each) { Root.destroy_all }
   context 'Visit home' do
-    it 'View nav bar' do
+    it 'View navbar' do
       visit '/'
 
       expect(page).to have_content('Login')
