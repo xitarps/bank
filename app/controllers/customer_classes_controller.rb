@@ -1,4 +1,4 @@
-class CustomerclassesController < ApplicationController
+class CustomerClassesController < ApplicationController
   def new
     @customer_class = CustomerClass.new
     @customers = Customer.all
@@ -17,6 +17,6 @@ class CustomerclassesController < ApplicationController
   private
 
   def customer_class_params
-    params.require(:customer_class).permit(:customer_id, :class_id)
+    params.require(:customer_class).permit(:customer_id, :classroom_id)
   end
 end
