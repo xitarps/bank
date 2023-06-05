@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :customers, only: %i[index]
     resources :customers, only: %i[destroy], controller: :contact_lists
   end
-  resources :customer_classes, only: [:new, :create]
+  resources :customer_classes
   resources :products
   resources :taxes
 

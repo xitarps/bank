@@ -1,17 +1,3 @@
 <h1>Atrelar Usuário à Turma</h1>
 
-<%= form_with(model: @customer_class) do |form| %>
-  <div class="field">
-    <%= form.label :customer_id %>
-    <%= form.collection_select :customer_id, @customers, :id, :first_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :classroom_id %>
-    <%= form.collection_select :classroom_id, @classrooms, :id, :name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit 'Atrelar' %>
-  </div>
-<% end %>
+<%= render 'form', classroom: @classroom %>
