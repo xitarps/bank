@@ -1,7 +1,5 @@
-<h2 class="text-center text-2xl font-bold mb-4">OLÁ ADMINISTRADOR</h2>
-
 <p class="text-center">
-  <%= link_to 'New administrator', new_administrator_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
+  <%= link_to t('.new_administrator'), new_administrator_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
 </p>
 
 <div class="flex flex-col items-center">
@@ -29,9 +27,9 @@
                   <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                 </th>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  <%= link_to 'Details', administrator_path(administrator), class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2' %>
-                  <%= link_to 'Edit', edit_administrator_path(administrator), class: 'bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-2' %>
-                  <%= link_to 'Erase', administrator_path(administrator), data: { 'turbo-method': :delete, 'turbo-confirm': 'confirmar ação de apagar?' }, class: 'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded' %>
+                  <%= link_to t('show'), administrator_path(administrator), class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2' %>
+                  <%= link_to t('edit'), edit_administrator_path(administrator), class: 'bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-2' %>
+                  <%= link_to t('destroy'), administrator_path(administrator), data: { 'turbo-method': :delete, 'turbo-confirm': 'confirmar ação de apagar?' }, class: 'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded' %>
                 </td>
               </tr>
             <% end %>

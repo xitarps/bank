@@ -2,10 +2,11 @@ pt-BR:
   edit: 'Editar'
   new: 'Criar'
   destroy: 'Apagar'
-  show: 'Detalhes de '
+  show: 'Detalhes'
   search: 'Busca'
   back: 'Voltar'
-  submit: 'Enviar'
+  submit: 'Confirmar'
+  actions: 'Ações'
   activerecord:
     successful:
       messages:
