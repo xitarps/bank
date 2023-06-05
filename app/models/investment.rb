@@ -4,5 +4,4 @@ class Investment < ApplicationRecord
 
   validates :amount, presence: true
   validates :amount, numericality: true
-
 end

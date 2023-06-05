@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Administrator', type: :feature do
-  
   context 'Manage Account' do
     before(:each) do
       Investment.destroy_all

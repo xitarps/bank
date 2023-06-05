@@ -7,7 +7,7 @@ class InvestmentsController < ApplicationController
     @investments ||= Investment.all
   end
 
-  def show;  end
+  def show; end
 
   def new
     @investment = Investment.new
@@ -24,7 +24,10 @@ class InvestmentsController < ApplicationController
   end
 
   def update
-    return redirect_to investments_path(@investment), notice: t('.investment_update') if @investment.update(investment_params)
+    if @investment.update(investment_params)
+      return redirect_to investments_path(@investment),
+                         notice: t('.investment_update')
+    end
 
     render :edit
   end
@@ -42,8 +45,9 @@ class InvestmentsController < ApplicationController
   end
 
   def fetch_investment
-    @investment = current_user.userable.account.investments.find(params[:id]) if current_user.userable_type == 'Customer'
+    if current_user.userable_type == 'Customer'
+      @investment = current_user.userable.account.investments.find(params[:id])
+    end
     @investment ||= Investment.find(params[:id])
   end
 end
-

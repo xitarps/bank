@@ -18,7 +18,7 @@ RSpec.describe 'Customer' do
       click_on 'Investimentos'
       click_on 'Novo investimento'
 
-      fill_in 'Saldo a investir',     with: Faker::Number.within(range:1..10000)
+      fill_in 'Saldo a investir',     with: Faker::Number.within(range: 1..10_000)
       select(product.name.to_s, from: 'Produto de investimento')
 
       click_on 'Confirmar'
@@ -50,7 +50,7 @@ RSpec.describe 'Customer' do
       click_on 'Investimentos'
       click_on 'Novo investimento'
 
-      fill_in 'Saldo a investir',     with: Faker::Number.within(range:1..10000)
+      fill_in 'Saldo a investir',     with: Faker::Number.within(range: 1..10_000)
       select(product.name.to_s, from: 'Produto de investimento')
 
       click_on 'Confirmar'
@@ -67,14 +67,14 @@ RSpec.describe 'Customer' do
       click_on 'Investimentos'
       click_on 'Novo investimento'
 
-      fill_in 'Saldo a investir',     with: Faker::Number.within(range:1..10000)
+      fill_in 'Saldo a investir',     with: Faker::Number.within(range: 1..10_000)
       select(product.name.to_s, from: 'Produto de investimento')
 
       click_on 'Confirmar'
       click_on 'Detalhes'
       click_on 'Editar'
 
-      fill_in 'Saldo a investir',     with: Faker::Number.within(range:1..10000)
+      fill_in 'Saldo a investir', with: Faker::Number.within(range: 1..10_000)
 
       click_on 'Confirmar'
       expect(page).to have_content('Investimento atualizado com sucesso!')
@@ -88,14 +88,14 @@ RSpec.describe 'Customer' do
       click_on 'Investimentos'
       click_on 'Novo investimento'
 
-      fill_in 'Saldo a investir',     with: Faker::Number.within(range:1..10000)
+      fill_in 'Saldo a investir',     with: Faker::Number.within(range: 1..10_000)
       select(product.name.to_s, from: 'Produto de investimento')
 
       click_on 'Confirmar'
       click_on 'Detalhes'
       click_on 'Editar'
 
-      fill_in 'Saldo a investir',     with: ''
+      fill_in 'Saldo a investir', with: ''
 
       click_on 'Confirmar'
       expect(page).to have_content('Saldo não pode ficar em branco')
