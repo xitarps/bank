@@ -24,6 +24,9 @@ module RaroBank
     config.i18n.default_locale = :'pt-BR'
     config.time_zone = 'America/Fortaleza'
 
+    # Ngrok on development
+    config.hosts << /.+\.ngrok-free\.app/ if Rails.env.development?
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
