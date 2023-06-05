@@ -1,0 +1,17 @@
+pt-BR:
+  customer_classes:
+    show:
+      name: Aluno
+      classroom: Turma
+    form:
+      name: Aluno
+      classroom: Turma
+    index:
+      name: Aluno
+      classroom: Turma
+      newcustomer_class: Atrela aluno
+      students_class: Turmas de Alunos
+    #edit:
+     # edit_classroom: Edição de Turma
+    #new:
+     # new_classroom: Nova Turma
