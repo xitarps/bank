@@ -3,14 +3,16 @@ class CustomerClassesController < ApplicationController
   def index
     @customer_classes = CustomerClass.all
   end
-  
+
+  def show; end
+
   def new
     @customer_class = CustomerClass.new
     @customers = Customer.all
     @classrooms = Classroom.all
   end
 
-  def edit 
+  def edit
     @customers = Customer.all
     @classrooms = Classroom.all
   end
@@ -18,7 +20,7 @@ class CustomerClassesController < ApplicationController
   def create
     @customer_class = CustomerClass.new(customer_class_params)
     if @customer_class.save
-      redirect_to customer_classes_path, notice: 'Usuário atrelado com sucesso.'
+      redirect_to customer_classes_path, notice: I18n.t('customer_classes.notice.user_attached')
     else
       render :new
     end
@@ -35,6 +37,7 @@ class CustomerClassesController < ApplicationController
 
     redirect_to customer_classes_path
   end
+
   private
 
   def customer_class_params

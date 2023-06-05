@@ -235,3 +235,4 @@ pt-BR:
   notices:
     classroom_created: 'Sala criado com sucesso.'
     administrator_created: 'Administrador criado com sucesso.'
+    user_attached: 'Usuário atrelado com sucesso.'
