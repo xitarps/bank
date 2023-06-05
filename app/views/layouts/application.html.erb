@@ -15,7 +15,9 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/notice_alert' %>
     <main class="container mx-auto mt-10 px-10 flex">
-      <%= yield %>
+      <div class='container'>
+        <%= yield %>
+      </div>
     </main>
   </body>
 </html>
