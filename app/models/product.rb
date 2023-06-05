@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :tax
-  has_many :investment
+  has_many :investments
+  has_many :accounts, through: :investments
 
   validates :name, presence: true
   validates :start_date, presence: true

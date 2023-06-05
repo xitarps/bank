@@ -68,11 +68,11 @@ module Authorizable
         },
         'investments' => {
           'index' => true,
-          'new' => true,
-          'create' => true,
-          'edit' => true,
+          'new' => false,
+          'create' => false,
+          'edit' => false,
           'show' => true,
-          'update' => true,
+          'update' => false,
           'destroy' => true
         }
       },
@@ -121,7 +121,13 @@ module Authorizable
           'show' => true
         },
         'investments' => {
-          'show' => true
+          'index' => true,
+          'new' => true,
+          'create' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
         }
       }
     }

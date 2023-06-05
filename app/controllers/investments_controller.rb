@@ -1,20 +1,22 @@
 class InvestmentsController < ApplicationController
   before_action :authenticate_and_authorize!
-  before_action :fetch_investments, only: %i[show edit update destroy]
+  before_action :fetch_investment, only: %i[show edit update destroy]
+
   def index
-    @investments = Investment.all
+    @investments = current_user.userable.account&.investments if current_user.userable_type == 'Customer'
+    @investments ||= Investment.all
   end
 
   def show;  end
 
   def new
-    @investment = investment.new
+    @investment = Investment.new
   end
 
   def edit; end
 
   def create
-    @investment = investment.new(investment_params)
+    @investment = current_user.userable.account.investments.new(investment_params)
 
     return redirect_to investments_path if @investment.save
 
@@ -35,8 +37,13 @@ class InvestmentsController < ApplicationController
 
   private
 
-  def fetch_investments
-    @investment = Investment.find(params[:id])
+  def investment_params
+    params.require(:investment).permit(:amount, :product_id, :account_id)
+  end
+
+  def fetch_investment
+    @investment = current_user.userable.account.investments.find(params[:id]) if current_user.userable_type == 'Customer'
+    @investment ||= Investment.find(params[:id])
   end
 end
 

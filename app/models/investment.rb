@@ -1,4 +1,8 @@
 class Investment < ApplicationRecord
-  has_one :account
-  has_one :product
+  belongs_to :account
+  belongs_to :product
+
+  validates :amount, presence: true
+  validates :amount, numericality: true
+
 end
