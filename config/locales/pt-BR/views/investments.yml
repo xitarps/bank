@@ -16,3 +16,7 @@ pt-BR:
       edit_investment: Editar investimento
     destroy:
       investment_destroy: Investimento apagado com sucesso!
+    create:
+      investment_create: Investimento criado com sucesso!
+    update:
+      investment_update: Investimento atualizado com sucesso!

@@ -7,6 +7,8 @@ RSpec.describe 'Visitor' do
     Customer.destroy_all
     Administrator.destroy_all
     Root.destroy_all
+    Investment.destroy_all
+    Product.destroy_all
     Tax.destroy_all
     Classroom.destroy_all
   end

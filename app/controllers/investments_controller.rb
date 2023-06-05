@@ -18,13 +18,13 @@ class InvestmentsController < ApplicationController
   def create
     @investment = current_user.userable.account.investments.new(investment_params)
 
-    return redirect_to investments_path if @investment.save
+    return redirect_to investments_path, notice: t('.investment_create') if @investment.save
 
     render :new
   end
 
   def update
-    return redirect_to investments_path(@investment) if @investment.update(investment_params)
+    return redirect_to investments_path(@investment), notice: t('.investment_update') if @investment.update(investment_params)
 
     render :edit
   end
