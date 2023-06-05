@@ -1,24 +1,24 @@
 <div>
-  <%= form_with model: @investment, data: {turbo: false} do |i| %>
+  <%= form_with model: @investment, data: {turbo: false} do |investment| %>
     <div>
-      <%= i.label :amount, t('.investment_amount') %>:
+      <%= investment.label :amount, t('.investment_amount') %>:
     <div>
-      <%= i.text_field :amount %>
+      <%= investment.text_field :amount %>
     </div>
     <div>
-      <%= i.label :product_id, t('.investment_product') %>:
+      <%= investment.label :product_id, t('.investment_product') %>:
     </div>
     <div>
-      <%= i.select :product_id, options_for_select(Product.all.map{|p|[p.name, p.id]}) %>
+      <%= investment.select :product_id, options_for_select(Product.all.map{|product|[product.name, product.id]}) %>
     </div>
     <div>
       <%= link_to '#', class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" do %>
-        <%= i.submit t('submit') %>
+        <%= investment.submit t('submit') %>
       <% end %>
       <% if action_name == "new" %>
         <%= link_to t('back'), investments_path, class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
       <% elsif action_name == "edit" %>
-        <%= link_to t('back'), investment_path(investment), class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+        <%= link_to t('back'), investment_path(@investment), class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
       <%end%>
     </div>
   <%end%>
