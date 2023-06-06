@@ -5,6 +5,9 @@ class Customer < ApplicationRecord
 
   has_many :customer_contact_lists, dependent: :destroy
   has_many :contact_lists, through: :customer_contact_lists
+  has_many :customer_classes, dependent: :nullify
+
+  has_many :classrooms, through: :customer_classes
 
   validates :first_name, presence: true
   validates :last_name, presence: true

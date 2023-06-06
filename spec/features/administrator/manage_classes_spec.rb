@@ -6,7 +6,6 @@ RSpec.describe 'Administrator', type: :feature do
     Customer.destroy_all
     Administrator.destroy_all
     Root.destroy_all
-    Tax.destroy_all
     Classroom.destroy_all
   end
 

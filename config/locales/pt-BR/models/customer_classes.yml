@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    models:
+      customer_class: Alunos
+    attributes:
+      classroom:
+        name: Nome
+        classroom: Turma

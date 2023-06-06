@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_and_authorize!
-  before_action :search_product, only: %i[show edit update destroy]
+  before_action :fetch_product, only: %i[show edit update destroy]
 
   def index
     @products = Product.all
@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :start_date, :final_date, :minimum_amount, :tax_id)
   end
 
-  def search_product
+  def fetch_product
     @product = Product.find(params[:id])
   end
 end

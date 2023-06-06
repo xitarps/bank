@@ -1,0 +1,7 @@
+pt-BR:
+  activerecord:
+    models:
+      investment: Investimento
+    attributes:
+      investment:
+        amount: Saldo
