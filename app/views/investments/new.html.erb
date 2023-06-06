@@ -1,0 +1,7 @@
+<div> 
+   <%= t('.new_investment')%>:
+    <%= render 'shared/errors', object: @investment %>
+    <div>
+        <%= render 'form', investment: @investment %>
+    </div>
+</div>
