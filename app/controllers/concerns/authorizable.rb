@@ -5,6 +5,9 @@ module Authorizable
 
   def authenticate_and_authorize!
     authenticate_user!
+
+    return if current_user.userable_type == 'Root'
+
     authorized = !!authorizations.dig(current_user.userable_type, controller_name, action_name)
     render 'home/index' unless authorized
   end
@@ -18,64 +21,6 @@ module Authorizable
     #   }
     # }
     {
-      'Root' => {
-        'taxes' => {
-          'index' => true,
-          'create' => true,
-          'new' => true,
-          'edit' => true,
-          'show' => true,
-          'update' => true,
-          'destroy' => true
-        },
-        'contact_lists' => {
-          'show' => true,
-          'destroy' => true
-        },
-        'products' => {
-          'index' => true,
-          'create' => true,
-          'new' => true,
-          'edit' => true,
-          'show' => true,
-          'update' => true,
-          'destroy' => true
-        },
-        'administrators' => {
-          'index' => true,
-          'new' => true,
-          'create' => true,
-          'edit' => true,
-          'show' => true,
-          'update' => true,
-          'destroy' => true
-        },
-        'accounts' => {
-          'index' => true,
-          'edit' => true,
-          'show' => true,
-          'update' => true,
-          'destroy' => true
-        },
-        'classrooms' => {
-          'index' => true,
-          'new' => true,
-          'create' => true,
-          'edit' => true,
-          'show' => true,
-          'update' => true,
-          'destroy' => true
-        },
-        'investments' => {
-          'index' => true,
-          'new' => false,
-          'create' => false,
-          'edit' => false,
-          'show' => true,
-          'update' => false,
-          'destroy' => true
-        }
-      },
       'Administrator' => {
         'taxes' => {
           'index' => true,
