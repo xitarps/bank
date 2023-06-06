@@ -1,16 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe 'Administrator', type: :feature do
-  before(:each) do
-    User.destroy_all
-    Customer.destroy_all
-    Administrator.destroy_all
-    Root.destroy_all
-    Tax.destroy_all
-    Classroom.destroy_all
-  end
-
   context 'Manage Account' do
+    before(:each) do
+      Investment.destroy_all
+      Product.destroy_all
+      Tax.destroy_all
+      User.destroy_all
+      Customer.destroy_all
+      Administrator.destroy_all
+      Root.destroy_all
+      Classroom.destroy_all
+    end
     let!(:admin) { create(:user, :confirmed, :administrator) }
     let!(:user) { create(:user, :confirmed) }
     let!(:another_user) { create(:user, :confirmed) }

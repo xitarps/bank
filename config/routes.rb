@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :customers, only: %i[destroy], controller: :contact_lists
   end
   resources :customer_classes
+  resources :investments
   resources :products
   resources :taxes
 

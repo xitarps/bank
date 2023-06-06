@@ -1,0 +1,22 @@
+pt-BR:
+  investments:
+    index:
+      all_investments: Todos os investimentos
+      new_investment: Novo investimento
+    new:
+      new_investment: Novo investimento
+    show: 
+      investment_id: Investimento N°
+      investment_amount: Saldo do investimento
+      investment_product: Produto de investimento
+    form:
+      investment_amount: Saldo a investir
+      investment_product: Produto de investimento
+    edit:
+      edit_investment: Editar investimento
+    destroy:
+      investment_destroy: Investimento apagado com sucesso!
+    create:
+      investment_create: Investimento criado com sucesso!
+    update:
+      investment_update: Investimento atualizado com sucesso!

@@ -5,24 +5,23 @@ RSpec.describe 'Administrator' do
     before(:each) { User.destroy_all }
     before(:each) { Customer.destroy_all }
     before(:each) { Root.destroy_all }
+    before(:each) { Product.destroy_all }
     before(:each) { Tax.destroy_all }
-    after(:each) { Product.destroy_all }
     it 'Create Product' do
       user = create(:user, :confirmed, :administrator)
       login_as(user, scope: :user)
-      FactoryBot.create(:tax)
+      name = Faker::Commerce.product_name
+      tax = FactoryBot.create(:tax)
       visit '/'
 
       click_on 'Produtos'
       click_on 'Novo produto'
 
-      name = Faker::Commerce.product_name
-
       fill_in 'Nome do produto',  with: name
-      fill_in 'Data de Início',   with: Faker::Date.between(from: Time.zone.today, to: '2024-12-31')
+      fill_in 'Data de início',   with: Faker::Date.between(from: Time.zone.today, to: '2024-12-31')
       fill_in 'Data de fim',      with: Faker::Date.between(from: Date.tomorrow, to: '2024-12-31')
       fill_in 'Valor mínimo',     with: Faker::Number.decimal(l_digits: 4, r_digits: 2)
-      select nil,                 from: 'Taxa'
+      select(tax.name.to_s, from: 'Taxa')
 
       click_on 'Confirmar'
       expect(page).to have_content(name)
@@ -78,7 +77,7 @@ RSpec.describe 'Administrator' do
       click_on 'Novo produto'
 
       fill_in 'Nome do produto',  with: ''
-      fill_in 'Data de Início',   with: Faker::Date.between(from: Time.zone.today, to: '2024-12-31')
+      fill_in 'Data de início',   with: Faker::Date.between(from: Time.zone.today, to: '2024-12-31')
       fill_in 'Data de fim',      with: Faker::Date.between(from: Date.tomorrow, to: '2024-12-31')
       fill_in 'Valor mínimo',     with: Faker::Number.decimal(l_digits: 4, r_digits: 2)
       select(tax.name.to_s, from: 'Taxa')

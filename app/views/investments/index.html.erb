@@ -1,0 +1,20 @@
+<div class="container mx-auto algin=center">
+  <%= t('.all_investments') %>:
+  <span class="float-right bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+    <%= link_to t('.new_investment'), new_investment_path %>
+  </span>
+  <div>
+    <% @investments.each do |investment| %>
+      <div>
+        <span><%= investment.id %></span>
+        <span><%= number_to_currency investment.amount %></span>
+        <span><%= investment.account.customer.first_name %></span>
+        <span><%= investment.product.name %></span>
+        <p>
+          <span class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+          <%= link_to t('show'), investment_path(investment) %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>

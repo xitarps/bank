@@ -18,7 +18,7 @@
       <% if action_name == 'new' %>
         <%= link_to t('back'), products_path, class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
       <% elsif action_name == 'edit' %>
-        <%= link_to t('back'), products_path(product), class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+        <%= link_to t('back'), product_path(@product), class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
       <%end%>
     </div>
   <%end%>
