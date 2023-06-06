@@ -1,16 +1,17 @@
 
-<%= form_with(model: @customer_class, class: 'w-full max-w-sm mx-auto') do |form| %>
+<%= form_with(model: @customer_class, class: 'w-full max-w-sm mx-auto', data: { turbo: false }) do |form| %>
   <div class="mb-4">
-    <%= form.label t('.name'), class: 'block text-gray-700 text-sm font-bold mb-2' %>
-    <%= form.collection_select :customer_id, @customers, :id, :first_name, { prompt: 'Selecione um cliente' }, class: 'form-select block w-full mt-1' %>
+    <%= form.label :customer_id, t('.name'), class: 'block text-gray-700 text-sm font-bold mb-2' %>
+    <%= form.collection_select :customer_id, @customers, :id, :first_name, { include_blank: 'Selecione um cliente' },class: 'form-select block w-full mt-1' %>
   </div>
 
   <div class="mb-4">
-    <%= form.label t('.classroom'), class: 'block text-gray-700 text-sm font-bold mb-2' %>
-    <%= form.collection_select :classroom_id, @classrooms, :id, :name, { prompt: 'Selecione uma turma' }, class: 'form-select block w-full mt-1' %>
+    <%= form.label :classroom_id, t('.classroom'), class: 'block text-gray-700 text-sm font-bold mb-2' %>
+    <%= form.collection_select :classroom_id, @classrooms, :id, :name, { include_blank: 'Selecione uma turma' }, class: 'form-select block w-full mt-1' %>
   </div>
 
   <div class="flex justify-center">
     <%= form.submit 'Atrelar', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
   </div>
 <% end %>
+

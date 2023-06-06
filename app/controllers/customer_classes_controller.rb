@@ -1,4 +1,5 @@
 class CustomerClassesController < ApplicationController
+  before_action :authenticate_and_authorize!
   before_action :fetch_customer_class, only: [:show, :edit, :update, :destroy]
   def index
     @customer_classes = CustomerClass.all
@@ -22,6 +23,9 @@ class CustomerClassesController < ApplicationController
     if @customer_class.save
       redirect_to customer_classes_path, notice: I18n.t('customer_classes.notice.user_attached')
     else
+      @customers = Customer.all
+      @classrooms = Classroom.all
+
       render :new
     end
   end
@@ -29,6 +33,8 @@ class CustomerClassesController < ApplicationController
   def update
     return redirect_to customer_class_path(@customer_class) if @customer_class.update(customer_class_params)
 
+    @customers = Customer.all
+    @classrooms = Classroom.all
     render :edit
   end
 
