@@ -47,6 +47,15 @@ module Authorizable
           'update' => true,
           'destroy' => true
         },
+        'customer_classes' => {
+          'index' => true,
+          'new' => true,
+          'create' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
+        },
         'products' => {
           'index' => true,
           'create' => true,
