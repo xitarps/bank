@@ -64,6 +64,15 @@ module Authorizable
         },
         'accounts' => {
           'show' => true
+        },
+        'investments' => {
+          'index' => true,
+          'new' => true,
+          'create' => true,
+          'edit' => true,
+          'show' => true,
+          'update' => true,
+          'destroy' => true
         }
       }
     }

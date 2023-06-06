@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe 'Root' do
   context 'Manage Administrator' do
+    before(:each) { Investment.destroy_all }
     before(:each) { User.destroy_all }
     before(:each) { Customer.destroy_all }
     before(:each) { Administrator.destroy_all }
     before(:each) { Root.destroy_all }
-    after(:each) { Tax.destroy_all }
     it 'Create Administrator' do
       user = create(:user, :confirmed, :root)
       login_as(user, scope: :user)
