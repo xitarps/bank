@@ -1,5 +1,8 @@
 <div>
 <h2><%= t('.product_id') %>:<%= @product.id %></h2>
+  <% if @product.premium %>
+    <span class="font-style: italic bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-yellow-700">Premium</span>
+  <% end %>
   <div>
     <h2> <%= @product.class.human_attribute_name(:name) %>: <%= @product.name %></h2>
     <h2> <%= @product.class.human_attribute_name(:start_date) %>: <%= l(@product.start_date, format: :short) %></h2>

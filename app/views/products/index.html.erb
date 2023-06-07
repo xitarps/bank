@@ -8,6 +8,9 @@
       <div>
         <%= product.id %>
         <%= product.name %>
+        <% if product.premium %>
+          <span class="font-style: italic bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-yellow-700">Premium</span>
+        <% end %>
         <p>
           <%= link_to t('show'), product_path(product), class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
         </p>

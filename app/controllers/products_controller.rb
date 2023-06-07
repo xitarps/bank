@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :start_date, :final_date, :minimum_amount, :tax_id)
+    params.require(:product).permit(:name, :start_date, :final_date, :minimum_amount, :premium, :tax_id)
   end
 
   def fetch_product
