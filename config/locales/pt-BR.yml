@@ -2,10 +2,11 @@ pt-BR:
   edit: 'Editar'
   new: 'Criar'
   destroy: 'Apagar'
-  show: 'Detalhes de '
+  show: 'Detalhes'
   search: 'Busca'
   back: 'Voltar'
-  submit: 'Enviar'
+  submit: 'Confirmar'
+  actions: 'Ações'
   activerecord:
     successful:
       messages:
@@ -235,3 +236,4 @@ pt-BR:
   notices:
     classroom_created: 'Sala criado com sucesso.'
     administrator_created: 'Administrador criado com sucesso.'
+    user_attached: 'Usuário atrelado com sucesso.'

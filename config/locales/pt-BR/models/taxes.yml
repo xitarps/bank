@@ -1,8 +1,8 @@
 pt-BR:
   activerecord:
     models:
-      Taxes: Taxas
+      tax: Taxa
     attributes:
-      taxes:
+      tax:
         name: Nome
         value: Valor

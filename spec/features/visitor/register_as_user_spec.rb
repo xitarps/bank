@@ -1,8 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe 'Visitor' do
-  context 'Register as user' do
-    it 'View homepage' do
+  before(:each) do
+    User.destroy_all
+    Account.destroy_all
+    Customer.destroy_all
+    Administrator.destroy_all
+    Root.destroy_all
+    Investment.destroy_all
+    Product.destroy_all
+    Tax.destroy_all
+    Classroom.destroy_all
+  end
+  context 'Registration' do
+    it 'Register as customer with confirmation' do
       visit '/'
 
       click_on 'Login'
@@ -18,7 +29,6 @@ RSpec.describe 'Visitor' do
       sleep 2
 
       visit "/users/confirmation?confirmation_token=#{User.first.confirmation_token}"
-
       visit '/users/sign_in'
 
       fill_in 'email',	with: 'jadson@gmail.com'

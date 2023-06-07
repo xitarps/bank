@@ -1,6 +1,6 @@
 <div class="flex justify-center items-center h-screen">
   <div class="bg-white p-6 rounded shadow-md">
-    <%= form_with model: @account, data: {turbo: false} do |form| %>
+    <%= form_with model: @account, data: { turbo: false } do |form| %>
       <div class="mb-4">
         <%= form.label :amount, Account.human_attribute_name(:amount).capitalize, class: "block text-gray-700 text-sm font-bold mb-2" %>
         <%= form.text_field :amount, class: "w-full border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>

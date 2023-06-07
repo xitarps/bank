@@ -1,6 +1,7 @@
 pt-BR:
   activerecord:
     models:
-      Administrator: Administrador
+      administrator: Administrador
     attributes:
+      administrator:
         name: Nome

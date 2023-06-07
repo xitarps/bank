@@ -1,39 +1,24 @@
 <div>
-  <%= form_with model: @product, data: {turbo: false} do |p| %>
-    <div>
-      <%= p.label :name, t('.product_name') %>
-    </div>
-    <div>
-      <%= p.text_field :name %>
-    </div>
-    <div>
-      <%= p.label :start_date, t('.product_start_date') %>
-    <div>
-      <%= p.date_field :start_date %>
-    </div>
-    <div>
-      <%= p.label :final_date, t('.product_final_date') %>
-    <div>
-      <%= p.date_field :final_date %>
-    </div>
-    <div>
-      <%= p.label :minimum_amount, t('.product_minimum_amount') %>
-    <div>
-      <%= p.text_field :minimum_amount %>
-    </div>
-    <div>
-      <%= p.label :tax_id, t('.product_tax_id') %>
-    <div>
-      <%= p.select :tax_id, options_for_select(Tax.all.map{|s|[s.name, s.id]}) %>
-    </div>
+  <%= form_with model: @product, data: { turbo: false } do |product| %>
+    <div><%= product.label :name, t('.product_name') %></div>
+    <div><%= product.text_field :name %></div>
+    <div><%= product.label :start_date, t('.product_start_date') %></div>
+    <div><%= product.date_field :start_date %></div>
+    <div><%= product.label :final_date, t('.product_final_date') %></div>
+    <div><%= product.date_field :final_date %></div>
+    <div><%= product.label :minimum_amount, t('.product_minimum_amount') %></div>
+    <div><%= product.text_field :minimum_amount %></div>
+    <div><%= product.label :tax_id, t('.product_tax_id') %></div>
+    <div><%= product.select :tax_id, options_for_select(Tax.all.map { |tax| [tax.name, tax.id] } ) %></div>
     <div>
       <%= link_to '#', class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" do %>
-        <%= p.submit t('submit') %>
+        <%= product.submit t('submit') %>
       <% end %>
-      <% if action_name == "new" %>
+
+      <% if action_name == 'new' %>
         <%= link_to t('back'), products_path, class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
-      <% elsif action_name == "edit" %>
-        <%= link_to t('back'), products_path(product), class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+      <% elsif action_name == 'edit' %>
+        <%= link_to t('back'), product_path(@product), class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
       <%end%>
     </div>
   <%end%>

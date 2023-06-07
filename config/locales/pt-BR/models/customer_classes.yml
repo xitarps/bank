@@ -1,8 +1,8 @@
 pt-BR:
   activerecord:
     models:
-      Classroom: Turma
+      customer_class: Alunos
     attributes:
       classroom:
         name: Nome
-        course: Curso
+        classroom: Turma

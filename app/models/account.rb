@@ -1,5 +1,8 @@
 class Account < ApplicationRecord
   belongs_to :customer
+  has_many :investments, dependent: :nullify
+  has_many :products, through: :investments
+
   validates :amount, presence: true
 
   has_many :transfers_as_sender, foreign_key: :sender_id, class_name: 'Transfer',

@@ -4,7 +4,7 @@
     <%= link_to t('.new_product'), new_product_path %>
   </span>
   <div>
-    <% @products.each do |p| %>
+    <% @products.each do |product| %>
       <div>
         <%= p.id %>
         <%= p.name %>

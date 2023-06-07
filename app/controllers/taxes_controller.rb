@@ -1,6 +1,6 @@
 class TaxesController < ApplicationController
   before_action :authenticate_and_authorize!
-  before_action :search_tax, only: %i[show edit update destroy]
+  before_action :fetch_tax, only: %i[show edit update destroy]
 
   def index
     @taxes = Tax.all
@@ -40,7 +40,7 @@ class TaxesController < ApplicationController
     params.require(:tax).permit(:name, :value)
   end
 
-  def search_tax
+  def fetch_tax
     @tax = Tax.find(params[:id])
   end
 end
