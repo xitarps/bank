@@ -24,7 +24,7 @@ class ClassroomsController < ApplicationController
   end
 
   def update
-    return redirect_to classrooms_path(@classroom) if @classroom.update(classroom_params)
+    return redirect_to @classroom if @classroom.update(classroom_params)
 
     render :edit
   end
@@ -38,7 +38,7 @@ class ClassroomsController < ApplicationController
   private
 
   def classroom_params
-    params.require(:classroom).permit(:name, :course)
+    params.require(:classroom).permit(:name, :course, customer_ids: [])
   end
 
   def fetch_classroom
