@@ -65,6 +65,13 @@ module Authorizable
           'show' => true,
           'update' => true,
           'destroy' => true
+
+        },
+        'transfers' => {
+          'index' => true,
+          'new' => true,
+          'create' => true,
+          'show' => true
         }
       },
       'Administrator' => {
@@ -101,6 +108,12 @@ module Authorizable
           'show' => true,
           'update' => true,
           'destroy' => true
+        },
+        'transfers' => {
+          'index' => true,
+          'new' => true,
+          'create' => true,
+          'show' => true
         }
       },
       'Customer' => {
@@ -109,6 +122,12 @@ module Authorizable
           'destroy' => true
         },
         'accounts' => {
+          'show' => true
+        },
+        'transfers' => {
+          'index' => true,
+          'new' => true,
+          'create' => true,
           'show' => true
         }
       }

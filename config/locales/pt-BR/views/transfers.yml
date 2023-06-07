@@ -1,0 +1,17 @@
+pt-BR:
+  transfers:
+    show:
+      transfer_value: Valor da Transfêrencia
+      recipient_cpf: CPF Destinatário
+      sender_cpf: CPF Remetente 
+    index:
+      new_transfer: Nova Transferência
+      transfer_value: Valor da Transfêrencia
+      recipient_cpf: CPF Destinatário
+      sender_cpf: CPF Remetente
+      transfer_date: Data de Transferência
+    new:
+      new_transfer: Nova Transferência
+    form:
+      
+     

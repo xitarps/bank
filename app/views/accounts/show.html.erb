@@ -1,17 +1,15 @@
-<div>
-<h2><%= 'Conta N°' %>:<%= @account.id %></h2>
-    <div>
-        <h2> <%= 'Customer id:' %>: <span><%= @account.customer_id %></span> </h2>
-        <h2> <%= 'First Name:' %>: <span><%= @account.customer.first_name %></span> </h2>
-        <h2> <%= 'Saldo:' %>:<span><%= @account.amount %></span> </h2>
-        <% if user_signed_in? && ['Customer'].include?(current_user.userable_type) %>
-          <span class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-            <%= link_to t('back'), root_path, class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
-          </span>
-        <% end %>
-        <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
-          <%= link_to t('edit'), edit_account_path(@account), class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
-          <%= link_to t('back'), accounts_path, class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"%> 
-        <% end %>
-    </div>
+<div class="bg-gray-200 p-6 rounded-lg shadow-lg">
+  <h2 class="text-2xl font-bold mb-4">Conta N°: <%= @account.id %></h2>
+  <div class="bg-white p-6 rounded-lg">
+    <h2 class="text-lg font-semibold mb-2">Customer id: <span class="text-gray-700"><%= @account.customer_id %></span></h2>
+    <h2 class="text-lg font-semibold mb-2">First Name: <span class="text-gray-700"><%= @account.customer.first_name %></span></h2>
+    <h2 class="text-lg font-semibold mb-2">Saldo: <span class="text-gray-700"><%= @account.amount %></span></h2>
+    <% if user_signed_in? && ['Customer'].include?(current_user.userable_type) %>
+      <a href="<%= root_path %>" class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-2 inline-block">Back</a>
+    <% end %>
+    <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
+      <%= link_to t('edit'), edit_account_path(@account), class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block mr-2" %>
+      <%= link_to t('back'), accounts_path, class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block"%> 
+    <% end %>
+  </div>
 </div>
