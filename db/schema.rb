@@ -68,6 +68,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_04_142103) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "investments", force: :cascade do |t|
+    t.string "amount", null: false
+    t.bigint "account_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_investments_on_account_id"
+    t.index ["product_id"], name: "index_investments_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name", limit: 255, null: false
     t.date "start_date", null: false
@@ -117,5 +127,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_04_142103) do
   add_foreign_key "customer_classes", "customers"
   add_foreign_key "customer_contact_lists", "contact_lists"
   add_foreign_key "customer_contact_lists", "customers"
+  add_foreign_key "investments", "accounts"
+  add_foreign_key "investments", "products"
   add_foreign_key "products", "taxes"
 end

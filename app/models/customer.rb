@@ -16,6 +16,10 @@ class Customer < ApplicationRecord
   after_create :create_contact_list
   after_create :create_account
 
+  def full_name
+    "#{last_name.capitalize.chars.first}. #{first_name}"
+  end
+
   private
 
   def create_contact_list
