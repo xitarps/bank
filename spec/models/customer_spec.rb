@@ -8,4 +8,10 @@ RSpec.describe Customer, type: :model do
     it { should have_one(:user).class_name('User') }
     it { should have_one(:contact_list).class_name('ContactList') }
   end
+  describe '#full_name' do
+    it 'returns the full name with initial' do
+      customer = Customer.new(first_name: 'John', last_name: 'Doe')
+      expect(customer.full_name).to eq('D. John')
+    end
+  end
 end
