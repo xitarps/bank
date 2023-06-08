@@ -1,9 +1,9 @@
 <div class="mx-auto md:w-2/3 w-full p-20">
-<h1 class="text-2xl font-bold mb-4">Nova Transferência</h1>
+<h1 class="text-2xl font-bold mb-4"><%= t('.new_transfer') %></h1>
 
 <%= form_with model: @transfer, data: {turbo: false} do |form| %>
   <div class="mb-6">
-    <%= form.label :receiver_id, class: "text-gray-800 font-semibold" %>
+    <%= form.label :receiver_id, Account.model_name.human, class: "text-gray-800 font-semibold" %>
     <%= form.text_field :receiver_id, class: "mt-2 px-4 py-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" %>
   </div>
 
@@ -12,7 +12,7 @@
     <%= form.number_field :amount, class: "mt-2 px-4 py-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" %>
   </div>
 
-  <%= form.submit 'Realizar Transferência', class: "bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline" %>
+  <%= form.submit t('.submit_transfer'), class: "bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline" %>
 <% end %>
 </div>
 

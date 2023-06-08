@@ -4,5 +4,4 @@ pt-BR:
       account: Conta
     attributes:
       account:
-        receiver: Destinatario
         amount: Saldo

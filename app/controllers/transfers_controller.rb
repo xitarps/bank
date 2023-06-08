@@ -16,7 +16,7 @@ class TransfersController < ApplicationController
   def create
     @transfer = Transfer.new(transfer_params.merge({ sender_id: current_user.userable&.account.id }))
 
-    return redirect_to transfers_path if @transfer.save
+    return redirect_to @transfer if @transfer.save
 
     render :new
   end

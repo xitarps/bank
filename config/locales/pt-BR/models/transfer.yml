@@ -3,6 +3,6 @@ pt-BR:
     models:
       transfer: Transferência
     attributes:
-      transfers:
-        
-       
+      transfer:
+          receiver: Destinatário
+          amount: Valor da Transferência

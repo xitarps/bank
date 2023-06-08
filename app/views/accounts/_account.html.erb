@@ -1,9 +1,9 @@
 <div class="bg-gray-200 p-4 rounded-lg shadow-lg">
-  <h2 class="text-2xl font-semibold mb-4">Conta N°: <%= account.id %></h2>
+  <h2 class="text-2xl font-semibold mb-4"><%= Account.model_name.human %>: <%= account.id %></h2>
   <div class="mb-4">
-    <p class="text-lg"><strong>Customer id:</strong> <%= account.customer_id %></p>
-    <p class="text-lg"><strong>First Name:</strong> <%= account.customer.first_name %></p>
-    <p class="text-lg"><strong>Saldo:</strong> <%= account.amount %></p>
+   <p class="text-lg"><strong><%= Customer.model_name.human %>:</strong> <%= account.customer_id %></p>
+   <p class="text-lg"><strong><%= Customer.human_attribute_name(:first_name) %>:</strong> <%= account.customer.first_name %></p>
+   <p class="text-lg"><strong><%= Account.human_attribute_name(:amount) %>:</strong> <%= number_to_currency account.amount %></p>
   </div>
   <div class="flex justify-between">
     <span class="text-lg">
