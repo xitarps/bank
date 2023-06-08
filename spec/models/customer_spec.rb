@@ -10,8 +10,8 @@ RSpec.describe Customer, type: :model do
   end
   describe '#full_name' do
     it 'returns the full name with initial' do
-      customer = Customer.new(first_name: 'John', last_name: 'Doe')
-      expect(customer.full_name).to eq('D. John')
+      customer = Customer.new(first_name: 'Jadson', last_name: 'Rubens')
+      expect(customer.full_name).to eq('R. Jadson')
     end
   end
 end
