@@ -1,8 +1,8 @@
 <div class="container mx-auto algin=center">
   <%= t('.all_products')%>:
-  <span class="float-right bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-    <%= link_to t('.new_product'), new_product_path %>
-  </span>
+  <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
+    <%= link_to t('.new_product'), new_product_path, class:"float-right bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+  <% end %>
   <div>
     <% @products.each do |product| %>
       <div>
