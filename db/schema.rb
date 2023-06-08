@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_04_142103) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_04_194902) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,8 +29,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_04_142103) do
   end
 
   create_table "classrooms", force: :cascade do |t|
-    t.string "name"
-    t.string "course"
+    t.string "name", null: false
+    t.string "course", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,6 +68,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_04_142103) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "investments", force: :cascade do |t|
+    t.string "amount", null: false
+    t.bigint "account_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_investments_on_account_id"
+    t.index ["product_id"], name: "index_investments_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name", limit: 255, null: false
     t.date "start_date", null: false
@@ -89,6 +99,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_04_142103) do
     t.decimal "value", precision: 5, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "transfers", force: :cascade do |t|
+    t.decimal "amount", precision: 5, scale: 2, default: "0.0"
+    t.integer "status", default: 5, null: false
+    t.date "trade_date", default: "2023-06-08", null: false
+    t.bigint "sender_id"
+    t.bigint "receiver_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_transfers_on_receiver_id"
+    t.index ["sender_id"], name: "index_transfers_on_sender_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -117,5 +139,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_04_142103) do
   add_foreign_key "customer_classes", "customers"
   add_foreign_key "customer_contact_lists", "contact_lists"
   add_foreign_key "customer_contact_lists", "customers"
+  add_foreign_key "investments", "accounts"
+  add_foreign_key "investments", "products"
   add_foreign_key "products", "taxes"
+  add_foreign_key "transfers", "accounts", column: "receiver_id"
+  add_foreign_key "transfers", "accounts", column: "sender_id"
 end

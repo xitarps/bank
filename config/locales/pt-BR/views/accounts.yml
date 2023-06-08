@@ -2,5 +2,6 @@ pt-BR:
   accounts:
     index:
       accounts_list: Contas
+      account.first_name: Primeiro Nome
     edit:
       edit_account: Edita Conta

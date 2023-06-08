@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :investments
   resources :products
   resources :taxes
+  resources :transfers, only: %i[index show new create]
 
   mount Sidekiq::Web => '/sidekiq'
 end

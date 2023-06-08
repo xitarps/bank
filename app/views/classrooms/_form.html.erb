@@ -9,6 +9,14 @@
         <%= form.label t('.course'), class: "block text-gray-700 text-sm font-bold mb-2" %>
         <%= form.text_field :course, class: "w-full border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
       </div>
+
+
+      <div class="mb-4">
+        <%= form.label :customer_ids, t('.name'), class: 'block text-gray-700 text-sm font-bold mb-2' %>
+        <%= form.select :customer_ids, Customer.all.pluck(:first_name, :id), {} ,{ multiple: true } %>
+      </div>
+
+
       <div class="flex justify-between">
         <%= link_to '#', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" do %>
           <%= form.submit t('submit') %>

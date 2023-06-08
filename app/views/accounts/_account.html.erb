@@ -1,7 +1,18 @@
-<div>
-  <span><%= account.id %></span>
-  <span><%= account.customer_id %></span>
-  <span><%= account.customer.first_name %></span>
-  <span><%= number_to_currency account.amount %></span>
-  <span><%= link_to (t('show')+ account.class.model_name.human), account_path(account) %></span>
+<div class="bg-gray-200 p-4 rounded-lg shadow-lg">
+  <h2 class="text-2xl font-semibold mb-4"><%= Account.model_name.human %>: <%= account.id %></h2>
+  <div class="mb-4">
+   <p class="text-lg"><strong><%= Customer.model_name.human %>:</strong> <%= account.customer_id %></p>
+   <p class="text-lg"><strong><%= Customer.human_attribute_name(:first_name) %>:</strong> <%= account.customer.first_name %></p>
+   <p class="text-lg"><strong><%= Account.human_attribute_name(:amount) %>:</strong> <%= number_to_currency account.amount %></p>
+  </div>
+  <div class="flex justify-between">
+    <span class="text-lg">
+      <%= link_to t('show'), account_path(account), class: "text-blue-500 hover:underline" %>
+    </span>
+    <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
+      <span class="text-lg">
+        <%= link_to t('edit'), edit_account_path(account), class: "text-blue-500 hover:underline ml-4" %>
+      </span>
+    <% end %>
+  </div>
 </div>
