@@ -6,12 +6,23 @@ class Investment < ApplicationRecord
   validates :amount, numericality: true
   validate :investment_amount_greather_than_product_minimum_amount
 
-  private
+  validate :purchase_allowed
 
+  private
+  
   def investment_amount_greather_than_product_minimum_amount
-    selected_product = Product.find_by(id: product)
     if selected_product.nil? || amount.to_i < selected_product.minimum_amount
       errors.add(:amount, 'a investir deve ser maior')
+    end
+  end
+  
+  def selected_product
+    Product.find_by(id: product)
+  end
+
+  def purchase_allowed
+    if self.product.premium? && self.account.customer.classrooms.empty?
+      self.errors.add(:account, 'mude para premium')
     end
   end
 end
