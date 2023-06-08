@@ -4,6 +4,9 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+
+    @q = Product.ransack(params[:id])
+    @products = @q.result(distinc: true)
   end
 
   def show; end

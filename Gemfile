@@ -87,6 +87,9 @@ group :development, :test do
 
   # Faker - Fake data - https://github.com/faker-ruby/faker
   gem 'faker', '~> 3.2.0'
+
+  #@products = Product.filter_by_status("active").filter_by_starts_with("Ruby") - https://github.com/activerecord-hackery/ransack
+  gem 'ransack'
 end
 
 group :development do

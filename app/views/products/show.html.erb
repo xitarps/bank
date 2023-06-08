@@ -8,7 +8,7 @@
     <h2> <%= @product.class.human_attribute_name(:start_date) %>: <%= l(@product.start_date, format: :short) %></h2>
     <h2> <%= @product.class.human_attribute_name(:final_date) %>: <%= l(@product.final_date, format: :short) %></h2>
     <h2> <%= @product.class.human_attribute_name(:minimum_amount) %>: <%= number_to_currency @product.minimum_amount %></h2>
-    <h2> <%= @product.class.human_attribute_name(:tax_id) %>: <%= @product.tax_id %></h2>
+    <h2> <%= @product.class.human_attribute_name(:tax) %>: <%= @product.tax.name %> <%= @product.tax.value %>%</h2>
     <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
       <%= link_to t('edit'), edit_product_path(@product), class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
       <%= link_to t('destroy'), product_path(@product), class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded", data: { 'turbo-method': :delete } %>
