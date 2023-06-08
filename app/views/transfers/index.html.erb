@@ -1,0 +1,41 @@
+<div class="container mx-auto text-center">
+  <h2 class="text-4xl font-bold mt-8">Transferências</h2>
+
+<% if user_signed_in? && ['Customer'].include?(current_user.userable_type) %>
+    <div class="mt-8">
+      <span class="inline-block">
+        <%= link_to t('.new_transfer'), new_transfer_path, class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" %>
+      </span>
+
+      <span class="inline-block">
+        <%= link_to t('back'), root_path, class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+      </span>
+    </div>
+  <% end %>
+  
+  <div class="mt-8">
+    <% @transfers.each do |transfer| %>
+      <div class="bg-gray-100 rounded-lg p-6 mb-6">
+        <p class="text-lg font-semibold"><%= t('.transfer_value')  %>:</p>
+        <p class="text-xl font-bold text-blue-600"><%= number_to_currency(transfer.amount) %></p>
+
+        <div class="mt-4">
+          <div class="flex justify-between">
+            <p class="text-lg font-semibold"><%= t('.recipient_cpf')  %></p>
+            <p><%= transfer.receiver.customer.cpf %></p>
+          </div>
+
+          <div class="flex justify-between mt-2">
+            <p class="text-lg font-semibold"><%= t('.sender_cpf')  %>:</p>
+            <p><%= transfer.sender.customer.cpf %></p>
+          </div>
+
+          <div class="flex justify-between mt-2">
+            <p class="text-lg font-semibold"><%= t('.transfer_date') %></p>
+            <p><%= l(transfer.trade_date, format: :short) %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
