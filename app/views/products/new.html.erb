@@ -1,7 +1,9 @@
-<div> 
-  <%= t('.new_product')%>:
-  <%= render 'shared/errors', object: @product %>
+<%= turbo_frame_tag :container do %>
   <div>
-    <%= render 'form', product: @product %>
+    <%= t('.new_product')%>:
+    <%= render 'shared/errors', object: @product %>
+    <div>
+      <%= render 'form', product: @product %>
+    </div>
   </div>
-</div>
+<% end %>

@@ -1,10 +1,25 @@
-<div>
-  <h2><%= t('.tax_id') %>:<%= @tax.id %></h2>
-  <div>
-      <h2><%= t('.tax_name') %>: <span><%= @tax.name %></span></h2>
-      <h2><%= t('.tax_value')%>: <span><%= @tax.value %></span></h2>
-      <%= link_to t('edit'), edit_tax_path(@tax), class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
-      <%= link_to t('destroy'), tax_path(@tax), class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded", data: { 'turbo-method': :delete } %>
-      <%= link_to t('back'), taxes_path, class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+<%= turbo_frame_tag :container do %>
+  <div class="flex justify-center font-semibold">
+    <%= t('.tax_details') %>:
   </div>
-</div>
+
+  <div class="overflow-x-hidden w-full">
+    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full text-center text-sm font-light">
+          <thead
+            class="border-b bg-blue-500 font-medium text-white dark:border-blue-500 dark:bg-blue-500">
+            <tr>
+              <th scope="col" class=" px-6 py-4"><%= Tax.human_attribute_name(:name) %></th>
+              <th scope="col" class=" px-6 py-4"><%= Tax.human_attribute_name(:value) %></th>
+              <th scope="col" class=" px-6 py-4"><%= t('actions') %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @tax %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<% end %>

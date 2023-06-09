@@ -16,7 +16,9 @@
     <%= render 'shared/notice_alert' %>
     <main class="container mx-auto mt-10 px-10 flex">
       <div class='container'>
-        <%= yield %>
+        <%= turbo_frame_tag :container do %>
+          <%= yield %>
+        <% end %>
       </div>
     </main>
   </body>
