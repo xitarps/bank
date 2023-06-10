@@ -5,17 +5,17 @@
         <thead
           class="border-b bg-teal-800 font-medium text-white dark:border-teal-500 dark:bg-teal-900">
           <tr>
-            <th scope="col" class=" px-6 py-4"><%= ContactList.human_attribute_name(:email) %></th>
-            <th scope="col" class=" px-6 py-4"><%= ContactList.human_attribute_name(:cpf) %></th>
-            <th scope="col" class=" px-6 py-4"><%= t('actions') %></th>
+            <th scope="col" class=" px-0 py-4"><%= ContactList.human_attribute_name(:email) %></th>
+            <th scope="col" class=" px-0 py-4"><%= ContactList.human_attribute_name(:cpf) %></th>
+            <th scope="col" class=" px-0 py-4"><%= t('actions') %></th>
           </tr>
         </thead>
         <tbody>
           <% @contact_list.customers.each do |customer| %>
             <tr class="border-b dark:border-neutral-500">
-              <td class="whitespace-nowrap  px-6 py-4 font-medium"><%= customer.first_name.truncate(10) %></td>
-              <td class="whitespace-nowrap  px-6 py-4 font-medium"><%= customer.cpf.truncate(6) %></td>
-              <td class="whitespace-nowrap  px-6 py-4 font-medium">
+              <td class="whitespace-nowrap  px-0 py-4 font-medium"><%= customer.first_name.truncate(10) %></td>
+              <td class="whitespace-nowrap  px-0 py-4 font-medium"><%= customer.cpf.truncate(6) %></td>
+              <td class="whitespace-nowrap  px-0 py-4 font-medium">
                 <%= link_to t('.destroy'), contact_list_customer_path(current_user.userable.contact_list, customer),
                                            data: { turbo_method: :delete, turbo_confirm: t('.are_you_sure') },
                                            class: 'bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded destroy-button' %>

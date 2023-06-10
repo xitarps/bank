@@ -1,4 +1,8 @@
 <%= turbo_frame_tag :container do %>
+  <span class="flex justify-center">
+    <%= link_to t('.new_tax'), new_tax_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded mr-2 mb-2" %>
+  </span>
+
   <div class="flex justify-center font-semibold">
     <%= t('.all_taxes') %>:
   </div>
@@ -10,9 +14,9 @@
           <thead
             class="border-b bg-blue-500 font-medium text-white dark:border-blue-500 dark:bg-blue-500">
             <tr>
-              <th scope="col" class=" px-6 py-4"><%= Tax.human_attribute_name(:name) %></th>
-              <th scope="col" class=" px-6 py-4"><%= Tax.human_attribute_name(:value) %></th>
-              <th scope="col" class=" px-6 py-4"><%= t('actions') %></th>
+              <th scope="col" class=" px-0 py-4"><%= Tax.human_attribute_name(:name) %></th>
+              <th scope="col" class=" px-0 py-4"><%= Tax.human_attribute_name(:value) %></th>
+              <th scope="col" class=" px-0 py-4"><%= t('actions') %></th>
             </tr>
           </thead>
           <tbody>

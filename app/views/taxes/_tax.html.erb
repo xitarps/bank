@@ -1,13 +1,27 @@
 <tr class="border-b dark:border-neutral-500">
-  <td class="whitespace-nowrap  px-6 py-4 font-medium"><%= tax.name %></td>
-  <td class="whitespace-nowrap  px-6 py-4 font-medium"><%= tax.value %></td>
-  <td class="whitespace-nowrap  px-6 py-4 font-medium">
+  <td class="whitespace-nowrap  px-0 py-4 font-medium"><%= tax.name.truncate(20) %></td>
+  <td class="whitespace-nowrap  px-0 py-4 font-medium"><%= tax.value %></td>
+  <td class="whitespace-nowrap  px-0 py-4 font-medium">
   <% if action_name == 'index' %>
-    <%= link_to t('show'), tax_path(tax), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded' %>
+    <%= link_to tax_path(tax), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 mx-1 rounded' do %>
+      <div class='hidden sm:inline-block pr-1'><%= t('show') %></div>
+      <i class="fa-solid fa-circle-info"></i>
+    <% end %>
   <% elsif action_name == 'show' %>
-    <%= link_to t('edit'), edit_tax_path(@tax), class:"bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
-    <%= link_to t('destroy'), tax_path(@tax), class:"bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded", data: { 'turbo-method': :delete } %>
-    <%= link_to t('back'), taxes_path, class:"bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+    <%= link_to edit_tax_path(@tax), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 mx-1 rounded' do %>
+      <div class='hidden sm:inline-block pr-1'><%= t('edit') %></div>
+      <i class="fa-solid fa-pen-to-square"></i>
+    <% end %>
+
+    <%= link_to tax_path(@tax), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 mx-1 rounded' do %>
+      <div class='hidden sm:inline-block pr-1'><%= t('destroy') %></div>
+      <i class="fa-solid fa-trash"></i>
+    <% end %>
+
+    <%= link_to taxes_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 mx-1 rounded' do %>
+      <div class='hidden sm:inline-block pr-1'><%= t('back') %></div>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
   <% end %>
   </td>
 </tr>

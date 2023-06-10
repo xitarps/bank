@@ -1,7 +1,8 @@
-<div>
+<%= turbo_frame_tag :container do %>
+
   <%= t('.new_tax') %>:
   <%= render 'shared/errors', object: @tax %>
-  <div>
-    <%= render 'form', tax: @tax %>
-  </div>
-</div>
+
+  <%= render 'form', tax: @tax %>
+
+<% end %>
