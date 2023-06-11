@@ -19,7 +19,7 @@ RSpec.describe 'Customer' do
     visit '/products'
 
     select('Premium', from: 'Premium')
-    click_on 'filtrar'
+    click_on 'Filtrar'
 
     expect(page).to have_content(produto.name)
     expect(page).to_not have_content(produto2.name)
@@ -34,7 +34,7 @@ RSpec.describe 'Customer' do
       visit '/products'
 
       select('Standard', from: 'Premium')
-      click_on 'filtrar'
+      click_on 'Filtrar'
 
       expect(page).to have_content(produto.name)
       expect(page).to_not have_content(produto2.name)
@@ -50,7 +50,7 @@ RSpec.describe 'Customer' do
 
       select('Standard', from: 'Premium')
       select('Premium', from: 'Premium')
-      click_on 'filtrar'
+      click_on 'Filtrar'
 
       expect(page).to have_content(produto.name)
       expect(page).to have_content(produto2.name)
@@ -62,7 +62,7 @@ RSpec.describe 'Customer' do
       visit '/products'
 
       select(produto.tax.name, from: 'Index')
-      click_on 'filtrar'
+      click_on 'Filtrar'
 
       expect(page).to have_content(produto.name)
     end
@@ -76,7 +76,7 @@ RSpec.describe 'Customer' do
       visit '/products'
 
       select(tax.name, from: 'Index')
-      click_on 'filtrar'
+      click_on 'Filtrar'
 
       expect(page).to_not have_content(produto.name) 
       expect(page).to have_content(produto2.name)
@@ -89,8 +89,8 @@ RSpec.describe 'Customer' do
       produto2.update(minimum_amount: 99)
       visit '/products'
 
-      fill_in "Minimum Amount",  with: produto.minimum_amount 
-      click_on 'filtrar'
+      fill_in "Valor mínimo",  with: produto.minimum_amount 
+      click_on 'Filtrar'
 
       expect(page).to have_content(produto.name)
       expect(page).to_not have_content(produto2.name)
@@ -103,8 +103,8 @@ RSpec.describe 'Customer' do
       produto2.update(final_date: '2023/06/10')
       visit '/products'
 
-      fill_in "Final Date",  with: produto.final_date 
-      click_on 'filtrar'
+      fill_in "Data de validade",  with: produto.final_date 
+      click_on 'Filtrar'
 
       expect(page).to have_content(produto.name)
       expect(page).to_not have_content(produto2.name)
