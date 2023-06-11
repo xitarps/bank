@@ -7,6 +7,7 @@ pt-BR:
       product_final_date: Data de fim
       product_minimum_amount: Valor mínimo
       product_tax_id: Taxa n°
+      product_details: Detalhes do produto
     index:
       new_product: Novo produto
       all_products: Todos os produtos
@@ -23,3 +24,7 @@ pt-BR:
       product_tax_id: Taxa
     destroy:
       product_destroy: Apagado com sucesso!
+    create:
+      product_saved: Produto salvo com sucesso.
+    update:
+      product_saved: Produto salvo com sucesso.

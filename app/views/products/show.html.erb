@@ -1,16 +1,29 @@
 <%= turbo_frame_tag :container do %>
   <%= render 'shared/notice_alert' %>
-  <div>
-    <h2><%= t('.product_id') %>:<%= @product.id %></h2>
-    <div>
-      <h2> <%= @product.class.human_attribute_name(:name) %>: <%= @product.name %></h2>
-      <h2> <%= @product.class.human_attribute_name(:start_date) %>: <%= l(@product.start_date, format: :short) %></h2>
-      <h2> <%= @product.class.human_attribute_name(:final_date) %>: <%= l(@product.final_date, format: :short) %></h2>
-      <h2> <%= @product.class.human_attribute_name(:minimum_amount) %>: <%= number_to_currency @product.minimum_amount %></h2>
-      <h2> <%= @product.class.human_attribute_name(:tax_id) %>: <%= @product.tax_id %></h2>
-      <%= link_to t('edit'), edit_product_path(@product), class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
-      <%= link_to t('destroy'), product_path(@product), class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded", data: { 'turbo-method': :delete } %>
-      <%= link_to t('back'), products_path, class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+  <div class="container mx-auto text-center mb-4">
+    <h2 class="text-xl font-bold mt-8"><%= t('.product_details') %></h2>
+  </div>
+
+  <div class="overflow-x-hidden w-full">
+    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full text-center text-sm font-light">
+          <thead
+            class="border-b bg-blue-500 font-medium text-white dark:border-blue-500 dark:bg-blue-500">
+            <tr>
+              <th scope="col" class=" px-0 py-4"><%= @product.class.human_attribute_name(:name) %></th>
+              <th scope="col" class=" px-0 py-4 hidden sm:table-cell"><%= @product.class.human_attribute_name(:start_date) %></th>
+              <th scope="col" class=" px-0 py-4 hidden sm:table-cell"><%= @product.class.human_attribute_name(:final_date) %></th>
+              <th scope="col" class=" px-0 py-4"><%= @product.class.human_attribute_name(:minimum_amount) %></th>
+              <th scope="col" class=" px-0 py-4"><%= Tax.model_name.human %></th>
+              <th scope="col" class=" px-0 py-4"><%= t('actions') %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @product %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 <% end %>

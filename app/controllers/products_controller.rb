@@ -17,13 +17,13 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
-    return redirect_to products_path if @product.save
+    return redirect_to products_path, notice: t('.product_saved') if @product.save
 
     render :new
   end
 
   def update
-    return redirect_to products_path(@product) if @product.update(product_params)
+    return redirect_to products_path(@product), notice: t('.product_saved') if @product.update(product_params)
 
     render :edit
   end
