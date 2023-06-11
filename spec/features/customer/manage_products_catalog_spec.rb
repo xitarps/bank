@@ -2,27 +2,27 @@ require 'rails_helper'
 
 RSpec.describe 'Customer' do
   context 'Filter' do
-    before(:each) {Investment.destroy_all}
+    before(:each) { Investment.destroy_all }
     before(:each) { User.destroy_all }
     before(:each) { Customer.destroy_all }
     before(:each) { Root.destroy_all }
     before(:each) { Product.destroy_all }
     before(:each) { Tax.destroy_all }
-    after(:each) { Investment.destroy_all}
+    after(:each) { Investment.destroy_all }
     it 'By Premium' do
-    user = create(:user, :confirmed)
-    login_as(user, scope: :user)
-    produto = FactoryBot.create(:product)
-    produto.update(premium: true)
-    produto2 = FactoryBot.create(:product)
-    produto2.update(premium: false)
-    visit '/products'
+      user = create(:user, :confirmed)
+      login_as(user, scope: :user)
+      produto = FactoryBot.create(:product)
+      produto.update(premium: true)
+      produto2 = FactoryBot.create(:product)
+      produto2.update(premium: false)
+      visit '/products'
 
-    select('Premium', from: 'Premium')
-    click_on 'Filtrar'
+      select('Premium', from: 'Premium')
+      click_on 'Filtrar'
 
-    expect(page).to have_content(produto.name)
-    expect(page).to_not have_content(produto2.name)
+      expect(page).to have_content(produto.name)
+      expect(page).to_not have_content(produto2.name)
     end
     it 'By Standard' do
       user = create(:user, :confirmed)
@@ -78,7 +78,7 @@ RSpec.describe 'Customer' do
       select(tax.name, from: 'Index')
       click_on 'Filtrar'
 
-      expect(page).to_not have_content(produto.name) 
+      expect(page).to_not have_content(produto.name)
       expect(page).to have_content(produto2.name)
     end
     it 'By Minimum Amount' do
@@ -89,7 +89,7 @@ RSpec.describe 'Customer' do
       produto2.update(minimum_amount: 99)
       visit '/products'
 
-      fill_in "Valor mínimo",  with: produto.minimum_amount 
+      fill_in 'Valor mínimo', with: produto.minimum_amount
       click_on 'Filtrar'
 
       expect(page).to have_content(produto.name)
@@ -103,7 +103,7 @@ RSpec.describe 'Customer' do
       produto2.update(final_date: '2023/06/10')
       visit '/products'
 
-      fill_in "Data de validade",  with: produto.final_date 
+      fill_in 'Data de validade', with: produto.final_date
       click_on 'Filtrar'
 
       expect(page).to have_content(produto.name)

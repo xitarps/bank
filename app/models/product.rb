@@ -11,12 +11,15 @@ class Product < ApplicationRecord
 
   def self.filter(params)
     filters = {}
-    filters[:minimum_amount] = (params[:minimum_amount_filter].to_f..) if params.fetch(:minimum_amount_filter, nil)&.present?
-    filters[:premium] = (params[:premium_filter]&.reject(&:blank?)) if params.fetch(:premium_filter, nil)&.reject(&:blank?)&.any?
+    filters[:minimum_amount] = (params[:minimum_amount_filter].to_f..) if params.fetch(:minimum_amount_filter,
+                                                                                       nil)&.present?
+    filters[:premium] = params[:premium_filter]&.reject(&:blank?) if params.fetch(:premium_filter,
+                                                                                  nil)&.reject(&:blank?)&.any?
     filters[:final_date] = (params[:final_date_filter]..) if params.fetch(:final_date_filter, nil)&.present?
-    filters[:tax_id] = (params[:index_filter]&.reject(&:blank?)) if params.fetch(:index_filter, nil)&.reject(&:blank?)&.any? 
+    filters[:tax_id] = params[:index_filter]&.reject(&:blank?) if params.fetch(:index_filter,
+                                                                               nil)&.reject(&:blank?)&.any?
     filters = nil if filters.empty?
 
-    self.where(filters)
+    where(filters)
   end
 end
