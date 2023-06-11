@@ -72,7 +72,7 @@ RSpec.describe 'Customer' do
       produto = FactoryBot.create(:product)
       tax = FactoryBot.create(:tax)
       produto2 = FactoryBot.create(:product)
-      produto2.update(tax: tax)
+      produto2.update(tax:)
       visit '/products'
 
       select(tax.name, from: 'Index')

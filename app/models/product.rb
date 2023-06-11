@@ -11,15 +11,28 @@ class Product < ApplicationRecord
 
   def self.filter(params)
     filters = {}
-    filters[:minimum_amount] = (params[:minimum_amount_filter].to_f..) if params.fetch(:minimum_amount_filter,
-                                                                                       nil)&.present?
-    filters[:premium] = params[:premium_filter]&.reject(&:blank?) if params.fetch(:premium_filter,
-                                                                                  nil)&.reject(&:blank?)&.any?
-    filters[:final_date] = (params[:final_date_filter]..) if params.fetch(:final_date_filter, nil)&.present?
-    filters[:tax_id] = params[:index_filter]&.reject(&:blank?) if params.fetch(:index_filter,
-                                                                               nil)&.reject(&:blank?)&.any?
+    filters[:minimum_amount] = minimum_amount_filter(params)
+    filters[:premium] = premium_filter(params)
+    filters[:final_date] = final_date_filter(params)
+    filters[:tax_id] = index_filter(params)
     filters = nil if filters.empty?
 
-    where(filters)
+    where(filters.compact)
+  end
+
+  def self.minimum_amount_filter(params)
+    (params[:minimum_amount_filter].to_f..) if params.fetch(:minimum_amount_filter, nil)&.present?
+  end
+
+  def self.premium_filter(params)
+    params[:premium_filter]&.reject(&:blank?) if params.fetch(:premium_filter, nil)&.reject(&:blank?)&.any?
+  end
+
+  def self.final_date_filter(params)
+    (params[:final_date_filter]..) if params.fetch(:final_date_filter, nil)&.present?
+  end
+
+  def self.index_filter(params)
+    params[:index_filter]&.reject(&:blank?) if params.fetch(:index_filter, nil)&.reject(&:blank?)&.any?
   end
 end

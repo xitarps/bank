@@ -21,6 +21,6 @@ class Investment < ApplicationRecord
   end
 
   def purchase_allowed
-    errors.add(:account, 'mude para premium') if product.premium? && account.customer.classrooms.empty?
+    errors.add(:account, 'mude para premium') if product&.premium? && account.customer.classrooms.empty?
   end
 end
