@@ -1,13 +1,19 @@
-<div class="container mx-auto align-center">
-  <div><%= t('.all_products') %>:</div>
-  <span class="float-right bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-    <%= link_to t('.new_product'), new_product_path %>
+<div class="container mx-auto algin=center">
+  <span class="float-right rounded text-center">
+    <%= render 'filter', product: @product %>
   </span>
+  <%= t('.all_products')%>:
+  <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
+    <%= link_to t('.new_product'), new_product_path, class:"float-right bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+  <% end %>
   <div>
     <% @products.each do |product| %>
       <div>
         <%= product.id %>
         <%= product.name %>
+        <% if product.premium %>
+          <span class="font-style: italic bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-yellow-700">Premium</span>
+        <% end %>
         <p>
           <%= link_to t('show'), product_path(product), class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
         </p>

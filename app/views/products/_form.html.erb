@@ -8,6 +8,8 @@
     <div><%= product.date_field :final_date %></div>
     <div><%= product.label :minimum_amount, t('.product_minimum_amount') %></div>
     <div><%= product.text_field :minimum_amount %></div>
+    <div><%= product.label :premium, t('.premium')%>
+    <div><%= product.check_box :premium %></div>
     <div><%= product.label :tax_id, t('.product_tax_id') %></div>
     <div><%= product.select :tax_id, options_for_select(Tax.all.map { |tax| [tax.name, tax.id] } ) %></div>
     <div>
