@@ -6,10 +6,10 @@
   <div>
     <% @products.each do |product| %>
       <div>
-        <%= p.id %>
-        <%= p.name %>
+        <%= product.id %>
+        <%= product.name %>
         <p>
-          <%= link_to t('show'), product_path(p), class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+          <%= link_to t('show'), product_path(product), class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
         </p>
       </div>
     <% end %>
