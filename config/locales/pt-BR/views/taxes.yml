@@ -16,4 +16,6 @@ pt-BR:
       tax_value: Valor
     destroy:
       tax_destroy: Taxa apagada com sucesso.
+    create:
+      tax_saved: Taxa salva com sucesso.
 

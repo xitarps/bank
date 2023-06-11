@@ -1,7 +1,9 @@
-<div>
-  <%= t('.edit_product') %>:
-  <%= render 'shared/errors', object: @product %>
+<%= turbo_frame_tag :container do %>
   <div>
+    <%= t('.edit_product') %>:
+    <%= render 'shared/errors', object: @product %>
+    <%= render 'shared/notice_alert' %>
+
     <%= render 'form', product: @product %>
   </div>
-</div>
+<% end %>

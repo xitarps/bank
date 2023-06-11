@@ -13,7 +13,7 @@
       <i class="fa-solid fa-pen-to-square"></i>
     <% end %>
 
-    <%= link_to tax_path(@tax), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 mx-1 rounded' do %>
+    <%= link_to tax_path(@tax), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 mx-1 rounded', data: { turbo_method: :delete} do %>
       <div class='hidden sm:inline-block pr-1'><%= t('destroy') %></div>
       <i class="fa-solid fa-trash"></i>
     <% end %>

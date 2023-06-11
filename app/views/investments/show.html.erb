@@ -1,10 +1,12 @@
-<div>
-  <h2><%= t('.investment_id') %>:<%= @investment.id %></h2>
+<%= turbo_frame_tag :container do %>
   <div>
-      <h2><%= t('.investment_amount') %>: <span><%= number_to_currency @investment.amount %></span></h2>
-      <h2><%= t('.investment_product')%>: <span><%= @investment.product.name %></span></h2>
-      <%= link_to t('edit'), edit_investment_path(@investment), class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
-      <%= link_to t('destroy'), investment_path(@investment), class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded", data: { 'turbo-method': :delete } %>
-      <%= link_to t('back'), investments_path, class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+    <h2><%= t('.investment_id') %>:<%= @investment.id %></h2>
+    <div>
+        <h2><%= t('.investment_amount') %>: <span><%= number_to_currency @investment.amount %></span></h2>
+        <h2><%= t('.investment_product')%>: <span><%= @investment.product.name %></span></h2>
+        <%= link_to t('edit'), edit_investment_path(@investment), class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+        <%= link_to t('destroy'), investment_path(@investment), class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded", data: { 'turbo-method': :delete } %>
+        <%= link_to t('back'), investments_path, class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+    </div>
   </div>
-</div>
+<% end %>

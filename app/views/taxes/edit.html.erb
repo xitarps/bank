@@ -1,11 +1,10 @@
 <%= turbo_frame_tag :container do %>
-
   <div>
     <%= t('.edit_tax')%>:
     <%= render 'shared/errors', object: @tax %>
-    <div>
-        <%= render 'form', tax: @tax %>
-    </div>
-  </div>
+    <%= render 'shared/notice_alert' %>
 
+    <%= render 'form', tax: @tax %>
+
+  </div>
 <% end %>

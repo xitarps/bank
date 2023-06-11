@@ -1,7 +1,9 @@
-<div> 
+<%= turbo_frame_tag :container do %>
+  <div> 
     <%= t('.new_transfer')%>:
     <%= render 'shared/errors', object: @transfer %>
-    <div>
-        <%= render 'form', transfer: @transfer %>
-    </div>
-</div>
+    <%= render 'shared/notice_alert' %>
+
+    <%= render 'form', transfer: @transfer %>
+  </div>
+<% end %>

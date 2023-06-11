@@ -2,8 +2,8 @@
   <div>
     <%= t('.new_product')%>:
     <%= render 'shared/errors', object: @product %>
-    <div>
-      <%= render 'form', product: @product %>
-    </div>
+    <%= render 'shared/notice_alert' %>
+
+    <%= render 'form', product: @product %>
   </div>
 <% end %>

@@ -1,41 +1,43 @@
-<p class="text-center">
-  <%= link_to t('.new_administrator'), new_administrator_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
-</p>
+<%= turbo_frame_tag :container do %>
+  <p class="text-center">
+    <%= link_to t('.new_administrator'), new_administrator_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
+  </p>
 
-<div class="flex flex-col items-center">
-  <div class="overflow-x-auto">
-    <div class="py-2">
-      <div class="overflow-hidden">
-        <table class="min-w-full">
-          <thead class="bg-white border-b">
-            <tr>
-              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">#
-              </th>
-              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left"><%= t('.name') %>
-              </th>
-              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @administrators.each do |administrator| %>
-              <tr class="bg-gray-100 border-b">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= administrator.id %>
-                </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><%= administrator.name %>
-                </td>
-                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+  <div class="flex flex-col items-center">
+    <div class="overflow-x-auto">
+      <div class="py-2">
+        <div class="overflow-hidden">
+          <table class="min-w-full">
+            <thead class="bg-white border-b">
+              <tr>
+                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">#
                 </th>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  <%= link_to t('show'), administrator_path(administrator), class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2' %>
-                  <%= link_to t('edit'), edit_administrator_path(administrator), class: 'bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-2' %>
-                  <%= link_to t('destroy'), administrator_path(administrator), data: { 'turbo-method': :delete, 'turbo-confirm': 'confirmar ação de apagar?' }, class: 'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded' %>
-                </td>
+                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left"><%= t('.name') %>
+                </th>
+                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                </th>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              <% @administrators.each do |administrator| %>
+                <tr class="bg-gray-100 border-b">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= administrator.id %>
+                  </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><%= administrator.name %>
+                  </td>
+                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                  </th>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <%= link_to t('show'), administrator_path(administrator), class: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2' %>
+                    <%= link_to t('edit'), edit_administrator_path(administrator), class: 'bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-2' %>
+                    <%= link_to t('destroy'), administrator_path(administrator), data: { 'turbo-method': :delete, 'turbo-confirm': 'confirmar ação de apagar?' }, class: 'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded' %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>

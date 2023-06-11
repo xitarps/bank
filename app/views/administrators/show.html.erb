@@ -1,6 +1,8 @@
-<h1><%= t('.administrator_details') %></h1>
-  <p>
-    <%= @administrator.id %>
-    <%= @administrator.name %>
+<%= turbo_frame_tag :container do %>
+  <h1><%= t('.administrator_details') %></h1>
+    <p>
+      <%= @administrator.id %>
+      <%= @administrator.name %>
+    </p>
   </p>
-</p>
+<% end %>
