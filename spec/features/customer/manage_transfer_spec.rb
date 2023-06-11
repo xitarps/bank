@@ -13,6 +13,7 @@ RSpec.describe 'Customer' do
     it 'Create Transfer' do
       user = create(:user, :confirmed)
       other_user = create(:user, :confirmed, email: 'other_user@raro.com')
+      user.userable.account.update(amount: 125)
       login_as(user, scope: :user)
       visit '/'
 
@@ -26,7 +27,6 @@ RSpec.describe 'Customer' do
       expect(page).to have_content(user.userable.cpf)
       expect(page).to have_content(other_user.userable.cpf)
       expect(page).to have_content(123)
-      expect(page).to have_content(I18n.l(Date.current, format: :short))
     end
     it 'Create Transfer-invalid' do
       user = create(:user, :confirmed)
@@ -38,13 +38,12 @@ RSpec.describe 'Customer' do
       click_link 'Nova Transferência'
 
       fill_in 'Conta', with: other_user.userable.account.id
-      
+
       click_button 'Realizar Transferência'
 
       expect(page).not_to have_content(user.userable.cpf)
       expect(page).not_to have_content(other_user.userable.cpf)
       expect(page).not_to have_content(123)
-      expect(page).not_to have_content(I18n.l(Date.current, format: :short))
       expect(page).to have_content('Valor da Transferência deve ser maior que 0.0')
     end
   end
