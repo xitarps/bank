@@ -6,6 +6,7 @@ pt-BR:
       sender_cpf: CPF Remetente 
       transfer_date: Data de Transferência
     index:
+      transfers: Transferências
       new_transfer: Nova Transferência
       transfer_value: Valor da Transfêrencia
       recipient_cpf: CPF Destinatário

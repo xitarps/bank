@@ -1,4 +1,5 @@
 pt-BR:
+  insuficient_amount: Valor insuficiente
   activerecord:
     models:
       transfer: Transferência
