@@ -1,4 +1,7 @@
 <div class="container mx-auto algin=center">
+  <span class="float-right rounded text-center">
+    <%= render 'filter', product: @product %>
+  </span>
   <%= t('.all_products')%>:
   <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
     <%= link_to t('.new_product'), new_product_path, class:"float-right bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
