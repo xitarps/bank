@@ -1,0 +1,9 @@
+pt-BR:
+  insuficient_amount: Valor insuficiente
+  activerecord:
+    models:
+      transfer: Transferência
+    attributes:
+      transfer:
+          receiver: Destinatário
+          amount: Valor da Transferência

@@ -1,0 +1,7 @@
+<div> 
+    <%= t('.new_transfer')%>:
+    <%= render 'shared/errors', object: @transfer %>
+    <div>
+        <%= render 'form', transfer: @transfer %>
+    </div>
+</div>
