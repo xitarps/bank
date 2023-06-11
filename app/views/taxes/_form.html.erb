@@ -1,23 +1,26 @@
-<div class='mx-auto'>
-  <div class='flex justify-center'>
-    <div>
-    <%= form_with model: @tax, data: { turbo: false } do |tax| %>
-      <div><%= tax.label :name, t('.tax_name') %></div>
-      <div><%= tax.text_field :name %></div>
-      <div><%= tax.label :value, t('.tax_value')%></div>
-      <div><%= tax.text_field :value %></div>
-      <div>
-        <%= link_to '#', class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" do %>
-          <%= tax.submit t('submit') %>
-        <% end %>
+<div class="flex justify-center items-center">
+  <div class="bg-white p-6 rounded shadow-md">
+    <%= form_with model: @tax do |form| %>
+      <div class="mb-4">
+        <%= form.label :name, t('.tax_name'), class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= form.text_field :name, class: "w-full border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :value, t('.tax_value'), class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= form.text_field :value, class: "w-full border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.submit t('submit'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
       </div>
     <% end %>
-
-    <% if action_name == 'new' %>
-      <%= link_to t('back'), taxes_path, class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
-    <% elsif action_name == 'edit' %>
-      <%= link_to t('back'), tax_path(@tax), class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
-    <% end %>
+    <div>
+      <% if action_name == 'new' %>
+        <%= link_to t('back'), taxes_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      <% elsif action_name == 'edit' %>
+        <%= link_to t('back'), tax_path(@tax), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      <% end %>
     </div>
   </div>
 </div>

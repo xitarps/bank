@@ -1,6 +1,7 @@
 <%= turbo_frame_tag :container do %>
-
-  <%= t('.new_tax') %>:
+  <div class="container mx-auto text-center mb-4">
+    <h2 class="text-xl font-bold mt-8"><%= t('.new_tax') %></h2>
+  </div>
   <%= render 'shared/errors', object: @tax %>
   <%= render 'shared/notice_alert' %>
 

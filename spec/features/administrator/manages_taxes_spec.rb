@@ -11,8 +11,8 @@ RSpec.describe 'Administrator' do
       login_as(user, scope: :user)
       visit '/'
 
-      click_on 'Taxas'
-      click_on 'Nova taxa'
+      click_on 'Indexadores'
+      click_on 'Novo indexador'
 
       name = Faker::Ancient.god
 
@@ -48,15 +48,15 @@ RSpec.describe 'Administrator' do
       click_on 'Detalhes'
       click_on 'Apagar'
 
-      expect(page).to have_content('Taxa apagada com sucesso.')
+      expect(page).to have_content('Indexador apagado com sucesso.')
     end
     it 'Create Invalid Tax' do
       user = create(:user, :confirmed, :administrator)
       login_as(user, scope: :user)
       visit '/'
 
-      click_on 'Taxas'
-      click_on 'Nova taxa'
+      click_on 'Indexadores'
+      click_on 'Novo indexador'
 
       fill_in 'Nome',	    with: ''
       fill_in 'Valor',    with: Faker::Number.decimal(l_digits: 2, r_digits: 2)

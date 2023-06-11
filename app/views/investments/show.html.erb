@@ -1,4 +1,5 @@
 <%= turbo_frame_tag :container do %>
+  <%= render 'shared/notice_alert' %>
   <div>
     <h2><%= t('.investment_id') %>:<%= @investment.id %></h2>
     <div>
