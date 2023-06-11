@@ -38,7 +38,7 @@ RSpec.describe 'Customer' do
       click_link 'Nova Transferência'
 
       fill_in 'Conta', with: other_user.userable.account.id
-      
+
       click_button 'Realizar Transferência'
 
       expect(page).not_to have_content(user.userable.cpf)
