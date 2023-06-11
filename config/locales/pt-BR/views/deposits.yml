@@ -1,0 +1,7 @@
+pt-BR:
+  deposits:
+    new:
+      news_deposits: Novos Depositos
+      amount: Valor
+      name: Nome
+      deposit: Depositar

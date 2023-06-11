@@ -1,3 +1,8 @@
+  <h2 class="text-center font-bold">
+    <%= t('.news_deposits') %>
+  </h2>
+
+
 <div class="flex justify-center items-center h-screen flex-wrap">
   <div class="bg-white p-6 rounded shadow-md w-1/2 md:w-auto mb-8 mr-4">
     <%= form_with url: deposits_path, data: { turbo: false } do |form| %>    
@@ -7,13 +12,13 @@
       </div>
       
       <div class="mb-4">
-        <%= form.label :amount, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= form.label :amount, t('.amount'), class: "block text-gray-700 text-sm font-bold mb-2" %>
         <%= form.text_field :amount, class: "w-full border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
       </div>
 
       <div class="flex justify-between">
         <%= link_to '#', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" do %>
-          <%= form.submit ('Depositar') %>
+          <%= form.submit t('.deposit') %>
         <% end %>
       </div>
     <% end %>
@@ -27,13 +32,13 @@
     </div>
     
     <div class="mb-4">
-      <%= form.label :amount, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.label :amount, t('.amount'), class: "block text-gray-700 text-sm font-bold mb-2" %>
       <%= form.text_field :amount, class: "w-full border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
     </div>
 
     <div class="flex justify-between">
       <%= link_to '#', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" do %>
-        <%= form.submit ('Depositar') %>
+        <%= form.submit t('.deposit') %>
       <% end %>
     </div>
   <% end %>
