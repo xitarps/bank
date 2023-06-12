@@ -33,21 +33,9 @@ module Authorizable
         },
         'accounts' => {
           'index' => true,
-          'edit' => true,
-          'show' => true,
-          'update' => true,
-          'destroy' => true
+          'show' => true
         },
         'classrooms' => {
-          'index' => true,
-          'new' => true,
-          'create' => true,
-          'edit' => true,
-          'show' => true,
-          'update' => true,
-          'destroy' => true
-        },
-        'customer_classes' => {
           'index' => true,
           'new' => true,
           'create' => true,
@@ -67,9 +55,10 @@ module Authorizable
         },
         'transfers' => {
           'index' => true,
-          'new' => true,
-          'create' => true,
           'show' => true
+        },
+        'investments' => {
+          'index' => true
         }
       },
       'Customer' => {
