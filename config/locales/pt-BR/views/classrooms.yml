@@ -13,6 +13,8 @@ pt-BR:
       name: Nome
       course: Curso
       newclass: Nova Turma
+      all_classrooms: Todas as turmas
+      new_classroom: Nova Turma
     edit:
       edit_classroom: Edição de Turma
     new:
