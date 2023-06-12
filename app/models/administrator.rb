@@ -1,4 +1,6 @@
 class Administrator < ApplicationRecord
-  has_one :user, as: :userable, dependent: :nullify
+  has_one :user, as: :userable, dependent: :destroy
   validates :name, presence: true
+
+  accepts_nested_attributes_for :user
 end

@@ -5,7 +5,7 @@ class DepositsController < ApplicationController
   def create
     errors = []
     errors << t('notices.blank_customer') if @accounts.empty?
-    errors << t('notices.blank_value') if deposit_params.fetch(:amount, nil)&.empty?
+    errors << t('notices.blank_value') if deposit_params.fetch(:amount, []).empty?
     return redirect_to new_deposit_path, alert: errors if errors.any?
 
     @accounts = Account.deposit(@accounts, deposit_params[:amount].to_f)

@@ -3,11 +3,16 @@ pt-BR:
     index:
       name: Nome
       new_administrator: Novo Administrador
+      all_administrators: Todos Administradores
     edit:
       edit_administrator: Editar Administrador
     show:
       administrator_details: Detalhes do Administrador
     new:
       new_administrator: Novo Administrador
+    update:
+      administrator_saved: Administrador salvo
+    destroy:
+      administrator_destroy: Administrador deletado
   notices:
     administrator_created: 'Administrador criado com sucesso.'

@@ -21,8 +21,8 @@ RSpec.describe 'Customer' do
       select('Premium', from: 'Premium')
       click_on 'Filtrar'
 
-      expect(page).to have_content(produto.name)
-      expect(page).to_not have_content(produto2.name)
+      expect(page).to have_content(produto.name.truncate(20))
+      expect(page).to_not have_content(produto2.name.truncate(20))
     end
     it 'By Standard' do
       user = create(:user, :confirmed)
@@ -36,8 +36,8 @@ RSpec.describe 'Customer' do
       select('Standard', from: 'Premium')
       click_on 'Filtrar'
 
-      expect(page).to have_content(produto.name)
-      expect(page).to_not have_content(produto2.name)
+      expect(page).to have_content(produto.name.truncate(20))
+      expect(page).to_not have_content(produto2.name.truncate(20))
     end
     it 'By Standard and premium' do
       user = create(:user, :confirmed)
@@ -52,8 +52,8 @@ RSpec.describe 'Customer' do
       select('Premium', from: 'Premium')
       click_on 'Filtrar'
 
-      expect(page).to have_content(produto.name)
-      expect(page).to have_content(produto2.name)
+      expect(page).to have_content(produto.name.truncate(20))
+      expect(page).to have_content(produto2.name.truncate(20))
     end
     it 'By Index' do
       user = create(:user, :confirmed)
@@ -64,7 +64,7 @@ RSpec.describe 'Customer' do
       select(produto.tax.name, from: 'Index')
       click_on 'Filtrar'
 
-      expect(page).to have_content(produto.name)
+      expect(page).to have_content(produto.name.truncate(20))
     end
     it 'By Index2' do
       user = create(:user, :confirmed)
@@ -78,8 +78,8 @@ RSpec.describe 'Customer' do
       select(tax.name, from: 'Index')
       click_on 'Filtrar'
 
-      expect(page).to_not have_content(produto.name)
-      expect(page).to have_content(produto2.name)
+      expect(page).to_not have_content(produto.name.truncate(20))
+      expect(page).to have_content(produto2.name.truncate(20))
     end
     it 'By Minimum Amount' do
       user = create(:user, :confirmed)
@@ -92,8 +92,8 @@ RSpec.describe 'Customer' do
       fill_in 'Valor mínimo', with: produto.minimum_amount
       click_on 'Filtrar'
 
-      expect(page).to have_content(produto.name)
-      expect(page).to_not have_content(produto2.name)
+      expect(page).to have_content(produto.name.truncate(20))
+      expect(page).to_not have_content(produto2.name.truncate(20))
     end
     it 'By Final Date' do
       user = create(:user, :confirmed)
@@ -106,8 +106,8 @@ RSpec.describe 'Customer' do
       fill_in 'Data de validade', with: produto.final_date
       click_on 'Filtrar'
 
-      expect(page).to have_content(produto.name)
-      expect(page).to_not have_content(produto2.name)
+      expect(page).to have_content(produto.name.truncate(20))
+      expect(page).to_not have_content(produto2.name.truncate(20))
     end
   end
 end
