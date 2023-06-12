@@ -94,6 +94,10 @@ module Authorizable
           'show' => true,
           'update' => true,
           'destroy' => true
+        },
+        'products' => {
+          'index' => true,
+          'show' => true
         }
       }
     }

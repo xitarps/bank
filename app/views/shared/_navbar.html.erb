@@ -30,6 +30,9 @@
       <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
         <%= link_to t('.accounts'), accounts_path, class: "block mt-4 lg:inline-block lg:mt-0 hover:text-white mr-4 #{t(".#{controller_name}") == t('.accounts') ? 'font-bold text-white' : 'text-blue-200'}"%>
       <% end %>
+      <% if user_signed_in? && ['Customer'].include?(current_user.userable_type) %>
+        <%= link_to t('.product_catolog'), products_path(current_user.userable), class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"%>
+      <% end %>
       <% if user_signed_in? %>
         <%= link_to t('.investments'), investments_path, class: "block mt-4 lg:inline-block lg:mt-0 hover:text-white mr-4 #{t(".#{controller_name}") == t('.investments') ? 'font-bold text-white' : 'text-blue-200'}"%> 
       <% end %>

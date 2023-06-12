@@ -1,0 +1,12 @@
+pt-BR:
+  deposits:
+    new:
+      news_deposits: Novos Depositos
+      amount: Valor
+      name: Nome
+      name_classroom: Turma
+      deposit: Depositar
+  notices:
+    deposit_created: Depósito criado com sucesso
+    blank_customer: Cliente(s) não pode ficar em branco
+    blank_value: Valor não pode ficar em branco

@@ -9,6 +9,8 @@
       <div class="mb-4"><%= form.date_field :final_date %></div>
       <div><%= form.label :minimum_amount, t('.product_minimum_amount') %></div>
       <div class="mb-4"><%= form.text_field :minimum_amount %></div>
+      <div><%= form.label :premium, t('.premium') %></div>
+      <div class="mb-4"><%= form.check_box :premium %></div>
       <div><%= form.label :tax_id, t('.product_tax_id') %></div>
       <div class="mb-4"><%= form.select :tax_id, options_for_select(Tax.all.map { |tax| [tax.name, tax.id] } ) %></div>
       <div class="mb-4">

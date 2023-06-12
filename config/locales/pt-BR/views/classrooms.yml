@@ -17,3 +17,5 @@ pt-BR:
       edit_classroom: Edição de Turma
     new:
       new_classroom: Nova Turma
+  notices:
+    classroom_created: 'Sala criado com sucesso.'

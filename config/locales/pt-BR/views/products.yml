@@ -22,6 +22,12 @@ pt-BR:
       product_final_date: Data de fim
       product_minimum_amount: Valor mínimo
       product_tax_id: Taxa
+    filter:
+      index: Index
+      minimum_amount: Valor mínimo
+      premium: Premium
+      final_date: Data de validade
+      filter: Filtrar
     destroy:
       product_destroy: Apagado com sucesso!
     create:

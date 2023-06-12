@@ -9,3 +9,5 @@ pt-BR:
       administrator_details: Detalhes do Administrador
     new:
       new_administrator: Novo Administrador
+  notices:
+    administrator_created: 'Administrador criado com sucesso.'

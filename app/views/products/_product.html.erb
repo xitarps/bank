@@ -1,4 +1,4 @@
-<tr class="border-b dark:border-neutral-500">
+<tr class="border-b dark:border-neutral-500 <%= product.premium? ? 'font-style: italic bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-yellow-700' : '' %>">
   <td class="whitespace-wrap  px-0 py-2 font-medium"><%= product.name.truncate(20) %></td>
   <% if action_name == 'show' %>
     <td class="whitespace-nowrap  px-0 py-2 font-medium hidden sm:table-cell"><%= l(product.start_date, format: :short) %></td>
@@ -13,14 +13,16 @@
         <i class="fa-solid fa-circle-info"></i>
       <% end %>
     <% elsif action_name == 'show' %>
-      <%= link_to edit_product_path(product), class: 'flex justify-center w-42 my-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 mx-1 rounded' do %>
-        <div class='hidden sm:block pr-1'><%= t('edit') %></div>
-        <i class="fa-solid fa-pen-to-square"></i>
-      <% end %>
+      <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
+        <%= link_to edit_product_path(product), class: 'flex justify-center w-42 my-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 mx-1 rounded' do %>
+          <div class='hidden sm:block pr-1'><%= t('edit') %></div>
+          <i class="fa-solid fa-pen-to-square"></i>
+        <% end %>
 
-      <%= link_to product_path(product), class: 'flex justify-center w-42 my-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 mx-1 rounded', data: { turbo_method: :delete} do %>
-        <div class='hidden sm:block pr-1'><%= t('destroy') %></div>
-        <i class="fa-solid fa-trash"></i>
+        <%= link_to product_path(product), class: 'flex justify-center w-42 my-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 mx-1 rounded', data: { turbo_method: :delete} do %>
+          <div class='hidden sm:block pr-1'><%= t('destroy') %></div>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
       <% end %>
 
       <%= link_to products_path, class: 'flex justify-center w-42 my-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 mx-1 rounded' do %>
