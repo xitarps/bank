@@ -3,8 +3,12 @@ class DepositsController < ApplicationController
   def new; end
 
   def create
-    @accounts = Account.deposit(@accounts, deposit_params[:amount].to_f)
+    errors = []
+    errors << t('notices.blank_customer') if @accounts.empty?
+    errors << t('notices.blank_value') if deposit_params.fetch(:amount, nil)&.empty?
+    return redirect_to new_deposit_path, alert: errors if errors.any?
 
+    @accounts = Account.deposit(@accounts, deposit_params[:amount].to_f)
     if @accounts.map { |acc| acc.errors.empty? }.all?(true)
       redirect_to new_deposit_path, notice: I18n.t('notices.deposit_created')
     else
