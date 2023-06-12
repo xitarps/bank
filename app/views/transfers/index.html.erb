@@ -5,11 +5,11 @@
     <% if user_signed_in? && ['Customer'].include?(current_user.userable_type) %>
       <div class="mt-8">
         <span class="inline-block">
-          <%= link_to t('.new_transfer'), new_transfer_path, class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" %>
+          <%= link_to t('.new_transfer'), new_transfer_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" %>
         </span>
 
         <span class="inline-block">
-          <%= link_to t('back'), root_path, class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+          <%= link_to t('back'), root_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
         </span>
       </div>
     <% end %>

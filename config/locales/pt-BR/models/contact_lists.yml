@@ -1,0 +1,5 @@
+pt-BR:
+  activerecord:
+    models:
+      contact_list: Lista de contatos
+

@@ -6,3 +6,5 @@ pt-BR:
       deposit: Depositar
     edit:
       edit_account: Edita Conta
+    show:
+      account_detail: Detalhes da Conta
