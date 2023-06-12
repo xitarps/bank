@@ -20,7 +20,7 @@ RSpec.describe 'Customer' do
       click_link 'Transferências'
       click_link 'Nova Transferência'
 
-      fill_in 'Conta', with: other_user.userable.account.id
+      fill_in 'Conta', with: other_user.userable.cpf
       fill_in 'Valor da Transferência', with: '123'
       click_button 'Realizar Transferência'
 

@@ -5,7 +5,7 @@
     <h2 class="text-xl font-bold mt-8"><%= t('.all_classrooms') %></h2>
   </div>
 
-  <% if user_signed_in? && ['Root'].include?(current_user.userable_type) %>
+  <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
     <span class="flex justify-center">
       <%= link_to t('.new_classroom'), new_classroom_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded mr-2 mb-2" %>
     </span>

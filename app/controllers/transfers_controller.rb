@@ -40,7 +40,7 @@ class TransfersController < ApplicationController
 
   def handle_cpf
     if @raw_params.fetch(:receiver_cpf, nil)
-      @receiver = Account.joins(:customer).where(customer: { cpf: @raw_params[:receiver_cpf] } )&.first
+      @receiver = Account.joins(:customer).where(customer: { cpf: @raw_params[:receiver_cpf] })&.first
       @raw_params.tap do |param|
         param[:receiver_id] = @receiver&.id
         param.delete(:receiver_cpf)
@@ -50,6 +50,8 @@ class TransfersController < ApplicationController
 
   def persist_contact
     save_contact = params[:transfer].fetch(:save_contact, nil)
-    current_user.userable&.contact_list&.customers << @receiver&.customer if !save_contact&.to_i&.zero? && @receiver != current_user&.userable&.account
+    if !save_contact.to_i.zero? && @receiver != current_user.userable.account
+      current_user.userable.contact_list.customers << @receiver.customer
+    end
   end
 end
