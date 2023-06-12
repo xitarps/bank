@@ -50,4 +50,12 @@ unless Product.any?
   puts 'OK!'
 end
 
+unless Classroom.any?
+  print 'criando turmas...'
+  FactoryBot.create(:classroom)
+  Classroom.first.customers << Customer.second
+  Classroom.first.customers << Customer.third
+  puts 'OK!'
+end
+
 puts '============Criação de dados finalizada============'
