@@ -1,13 +1,29 @@
 <%= turbo_frame_tag :container do %>
   <%= render 'shared/notice_alert' %>
-  <div>
-    <h2><%= t('.investment_id') %>:<%= @investment.id %></h2>
-    <div>
-        <h2><%= t('.investment_amount') %>: <span><%= number_to_currency @investment.amount %></span></h2>
-        <h2><%= t('.investment_product')%>: <span><%= @investment.product.name %></span></h2>
-        <%= link_to t('edit'), edit_investment_path(@investment), class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
-        <%= link_to t('destroy'), investment_path(@investment), class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded", data: { 'turbo-method': :delete } %>
-        <%= link_to t('back'), investments_path, class:"bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+
+  <div class="container mx-auto text-center mb-4">
+    <h2 class="text-xl font-bold mt-8"><%= t('.investment_details') %></h2>
+  </div>
+
+  <div class="overflow-x-hidden w-full">
+    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full text-center text-sm font-light">
+          <thead
+            class="border-b bg-blue-500 font-medium text-white dark:border-blue-500 dark:bg-blue-500">
+            <tr>
+              <th scope="col" class=" px-0 py-4"><%= Customer.human_attribute_name(:first_name) %></th>
+              <th scope="col" class=" px-0 py-4"><%= Investment.human_attribute_name(:amount) %></th>
+              <th scope="col" class=" px-0 py-4"><%= Product.human_attribute_name(:final_date) %></th>
+              <th scope="col" class=" px-0 py-4"><%= t('.product_name') %></th>
+              <th scope="col" class=" px-0 py-4"><%= t('actions') %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @investment %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 <% end %>

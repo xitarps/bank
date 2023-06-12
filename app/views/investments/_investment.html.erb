@@ -1,0 +1,33 @@
+<tr class="border-b dark:border-neutral-500">
+  <td class="whitespace-wrap  px-0 py-2 font-medium"><%= investment.account.customer.first_name.truncate(20) %></td>
+  <% if action_name == 'show' %>
+    <td class="whitespace-wrap  px-0 py-2 font-medium"><%= number_to_currency investment.amount %></td>
+    <td class="whitespace-wrap  px-0 py-2 font-medium"><%= l(investment.product.final_date, format: :short) %></td>
+  <% end %>
+  <td class="whitespace-wrap  px-0 py-2 font-medium"><%= investment.product.name %></td>
+
+  <td class="w-fit px-0 py-4 font-medium flex flex-col mx-auto">
+    <% if action_name == 'index' %>
+      <%= link_to investment_path(investment), class: 'flex justify-center w-42 my-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 mx-1 rounded' do %>
+        <div class='hidden sm:block pr-1'><%= t('show') %></div>
+        <i class="fa-solid fa-circle-info"></i>
+      <% end %>
+    <% elsif action_name == 'show' %>
+
+      <%= link_to edit_investment_path(investment), class: 'flex justify-center w-42 my-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 mx-1 rounded' do %>
+          <div class='hidden sm:block pr-1'><%= t('edit') %></div>
+          <i class="fa-solid fa-pen-to-square"></i>
+      <% end %>
+
+      <%= link_to investment_path(investment), class: 'flex justify-center w-42 my-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 mx-1 rounded', data: { turbo_method: :delete} do %>
+          <div class='hidden sm:block pr-1'><%= t('destroy') %></div>
+          <i class="fa-solid fa-trash"></i>
+      <% end %>
+
+      <%= link_to investments_path, class: 'flex justify-center w-42 my-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 mx-1 rounded' do %>
+        <div class='hidden sm:inline-block pr-1'><%= t('back') %></div>
+        <i class="fa-solid fa-arrow-left"></i>
+      <% end %>
+    <% end %>
+  </td>
+</tr>

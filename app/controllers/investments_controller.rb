@@ -24,11 +24,6 @@ class InvestmentsController < ApplicationController
   end
 
   def update
-    if @investment.update(investment_params)
-      return redirect_to investments_path(@investment),
-                         notice: t('.investment_update')
-    end
-
     render :edit
   end
 
