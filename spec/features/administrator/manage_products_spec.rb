@@ -24,7 +24,7 @@ RSpec.describe 'Administrator' do
       select(tax.name.to_s, from: 'Taxa')
 
       click_on 'Confirmar'
-      expect(page).to have_content(name)
+      expect(page).to have_content(name.truncate(20))
     end
     it 'Edit Product' do
       user = create(:user, :confirmed, :root)
@@ -40,7 +40,7 @@ RSpec.describe 'Administrator' do
       fill_in 'Nome do produto', with: name2
 
       click_on 'Confirmar'
-      expect(page).to have_content(name2)
+      expect(page).to have_content(name2.truncate(20))
     end
     it 'Edit Product invalid' do
       user = create(:user, :confirmed, :root)

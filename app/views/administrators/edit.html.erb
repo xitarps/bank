@@ -1,4 +1,10 @@
-<h2><%= t('.edit_administrator') %></h2>
+<%= turbo_frame_tag :container do %>
+  <div class="container mx-auto text-center mb-4">
+    <h2 class="text-xl font-bold mt-8"><%= t('.edit_administrator') %></h2>
+  </div>
 
-<%= render 'shared/errors', object: @administrator %>
-<%= render 'form', administrator: @administrator %>
+  <%= render 'shared/errors', object: @administrator %>
+  <%= render 'shared/notice_alert' %>
+
+  <%= render 'form', administrator: @administrator %>
+<% end %>

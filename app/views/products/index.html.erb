@@ -1,23 +1,36 @@
-<div class="container mx-auto algin=center">
-  <span class="float-right rounded text-center">
+<%= turbo_frame_tag :container do %>
+  <%= render 'shared/notice_alert' %>
+
+  <span class="flex justify-center">
     <%= render 'filter', product: @product %>
   </span>
-  <%= t('.all_products')%>:
-  <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
-    <%= link_to t('.new_product'), new_product_path, class:"float-right bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
-  <% end %>
-  <div>
-    <% @products.each do |product| %>
-      <div>
-        <%= product.id %>
-        <%= product.name %>
-        <% if product.premium %>
-          <span class="font-style: italic bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-yellow-700">Premium</span>
-        <% end %>
-        <p>
-          <%= link_to t('show'), product_path(product), class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
-        </p>
-      </div>
-    <% end %>
+
+  <div class="container mx-auto text-center mb-4">
+    <h2 class="text-xl font-bold mt-8"><%= t('.all_products') %></h2>
   </div>
-</div>
+
+  <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
+    <span class="flex justify-center">
+      <%= link_to t('.new_product'), new_product_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded mr-2 mb-2" %>
+    </span>
+  <% end %>
+
+  <div class="overflow-x-hidden w-full">
+    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full text-center text-sm font-light">
+          <thead
+            class="border-b bg-blue-500 font-medium text-white dark:border-blue-500 dark:bg-blue-500">
+            <tr>
+              <th scope="col" class=" px-0 py-4"><%= Product.human_attribute_name(:name) %></th>
+              <th scope="col" class=" px-0 py-4"><%= t('actions') %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @products %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,18 +1,5 @@
-<div class="bg-gray-200 p-4 rounded-lg shadow-lg">
-  <h2 class="text-2xl font-semibold mb-4"><%= Account.model_name.human %>: <%= account.id %></h2>
-  <div class="mb-4">
-   <p class="text-lg"><strong><%= Customer.model_name.human %>:</strong> <%= account.customer_id %></p>
-   <p class="text-lg"><strong><%= Customer.human_attribute_name(:first_name) %>:</strong> <%= account.customer.first_name %></p>
-   <p class="text-lg"><strong><%= Account.human_attribute_name(:amount) %>:</strong> <%= number_to_currency account.amount %></p>
-  </div>
-  <div class="flex justify-between">
-    <span class="text-lg">
-      <%= link_to t('show'), account_path(account), class: "text-blue-500 hover:underline" %>
-    </span>
-    <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
-      <span class="text-lg">
-        <%= link_to t('edit'), edit_account_path(account), class: "text-blue-500 hover:underline ml-4" %>
-      </span>
-    <% end %>
-  </div>
-</div>
+<tr class="border-b dark:border-neutral-500">
+  <td class="whitespace-wrap  px-0 py-2 font-medium"><%= account.customer.first_name.truncate(10) %></td>
+  <td class="whitespace-wrap  px-0 py-2 font-medium"><%= account.customer.cpf %></td>
+  <td class="whitespace-wrap  px-0 py-2 font-medium"><%= number_to_currency account.amount %></td>
+</tr>

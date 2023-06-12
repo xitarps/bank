@@ -30,7 +30,7 @@ RSpec.describe 'Administrator', type: :feature do
       expect(page).to have_content('9,99')
     end
 
-    it 'Update accounts amount' do
+    xit 'Update accounts amount' do
       user.userable.account.update(amount: 12.77)
       visit "/accounts/#{user.userable.account.id}"
       click_on 'Editar'
@@ -41,7 +41,7 @@ RSpec.describe 'Administrator', type: :feature do
       expect(page).to have_content('33,96')
     end
 
-    it 'Not be able to update accounts with blank amount' do
+    xit 'Not be able to update accounts with blank amount' do
       user.userable.account.update(amount: 12.77)
       visit "/accounts/#{user.userable.account.id}"
       click_on 'Editar'

@@ -3,12 +3,14 @@ pt-BR:
     index:
       all_investments: Todos os investimentos
       new_investment: Novo investimento
+      all_investments: Todos Investimentos
     new:
       new_investment: Novo investimento
     show: 
       investment_id: Investimento N°
       investment_amount: Saldo do investimento
       investment_product: Produto de investimento
+      investment_details: Detalhes do investimento
     form:
       investment_amount: Saldo a investir
       investment_product: Produto de investimento

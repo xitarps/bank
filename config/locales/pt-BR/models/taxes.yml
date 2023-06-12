@@ -1,7 +1,7 @@
 pt-BR:
   activerecord:
     models:
-      tax: Taxa
+      tax: Indexador
     attributes:
       tax:
         name: Nome

@@ -12,7 +12,7 @@ class Investment < ApplicationRecord
 
   def investment_amount_greather_than_product_minimum_amount
     if selected_product.nil? || amount.to_i < selected_product.minimum_amount
-      errors.add(:amount, 'a investir deve ser maior')
+      errors.add(:amount, '/ Valor a investir deve ser maior')
     end
   end
 

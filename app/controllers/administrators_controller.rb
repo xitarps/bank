@@ -10,12 +10,14 @@ class AdministratorsController < ApplicationController
 
   def new
     @administrator = Administrator.new
+    @administrator.build_user
   end
 
   def edit; end
 
   def create
     @administrator = Administrator.new(administrator_params)
+
     if @administrator.save
       redirect_to administrators_path, notice: I18n.t('notices.administrator_created')
     else
@@ -24,7 +26,9 @@ class AdministratorsController < ApplicationController
   end
 
   def update
-    return redirect_to administrators_path(@administrator) if @administrator.update(administrator_params)
+    if @administrator.update(administrator_params)
+      return redirect_to administrators_path(@administrator), notice: t('.administrator_saved')
+    end
 
     render :edit
   end
@@ -32,13 +36,13 @@ class AdministratorsController < ApplicationController
   def destroy
     @administrator.destroy
 
-    redirect_to administrators_path
+    redirect_to administrators_path, notice: t('.administrator_destroy')
   end
 
   private
 
   def administrator_params
-    params.require(:administrator).permit(:name)
+    params.require(:administrator).permit(:name, user_attributes: %i[email password])
   end
 
   def fetch_administrator

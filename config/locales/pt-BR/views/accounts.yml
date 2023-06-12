@@ -3,5 +3,8 @@ pt-BR:
     index:
       accounts_list: Contas
       account.first_name: Primeiro Nome
+      deposit: Depositar
     edit:
       edit_account: Edita Conta
+    show:
+      account_detail: Detalhes da Conta

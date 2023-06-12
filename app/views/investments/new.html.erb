@@ -1,7 +1,9 @@
-<div> 
-   <%= t('.new_investment')%>:
-    <%= render 'shared/errors', object: @investment %>
-    <div>
-        <%= render 'form', investment: @investment %>
-    </div>
-</div>
+<%= turbo_frame_tag :container do %>
+  <div class="container mx-auto text-center mb-4">
+    <h2 class="text-xl font-bold mt-8"><%= t('.new_investment') %></h2>
+  </div>
+  <%= render 'shared/errors', object: @investment %>
+  <%= render 'shared/notice_alert' %>
+
+  <%= render 'form', investment: @investment %>
+<% end %>

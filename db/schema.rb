@@ -105,7 +105,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_134311) do
   create_table "transfers", force: :cascade do |t|
     t.decimal "amount", precision: 5, scale: 2, default: "0.0"
     t.integer "status", default: 5, null: false
-    t.date "trade_date", default: "2023-06-11", null: false
+    t.date "trade_date", default: "2023-06-08", null: false
     t.bigint "sender_id"
     t.bigint "receiver_id"
     t.datetime "created_at", null: false

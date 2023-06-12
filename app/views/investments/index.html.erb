@@ -1,20 +1,31 @@
-<div class="container mx-auto algin=center">
-  <%= t('.all_investments') %>:
-  <span class="float-right bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-    <%= link_to t('.new_investment'), new_investment_path %>
-  </span>
-  <div>
-    <% @investments.each do |investment| %>
-      <div>
-        <span><%= investment.id %></span>
-        <span><%= number_to_currency investment.amount %></span>
-        <span><%= investment.account.customer.first_name %></span>
-        <span><%= investment.product.name %></span>
-        <p>
-          <span class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-          <%= link_to t('show'), investment_path(investment) %>
-        </p>
-      </div>
-    <% end %>
+<%= turbo_frame_tag :container do %>
+  <%= render 'shared/notice_alert' %>
+
+  <div class="container mx-auto text-center mb-4">
+    <h2 class="text-xl font-bold mt-8"><%= t('.all_investments') %></h2>
   </div>
-</div>
+
+  <span class="flex justify-center">
+    <%= link_to t('.new_investment'), new_investment_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded mr-2 mb-2" %>
+  </span>
+
+  <div class="overflow-x-hidden w-full">
+    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full text-center text-sm font-light">
+          <thead
+            class="border-b bg-blue-500 font-medium text-white dark:border-blue-500 dark:bg-blue-500">
+            <tr>
+              <th scope="col" class=" px-0 py-4"><%= Customer.human_attribute_name(:first_name) %></th>
+              <th scope="col" class=" px-0 py-4"><%= t('.product_name') %></th>
+              <th scope="col" class=" px-0 py-4"><%= t('actions') %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @investments %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<% end %>

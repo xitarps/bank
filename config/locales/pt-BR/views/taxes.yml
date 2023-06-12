@@ -3,17 +3,21 @@ pt-BR:
     show:
       tax_name: Nome
       tax_value: Valor
-      tax_id: Taxa n°
+      tax_id: Indexador n°
+      tax_details: Detalhes do indexador
     index:
-      new_tax: Nova taxa
-      all_taxes: Todas as taxas
+      new_tax: Novo indexador
+      all_taxes: Todos as indexadors
     edit:
-      edit_tax: Editar taxa
+      edit_tax: Editar indexador
     new:
-      new_tax: Nova taxa
+      new_tax: Novo indexador
     form:
       tax_name: Nome
       tax_value: Valor
     destroy:
-      tax_destroy: Taxa apagada com sucesso.
-
+      tax_destroy: Indexador apagado com sucesso.
+    create:
+      tax_saved: Indexador salvo com sucesso.
+    update:
+      tax_saved: Indexador salvo com sucesso.

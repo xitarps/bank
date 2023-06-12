@@ -18,6 +18,8 @@ RSpec.describe 'Root' do
       name = Faker::Ancient.god
 
       fill_in 'Nome', with: name
+      fill_in 'Senha', with: '123456'
+      fill_in 'Email', with: 'tester@tester.com'
 
       click_on 'Confirmar'
       expect(page).to have_content(name)
@@ -43,6 +45,7 @@ RSpec.describe 'Root' do
       FactoryBot.create(:administrator)
       visit '/administrators'
 
+      click_on 'Detalhes'
       click_on 'Editar'
 
       name2 = Faker::Ancient.god
@@ -59,7 +62,8 @@ RSpec.describe 'Root' do
       administrator = FactoryBot.create(:administrator)
       visit '/administrators'
 
-      click_on 'Edit'
+      click_on 'Detalhes'
+      click_on 'Editar'
 
       name = administrator.name
 
@@ -76,7 +80,8 @@ RSpec.describe 'Root' do
       FactoryBot.create(:administrator)
       visit '/administrators'
 
-      click_on 'Edit'
+      click_on 'Detalhes'
+      click_on 'Editar'
 
       fill_in 'Nome', with: ''
 
@@ -90,6 +95,7 @@ RSpec.describe 'Root' do
       administrator = FactoryBot.create(:administrator)
       visit '/administrators'
 
+      click_on 'Detalhes'
       click_on 'Apagar'
 
       expect(page).not_to have_content(administrator.name)

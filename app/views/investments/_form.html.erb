@@ -1,25 +1,22 @@
-<div>
-  <%= form_with model: @investment, data: {turbo: false} do |investment| %>
+<div class="flex justify-center items-center">
+  <div class="bg-white p-6 rounded shadow-md mb-4">
+    <%= form_with model: investment do |form| %>
+      <div><%= form.label :amount, t('.investment_amount') %></div>
+      <div class="mb-4"><%= form.number_field :amount, disabled: (['edit','update'].include?(action_name) ? true : false), class: "#{['edit','update'].include?(action_name) ? 'bg-gray-300' : ''}", step: 0.01 %></div>
+      
+      <div><%= form.label :product_id, t('.investment_product') %></div>
+      <div class="mb-4"><%= form.select :product_id, options_for_select(Product.all.map{|product|[product.name, product.id]}),{}, disabled: (['edit','update'].include?(action_name) ? true : false), class: "#{['edit','update'].include?(action_name) ? 'bg-gray-300' : ''}" %></div>
+
+      <div class="mb-4">
+        <%= form.submit t('submit'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      </div>
+    <%end%>
     <div>
-      <%= investment.label :amount, t('.investment_amount') %>:
-    <div>
-      <%= investment.text_field :amount %>
-    </div>
-    <div>
-      <%= investment.label :product_id, t('.investment_product') %>:
-    </div>
-    <div>
-      <%= investment.select :product_id, options_for_select(Product.all.map{|product|[product.name, product.id]}) %>
-    </div>
-    <div>
-      <%= link_to '#', class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" do %>
-        <%= investment.submit t('submit') %>
-      <% end %>
-      <% if action_name == "new" %>
-        <%= link_to t('back'), investments_path, class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
-      <% elsif action_name == "edit" %>
-        <%= link_to t('back'), investment_path(@investment), class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+      <% if action_name == 'new' %>
+        <%= link_to t('back'), investments_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      <% elsif ['edit','update'].include?(action_name) %>
+        <%= link_to t('back'), investment_path(investment), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
       <%end%>
     </div>
-  <%end%>
+  </div>
 </div>

@@ -1,5 +1,33 @@
-<div class="container mx-auto algin=center">
-  <div><%= t('.accounts_list') %>:
-    <%= render @accounts %>
+<%= turbo_frame_tag :container do %>
+  <%= render 'shared/notice_alert' %>
+
+  <div class="container mx-auto text-center mb-4">
+    <h2 class="text-xl font-bold mt-8"><%= t('.accounts_list') %></h2>
   </div>
-</div>
+
+  <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
+    <span class="flex justify-center">
+      <%= link_to t('.deposit'), new_deposit_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded mr-2 mb-2" %>
+    </span>
+  <% end %>
+
+  <div class="overflow-x-hidden w-full">
+    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full text-center text-sm font-light">
+          <thead
+            class="border-b bg-blue-500 font-medium text-white dark:border-blue-500 dark:bg-blue-500">
+            <tr>
+              <th scope="col" class=" px-0 py-4"><%= Customer.human_attribute_name(:first_name) %></th>
+              <th scope="col" class=" px-0 py-4"><%= Customer.human_attribute_name(:cpf) %></th>
+              <th scope="col" class=" px-0 py-4"><%= Account.human_attribute_name(:amount) %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @accounts %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<% end %>

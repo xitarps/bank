@@ -1,1 +1,33 @@
-<h2>Olá</h2>
+<%= turbo_frame_tag :container do %>
+  <%= render 'shared/notice_alert' %>
+  
+  <div class='flex justify-between h-auto'>
+    <div class='flex flex-col w-full items-end justify-center'>
+
+      <div class='mx-8'>
+        <h2 class='flex items-end text-2xl font-semibold text-blue-700 mb-5'>
+          <%= image_tag 'coin_blue.svg', id: 'coin-title-index-svg', alt: 'coin title image', class: 'h-10 w-10 mr-2' %>
+          Raro Bank
+        </h2>
+        <p>
+          Quem nunca ficou até depois da hora em alguma aula do Paulo que atire a primeira pedra…
+        </p>
+        <p>
+          Já não é de hoje que nosso querido instrutor Paulo se empolga em suas aulas e acaba alongando a aula por (muito) mais do que 2 horas.
+        </p>
+        <p>
+          Depois de 4 turmas de muito conteúdo e empolgação, o volume de Pauloedas em circulação e na mão dos nossos alunos e ex-alunos vem crescendo cada vez mais.
+        <p>
+          Por conta disso, vimos a necessidade de ter um local não só para um armazenamento seguro das Pauloedas, mas também para que elas possam trazer ganhos em rendimentos ou serem transferidas mais facilmente entre vocês.
+        </p>
+        <p>
+          Afinal, Pauloeda$ is the new crypto.
+        </p>
+      </div>
+      <div class='flex mx-auto justify-between py-10'>
+        <%= link_to 'Crie sua conta', new_user_registration_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-8" %>
+      </div>
+    </div>
+    <%= image_tag 'coins.svg', id: 'coins-index-svg', alt: 'Coins image', class: 'h-[32rem] hidden sm:block' %>
+  </div>
+<% end %>

@@ -1,15 +1,27 @@
-<div class="bg-gray-200 p-6 rounded-lg shadow-lg">
-  <h2 class="text-2xl font-bold mb-4">Conta N°: <%= @account.id %></h2>
-  <div class="bg-white p-6 rounded-lg">
-    <h2 class="text-lg font-semibold mb-2"><%= Customer.model_name.human %>: <span class="text-gray-700"><%= @account.customer_id %></span></h2>
-    <h2 class="text-lg font-semibold mb-2"><%= Customer.human_attribute_name(:first_name) %>: <span class="text-gray-700"><%= @account.customer.first_name %></span></h2>
-    <h2 class="text-lg font-semibold mb-2"><%= Account.human_attribute_name(:amount) %>: <span class="text-gray-700"><%= number_to_currency @account.amount %></span></h2>
-    <% if user_signed_in? && ['Customer'].include?(current_user.userable_type) %>
-      <a href="<%= root_path %>" class="bg-teal-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-2 inline-block">Back</a>
-    <% end %>
-    <% if user_signed_in? && ['Root', 'Administrator'].include?(current_user.userable_type) %>
-      <%= link_to t('edit'), edit_account_path(@account), class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block mr-2" %>
-      <%= link_to t('back'), accounts_path, class: "bg-teal-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block"%> 
-    <% end %>
+<%= turbo_frame_tag :container do %>
+  <%= render 'shared/notice_alert' %>
+
+  <div class="container mx-auto text-center">
+    <h2 class="text-xl font-bold mt-8"><%= t('.account_detail') %></h2>
   </div>
-</div>
+
+  <div class="overflow-x-hidden w-full mb-10">
+    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full text-center text-sm font-light">
+          <thead
+            class="border-b bg-blue-500 font-medium text-white dark:border-blue-500 dark:bg-blue-500">
+            <tr>
+              <th scope="col" class=" px-0 py-4"><%= Customer.human_attribute_name(:first_name) %></th>
+              <th scope="col" class=" px-0 py-4"><%= Customer.human_attribute_name(:cpf) %></th>
+              <th scope="col" class=" px-0 py-4"><%= Account.human_attribute_name(:amount) %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @account %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<% end %>

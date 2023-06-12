@@ -1,27 +1,28 @@
-<div>
-  <%= form_with model: @product, data: { turbo: false } do |product| %>
-    <div><%= product.label :name, t('.product_name') %></div>
-    <div><%= product.text_field :name %></div>
-    <div><%= product.label :start_date, t('.product_start_date') %></div>
-    <div><%= product.date_field :start_date %></div>
-    <div><%= product.label :final_date, t('.product_final_date') %></div>
-    <div><%= product.date_field :final_date %></div>
-    <div><%= product.label :minimum_amount, t('.product_minimum_amount') %></div>
-    <div><%= product.text_field :minimum_amount %></div>
-    <div><%= product.label :premium, t('.premium')%>
-    <div><%= product.check_box :premium %></div>
-    <div><%= product.label :tax_id, t('.product_tax_id') %></div>
-    <div><%= product.select :tax_id, options_for_select(Tax.all.map { |tax| [tax.name, tax.id] } ) %></div>
+<div class="flex justify-center items-center">
+  <div class="bg-white p-6 rounded shadow-md mb-4">
+    <%= form_with model: product do |form| %>
+      <div><%= form.label :name, t('.product_name') %></div>
+      <div class="mb-4"><%= form.text_field :name %></div>
+      <div><%= form.label :start_date, t('.product_start_date') %></div>
+      <div class="mb-4"><%= form.date_field :start_date %></div>
+      <div><%= form.label :final_date, t('.product_final_date') %></div>
+      <div class="mb-4"><%= form.date_field :final_date %></div>
+      <div><%= form.label :minimum_amount, t('.product_minimum_amount') %></div>
+      <div class="mb-4"><%= form.text_field :minimum_amount %></div>
+      <div><%= form.label :premium, t('.premium') %></div>
+      <div class="mb-4"><%= form.check_box :premium %></div>
+      <div><%= form.label :tax_id, t('.product_tax_id') %></div>
+      <div class="mb-4"><%= form.select :tax_id, options_for_select(Tax.all.map { |tax| [tax.name, tax.id] } ) %></div>
+      <div class="mb-4">
+        <%= form.submit t('submit'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      </div>
+    <%end%>
     <div>
-      <%= link_to '#', class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" do %>
-        <%= product.submit t('submit') %>
-      <% end %>
-
       <% if action_name == 'new' %>
-        <%= link_to t('back'), products_path, class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+        <%= link_to t('back'), products_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
       <% elsif action_name == 'edit' %>
-        <%= link_to t('back'), product_path(@product), class: "text-sm bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" %>
+        <%= link_to t('back'), product_path(product), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
       <%end%>
     </div>
-  <%end%>
+  </div>
 </div>

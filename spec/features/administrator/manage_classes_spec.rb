@@ -52,6 +52,7 @@ RSpec.describe 'Administrator', type: :feature do
       FactoryBot.create(:classroom)
       visit '/classrooms'
 
+      click_on 'Detalhes'
       click_on 'Editar'
 
       name = Faker::Ancient.god
@@ -79,6 +80,7 @@ RSpec.describe 'Administrator', type: :feature do
       FactoryBot.create(:classroom)
 
       visit '/classrooms'
+      click_on 'Detalhes'
       click_on 'Editar'
 
       fill_in 'classroom_name', with: ''
@@ -92,6 +94,7 @@ RSpec.describe 'Administrator', type: :feature do
       classroom = create(:classroom)
 
       visit '/classrooms'
+      click_on 'Detalhes'
       click_on 'Apagar'
 
       expect(page).not_to have_content(classroom.name)

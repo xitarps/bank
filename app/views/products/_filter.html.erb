@@ -1,23 +1,22 @@
 <div class="">
-<h2>Filtros:</h2>
-  <%= form_with url: products_path, method: :get, data: { turbo: false } do |form| %>
-    <div class="mb-3 text-sm font-medium text-gray-900 dark:text-white">
-      <%= form.label :index_filter, t('.index'), class: 'block text-gray-700 text-sm font-bold mb-2' %>
-      <%= form.select :index_filter, Tax.all.pluck(:name, :id), {} ,{ multiple: true } %>
+  <%= form_with url: products_path, method: :get, class: 'flex justify-center flex-wrap' do |form| %>
+    <div class="mb-3 text-sm font-medium text-gray-900">
+      <%= form.label :index_filter, t('.index'), class: 'block text-gray-700 text-sm font-bold mb-2 mx-4' %>
+      <%= form.select :index_filter, Tax.all.pluck(:name, :id), {} ,{ multiple: true, class: 'h-14 mx-4' } %>
     </div>
-    <div class="mb-3 text-sm font-medium text-gray-900 dark:text-white">
-      <%= form.label :minimum_amount_filter, t('.minimum_amount'), class: 'block text-gray-700 text-sm font-bold mb-2' %>
-      <%= form.number_field :minimum_amount_filter %>
+    <div class="mb-3 text-sm font-medium text-gray-900">
+      <%= form.label :premium_filter, t('.premium'), class: 'block text-gray-700 text-sm font-bold mb-2 mx-4' %>
+      <%= form.select :premium_filter, [['Premium', true],['Standard', false]], {} ,{ multiple: true, class: 'h-14 mx-4' } %>
     </div>
-    <div class="mb-3 text-sm font-medium text-gray-900 dark:text-white">
-      <%= form.label :premium_filter, t('.premium'), class: 'block text-gray-700 text-sm font-bold mb-2' %>
-      <%= form.select :premium_filter, [['Premium', true],['Standard', false]], {} ,{ multiple: true } %>
+    <div class="mb-3 text-sm font-medium text-gray-900">
+      <%= form.label :minimum_amount_filter, t('.minimum_amount'), class: 'block text-gray-700 text-sm font-bold mb-2 mx-4' %>
+      <%= form.number_field :minimum_amount_filter, class: 'mx-4' %>
     </div>
-    <div class="mb-3 text-sm font-medium text-gray-900 dark:text-white">
-      <%= form.label :final_date_filter, t('.final_date'), class: 'block text-gray-700 text-sm font-bold mb-2' %>
-      <%= form.date_field :final_date_filter %>
+    <div class="mb-3 text-sm font-medium text-gray-900">
+      <%= form.label :final_date_filter, t('.final_date'), class: 'block text-gray-700 text-sm font-bold mb-2 mx-4' %>
+      <%= form.date_field :final_date_filter, class: 'mx-4' %>
     </div>
-    <div class="float-center bg-teal-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+    <div class="float-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded flex justify-center h-fit w-40 mx-4 my-auto">
       <%= form.submit t('.filter') %>
     </div>
   <% end %>

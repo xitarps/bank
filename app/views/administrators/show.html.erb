@@ -1,6 +1,26 @@
-<h1><%= t('.administrator_details') %></h1>
-  <p>
-    <%= @administrator.id %>
-    <%= @administrator.name %>
-  </p>
-</p>
+<%= turbo_frame_tag :container do %>
+  <%= render 'shared/notice_alert' %>
+  <div class="container mx-auto text-center mb-4">
+    <h2 class="text-xl font-bold mt-8"><%= t('.administrator_details') %></h2>
+  </div>
+
+  <div class="overflow-x-hidden w-full">
+    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full text-center text-sm font-light">
+          <thead
+            class="border-b bg-blue-500 font-medium text-white dark:border-blue-500 dark:bg-blue-500">
+            <tr>
+              <th scope="col" class=" px-0 py-4"><%= Administrator.human_attribute_name(:name) %></th>
+              <th scope="col" class=" px-0 py-4"><%= Administrator.human_attribute_name(:email) %></th>
+              <th scope="col" class=" px-0 py-4"><%= t('actions') %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @administrator %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<% end %>
