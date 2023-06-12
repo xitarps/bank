@@ -4,7 +4,7 @@ class Account < ApplicationRecord
   has_many :products, through: :investments
 
   validates :amount, presence: true
-  validates :amount, numericality: { greater_than_or_equal_to: 0 }
+  validates :amount, numericality: { greater_than_or_equal_to: 0, less_than: 1000 }
 
   has_many :transfers_as_sender, foreign_key: :sender_id, class_name: 'Transfer',
                                  dependent: :destroy, inverse_of: :sender
@@ -25,9 +25,7 @@ class Account < ApplicationRecord
   def self.deposit(accounts, value)
     accounts.reload
     ActiveRecord::Base.transaction do
-      accounts.each { |account| account.update!(amount: account.amount + value) }
+      accounts.each { |account| account.update(amount: account.amount + value.abs) }
     end
-  rescue StandardError
-    accounts
   end
 end

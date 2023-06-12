@@ -4,8 +4,11 @@ pt-BR:
       news_deposits: Novos Depositos
       amount: Valor
       name: Nome
+      name_customer: Cliente
       name_classroom: Turma
       deposit: Depositar
+      select_customer: Selecione um cliente
+      select_classroom: Selecione uma turma
   notices:
     deposit_created: Depósito criado com sucesso
     blank_customer: Cliente(s) não pode ficar em branco

@@ -1,59 +1,74 @@
-
+<%= turbo_frame_tag :container do %>
   <h2 class="text-center font-bold">
-    <%= t('.news_deposits') %>
+    <%= t('.deposit') %>
   </h2>
- 
-<div id="notice_alert" class="mx-auto" >
-  <% @accounts&.map { |acc| acc.errors.full_messages }&.flatten&.each do |message| %>
-      <%= render 'shared/toast', title: 'Error', message: message, primary: 'red', complement: 'white', hover: 'black' %>
-  <% end %>
-  <% if alert %>
-    <% alert.each do |message| %>
-      <%= render 'shared/toast', title: 'Error', message: message, primary: 'red', complement: 'white', hover: 'black' %>
+  
+  <div id="notice_alert" class="mx-auto" >
+    <% @accounts&.map { |acc| acc.errors.full_messages }&.flatten&.each do |message| %>
+        <%= render 'shared/toast', title: 'Error', message: message, primary: 'red', complement: 'white', hover: 'black' %>
     <% end %>
-    
-  <% end %>
-</div>
 
-<div class="flex justify-center items-center h-screen flex-wrap">
-  <div class="bg-white p-6 rounded shadow-md w-1/2 md:w-auto mb-8 mr-4">
-    <%= form_with url: deposits_path, data: { turbo: false }, id: 'customer_form' do |form| %>    
-      <div class="mb-4">
-        <%= form.label :customer_id, t('.name'), class: 'block text-gray-700 text-sm font-bold mb-2' %>
-        <%= form.select :customer_id, Customer.all.pluck(:first_name, :id), include_blank: 'Selecione um cliente' %>
-      </div>
-      
-      <div class="mb-4">
-        <%= form.label :amount, t('.amount'), class: "block text-gray-700 text-sm font-bold mb-2" %>
-        <%= form.text_field :amount, class: "w-full border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-      </div>
+    <% if alert %>
+      <% alert.each do |message| %>
+        <%= render 'shared/toast', title: 'Error', message: message, primary: 'red', complement: 'white', hover: 'black' %>
+      <% end %>
+    <% end %>
 
-      <div class="flex justify-between">
-        <%= link_to '#', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" do %>
-          <%= form.submit t('.deposit') %>
-        <% end %>
-      </div>
+    <% if notice %>
+      <%= render 'shared/toast', title: 'Error', message: notice, primary: 'blue', complement: 'white', hover: 'black' %>
     <% end %>
   </div>
 
-  <div class="bg-white p-6 rounded shadow-md w-1/2 md:w-auto mb-8 ml-4">
-  <%= form_with url: deposits_path, data: { turbo: false }, id: 'classroom_form' do |form| %>    
-    <div class="mb-4">
-      <%= form.label :classroom_id, t('.name_classroom'), class: 'block text-gray-700 text-sm font-bold mb-2' %>
-      <%= form.collection_select :classroom_id, Classroom.all, :id, :name, include_blank: 'Selecione uma sala de aula' %>
-    </div>
-    
-    <div class="mb-4">
-      <%= form.label :amount, t('.amount'), class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= form.text_field :amount, class: "w-full border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
 
-    <div class="flex justify-between">
-      <%= link_to '#', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" do %>
-        <%= form.submit t('.deposit') %>
-      <% end %>
+  <div class="flex justify-center items-center">
+    <div class="bg-white p-6 rounded shadow-md mb-4">
+    <div class='flex justify-center w-200 mb-4'>
+      <%= link_to t('back'), accounts_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
     </div>
-  <% end %>
-</div>
+      <%= form_with url: deposits_path, id: 'customer_form' do |form| %>
+        <div>
+          <%= form.label :customer_id, t('.name_customer') %>
+        </div>
+        <div class="mb-4">
+          <%= form.select :customer_id, Customer.all.select(:first_name, :last_name, :cpf, :id).collect { |customer| [human_presentation(customer), customer.id] }, include_blank: t('.select_customer') %>
+        </div>
 
-</div>
+        <div>
+          <%= form.label :amount, t('.amount') %>
+        </div>
+        <div class="mb-4">
+          <%= form.text_field :amount %>
+        </div>
+
+
+        <div class="mb-4">
+          <%= form.submit t('.deposit'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        </div>
+      <%end%>
+
+      <div class="flex-grow border-t border-gray-400 my-6"></div>
+
+      <%= form_with url: deposits_path, id: 'classroom_form' do |form| %>
+        <div>
+          <%= form.label :classroom_id, t('.name_classroom') %>
+        </div>
+        <div class="mb-4">
+          <%= form.collection_select :classroom_id, Classroom.all, :id, :name, include_blank: t('.select_classroom') %>
+        </div>
+
+        <div>
+          <%= form.label :amount, t('.amount') %>
+        </div>
+        <div class="mb-4">
+          <%= form.text_field :amount %>
+        </div>
+
+
+        <div class="mb-4">
+          <%= form.submit t('.deposit'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        </div>
+      <%end%>
+    </div>
+  </div>  
+<% end %>
+  
